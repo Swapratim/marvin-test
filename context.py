@@ -18,7 +18,7 @@ from flask import make_response
 # Flask should start in global layout
 context = Flask(__name__)
 # Facbook Access Token
-ACCESS_TOKEN = "EAAXRzkKCxVQBAImZBQo8kEpHVn0YDSVxRcadEHiMlZAcqSpu5pV7wAkZBKUs0eIZBcX1RmZCEV6cxJzuZAp5NO5ZCcJgZBJu4OPrFpKiAPJ5Hxlve2vrSthfMSZC3GqLnzwwRENQSzZAMyBXFCi1LtLWm9PhYucY88zPT4KEwcZCmhLYAZDZD"
+ACCESS_TOKEN = "EAADCpnCTbUoBAOzpiiv26E76NBZCnLuDP0zs7KwDtxqBQbZApvC4MANs91yC4Akj7ybAnjV3ywvbr1z81xhEbSheFhfd1voIARnn0YfUZCM3Ttt2mlqhazeJrt42CbZBA9Yn6nkRZCiqwFZBkVGnueW39dOvySFZAv5NOAMaWmwTQZDZD"
 # Google Access Token
 Google_Acces_Toekn = "key=AIzaSyDNYsLn4JGIR4UaZMFTAgDB9gKN3rty2aM&cx=003066316917117435589%3Avcms6hy5lxs&q="
 # NewsAPI Access Token
