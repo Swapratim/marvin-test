@@ -100,10 +100,10 @@ def reply(user_id, msg):
         "recipient": {"id": user_id},
         "message": {"text": msg}
     }
-    print ("Data.........")
-    print (data)
+    #print ("Data.........")
+    #print (data)
     resp = requests.post("https://graph.facebook.com/v2.6/me/messages?access_token=" + ACCESS_TOKEN, json=data)
-    print(resp.content)
+    #print(resp.content)
  
 
  
@@ -391,30 +391,27 @@ def searchhook():
     for data_item in data['items']:
         pagemap = data_item['pagemap'],
 
-    key='cse_thumbnail'
-    if pagemap['cse_thumbnail']:
-        print(pagemap['cse_thumbnail'])
-    else:
-        print('+++++++++++++++++++++++++++++++++++No cse_thumbnail for %pagemap' % key)    
-
     for key in pagemap:
-        if not key['cse_thumbnail']:
-            raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",
-        else:
-            cse_thumbnail = key['cse_thumbnail'],
-            for image_data in cse_thumbnail:
+        if key['cse_thumbnail']:
+            cse_thumbnail = key['cse_thumbnail']
+               for image_data in cse_thumbnail:
                    raw_str = image_data['src'],
+        else:
+            raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",
         
-    #if cse_thumbnail is None:
-    #    return {}
+    if cse_thumbnail is None:
+        return {}
     
-    
+    #for image_data in cse_thumbnail:
+    #    raw_str = image_data['src'],
 
-    #if raw_str is None:
-    #    return {}
+    if raw_str is None:
+        return {}
 
     #if not cse_thumbnail:
     #    raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",
+    #       if raw_str is None:
+    #          return {}
 
     src_u_string_removed = [str(i) for i in raw_str]
     src_u_removed = str(src_u_string_removed)
