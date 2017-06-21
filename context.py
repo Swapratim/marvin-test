@@ -392,7 +392,7 @@ def searchhook():
         pagemap = data_item['pagemap'],
 
     key='cse_thumbnail'
-    if if 'cse_thumbnail' in pagemap::
+    if 'cse_thumbnail' in pagemap::
         print(pagemap['cse_thumbnail'])
     else:
         print('+++++++++++++++++++++++++++++++++++No cse_thumbnail for %pagemap' % key)    
