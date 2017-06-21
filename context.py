@@ -392,19 +392,23 @@ def searchhook():
         pagemap = data_item['pagemap'],
 
     for key in pagemap:
-        cse_thumbnail = key['cse_thumbnail']
+        if not key['cse_thumbnail']:
+            raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",
+        else:
+            cse_thumbnail = key['cse_thumbnail']
+                for image_data in cse_thumbnail:
+                   raw_str = image_data['src'],
         
-    if cse_thumbnail is None:
-        return {}
+    #if cse_thumbnail is None:
+    #    return {}
     
-    for image_data in cse_thumbnail:
-        raw_str = image_data['src'],
+    
 
-    if raw_str is None:
-        return {}
+    #if raw_str is None:
+    #    return {}
 
-    if not cse_thumbnail:
-        raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",
+    #if not cse_thumbnail:
+    #    raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",
 
     src_u_string_removed = [str(i) for i in raw_str]
     src_u_removed = str(src_u_string_removed)
