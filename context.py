@@ -393,7 +393,7 @@ def searchhook():
 
     for key in pagemap:
         if key['cse_thumbnail']:
-            cse_thumbnail = key['cse_thumbnail']
+            cse_thumbnail = key['cse_thumbnail'],
                for image_data in cse_thumbnail:
                    raw_str = image_data['src'],
         else:
