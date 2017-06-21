@@ -18,7 +18,7 @@ from flask import make_response
 # Flask should start in global layout
 context = Flask(__name__)
 # Facbook Access Token
-ACCESS_TOKEN = "EAADCpnCTbUoBAOzpiiv26E76NBZCnLuDP0zs7KwDtxqBQbZApvC4MANs91yC4Akj7ybAnjV3ywvbr1z81xhEbSheFhfd1voIARnn0YfUZCM3Ttt2mlqhazeJrt42CbZBA9Yn6nkRZCiqwFZBkVGnueW39dOvySFZAv5NOAMaWmwTQZDZD"
+ACCESS_TOKEN = "EAAXRzkKCxVQBAImZBQo8kEpHVn0YDSVxRcadEHiMlZAcqSpu5pV7wAkZBKUs0eIZBcX1RmZCEV6cxJzuZAp5NO5ZCcJgZBJu4OPrFpKiAPJ5Hxlve2vrSthfMSZC3GqLnzwwRENQSzZAMyBXFCi1LtLWm9PhYucY88zPT4KEwcZCmhLYAZDZD"
 # Google Access Token
 Google_Acces_Toekn = "key=AIzaSyDNYsLn4JGIR4UaZMFTAgDB9gKN3rty2aM&cx=003066316917117435589%3Avcms6hy5lxs&q="
 # NewsAPI Access Token
@@ -30,7 +30,7 @@ weather_update_key = "747d84ccfe063ba9"
 @context.route('/webhook', methods=['POST'])
 def webhook():
     reqContext = request.get_json(silent=True, force=True)
-    print(json.dumps(reqContext, indent=4))
+    #print(json.dumps(reqContext, indent=4))
     print(reqContext.get("result").get("action"))
     print ("webhook is been hit ONCE ONLY")
     if reqContext.get("result").get("action") == "input.welcome":
@@ -396,12 +396,16 @@ def searchhook():
         
     if cse_thumbnail is None:
         return {}
-
+    
     for image_data in cse_thumbnail:
         raw_str = image_data['src'],
 
     if raw_str is None:
         return {}
+
+    if not cse_thumbnail:
+        raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",
+
     src_u_string_removed = [str(i) for i in raw_str]
     src_u_removed = str(src_u_string_removed)
     src_brace_removed_1 = src_u_removed.strip('[')
