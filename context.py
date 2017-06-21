@@ -390,8 +390,13 @@ def searchhook():
 
     for data_item in data['items']:
         pagemap = data_item['pagemap'],
-    print ("+++++++++++++++++++++++++++++++++++++++++++++")
-    print (pagemap.get('cse_thumbnail', 'No Key, No Value'))
+
+    key='cse_thumbnail'
+    if hasattr(pagemap, key):
+        print(e[key])
+    else:
+        print('+++++++++++++++++++++++++++++++++++No key for %s' % key)    
+
     for key in pagemap:
         if not key['cse_thumbnail']:
             raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",
