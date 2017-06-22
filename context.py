@@ -400,12 +400,14 @@ def searchhook():
     #if 'cse_thumbnail' in pagemap:
     if hasattr(pagemap, 'cse_thumbnail'):
         cse_thumbnail = key['cse_thumbnail']
-        for image_data in cse_thumbnail:
-            raw_str = image_data['src']
+        #for image_data in cse_thumbnail:
+        #    raw_str = image_data['src']
         print ('***TRUE***')
+        break
     else:
-        raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",
-        print ('***FALSE***')        
+        raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA"
+        print ('***FALSE***')
+        break
 
 
     if 'cse_thumbnail' not in pagemap:
