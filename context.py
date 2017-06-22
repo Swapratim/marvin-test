@@ -393,11 +393,9 @@ def searchhook():
 
     #for key in pagemap:
     print (pagemap)
-    for key in pagemap.keys():
-          print key
-
-
+    
     if 'cse_thumbnail' not in pagemap:
+        raise ValueError("No cse_thumbnail in Pagemap...")
         raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",         
     else:
         for key in pagemap:
