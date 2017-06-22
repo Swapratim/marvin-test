@@ -396,7 +396,8 @@ def searchhook():
     true_false = True
     for key in pagemap:
         true_false = 'cse_thumbnail' in pagemap
-        print ('true_false----' + true_false)
+        print ('true_false----')
+        print (true_false)
         # cse_thumbnail = key['cse_thumbnail']
 
 
