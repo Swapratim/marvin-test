@@ -344,6 +344,7 @@ def weather_code(condition_get_code):
 def searchhook():
     req = request.get_json(silent=True, force=True)
     print("Within Search function......!!")
+    true_false = True
     baseurl = "https://www.googleapis.com/customsearch/v1?"
 ###########################################################
     result = req.get("result")
@@ -393,7 +394,7 @@ def searchhook():
 
     #for key in pagemap:
     print (pagemap)
-    true_false = True
+    print ('True False value beforehand')
     for key in pagemap:
         true_false = 'cse_thumbnail' in pagemap
         print ('true_false----')
