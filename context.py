@@ -396,11 +396,11 @@ def searchhook():
     print (pagemap)
     print ('True False value beforehand')
     print (true_false)
-    for key in pagemap:
-        if 'metatags' in pagemap:
-            print ('***TRUE***')
-        else:
-            print ('***FALSE***')
+    #for key in pagemap:
+    if 'metatags' in pagemap:
+        print ('***TRUE***')
+    else:
+        print ('***FALSE***')
         # cse_thumbnail = key['cse_thumbnail']
 
 
