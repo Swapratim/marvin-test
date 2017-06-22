@@ -396,13 +396,13 @@ def searchhook():
     # if 'cse_thumbnail' not in pagemap:
         # print ('cse_thumbnail not in pagemap')
         # return None
-        if 'cse_thumbnail' not in pagemap:
-            raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",         
-        else:
-            for key in pagemap:
-                cse_thumbnail = key['cse_thumbnail'],
-                for image_data in cse_thumbnail:
-                    raw_str = image_data['src'],
+    if 'cse_thumbnail' not in pagemap:
+        raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",         
+    else:
+        for key in pagemap:
+            cse_thumbnail = key['cse_thumbnail'],
+            for image_data in cse_thumbnail:
+                raw_str = image_data['src'],
         
     if cse_thumbnail is None:
         return {}
