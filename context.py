@@ -344,7 +344,7 @@ def weather_code(condition_get_code):
 def searchhook():
     req = request.get_json(silent=True, force=True)
     print("Within Search function......!!")
-    true_false = True
+    # true_false = True
     baseurl = "https://www.googleapis.com/customsearch/v1?"
 ###########################################################
     result = req.get("result")
@@ -394,18 +394,20 @@ def searchhook():
 
     #for key in pagemap:
     print (pagemap)
-    print ('True False value beforehand')
-    print (true_false)
+    # print ('True False value beforehand')
+    # print (true_false)
     #for key in pagemap:
-    if 'metatags' in pagemap:
+    if 'cse_thumbnail' in pagemap:
+        cse_thumbnail = key['cse_thumbnail']
+        for image_data in cse_thumbnail:
+            raw_str = image_data['src']
         print ('***TRUE***')
     else:
-        print ('***FALSE***')
-        # cse_thumbnail = key['cse_thumbnail']
+        raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",
+        print ('***FALSE***')        
 
 
     if 'cse_thumbnail' not in pagemap:
-        # raise ValueError("No cse_thumbnail in Pagemap...")
         raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",         
     else:
         for key in pagemap:
