@@ -394,8 +394,11 @@ def searchhook():
     #for key in pagemap:
     print (pagemap)
     
-    for x, y in pagemap.iteritems():
-        print x, y
+    for key in pagemap:
+        true_false = 'cse_thumbnail' in pagemap
+        print ('true_false----' + true_false)
+        # cse_thumbnail = key['cse_thumbnail']
+
 
     if 'cse_thumbnail' not in pagemap:
         # raise ValueError("No cse_thumbnail in Pagemap...")
