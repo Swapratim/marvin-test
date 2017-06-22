@@ -393,7 +393,9 @@ def searchhook():
 
     #for key in pagemap:
     print (pagemap)
-    print ('pagemap contains cse_thumbnail? ' + pagemap.has_key('cse_thumbnail'))
+    if 'cse_thumbnail' not in pagemap:
+        print ('cse_thumbnail not in pagemap')
+        return None
         #if key['cse_thumbnail'] in pagemap:
             # cse_thumbnail = key['cse_thumbnail'],
             # for image_data in cse_thumbnail:
