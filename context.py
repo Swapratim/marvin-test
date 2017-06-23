@@ -394,18 +394,7 @@ def searchhook():
 
     #for key in pagemap:
     print (pagemap)
-    print ('True False value beforehand...')
-    print (true_false)
-    pagemap = json.load(pagemap)
-
-    # keys = ('cse_thumbnail', 'metatags', 'cse_image')
-    # for key in keys:
-        # print(key in json_obj)
-    print ('True False value afterwards')
-    print (true_false)
-    # print pagemap.keys()
-    #for key in pagemap:
-    #if 'cse_thumbnail' in pagemap:
+    
     if 'cse_thumbnail' in pagemap:
         cse_thumbnail = key['cse_thumbnail']
         for image_data in cse_thumbnail:
