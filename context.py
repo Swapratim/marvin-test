@@ -123,7 +123,6 @@ def weatherhook(reqContext):
    city = parameters.get("geo-city")
    if not parameters.get("geo-city"):
       city = parameters.get("geo-city-dk")
-      break
       #return 
 
    #if not parameters.get("geo-city-dk"):
@@ -241,151 +240,102 @@ def weather_code(condition_get_code):
 
     if condition_get_code == "0":
        condition_code = "EmPG"
-       break
     elif condition_get_code == "1":
        condition_code = "mh7N"
-       break
     elif condition_get_code == "2":
        condition_code = "jENO"
-       break
     elif condition_get_code == "3":
        condition_code = "BTT7"
-       break
     elif condition_get_code == "4":
        condition_code = "kTWn"
-       break
     elif condition_get_code == "5":
        condition_code = "vBIX"
-       break
     elif condition_get_code == "6":
        condition_code = "zuxw"
-       break
     elif condition_get_code == "7":
        condition_code = "Vy9A"
-       break
     elif condition_get_code == "8":
        condition_code = "cT-0"
-       break
     elif condition_get_code == "9":
        condition_code = "M4nr"
-       break
     elif condition_get_code == "10":
        condition_code = "8-OZ"
-       break
     elif condition_get_code == "11":
        condition_code = "4sN0"
-       break
     elif condition_get_code == "12":
        condition_code = "SrHt"
-       break
     elif condition_get_code == "13":
        condition_code = "i925"
-       break
     elif condition_get_code == "14":
        condition_code = "9WKu"
-       break
     elif condition_get_code == "15":
        condition_code = "YjI9B"
-       break
     elif condition_get_code == "16":
        condition_code = "Lqmw"
-       break
     elif condition_get_code == "17":
        condition_code = "8wXj"
-       break
     elif condition_get_code == "18":
        condition_code = "AHL1"
-       break
     elif condition_get_code == "19":
        condition_code = "pSfX"
-       break
     elif condition_get_code == "20":
        condition_code = "ugKj"
-       break
     elif condition_get_code == "21":
        condition_code = "eFL0"
-       break
     elif condition_get_code == "22":
-       condition_code = "Co_g"
-       break 
+       condition_code = "Co_g" 
     elif condition_get_code == "23":
        condition_code = "h8uM"
-       break
     elif condition_get_code == "24":
        condition_code = "HBlw"
-       break
     elif condition_get_code == "25":
        condition_code = "QHzi"
-       break
     elif condition_get_code == "26":
        condition_code = "3IaA"
-       break
     elif condition_get_code == "27":
        condition_code = "i-dK"
-       break
     elif condition_get_code == "28":
        condition_code = "aIAw"
-       break
     elif condition_get_code == "29":
        condition_code = "6z8CS"
-       break
     elif condition_get_code == "30":
        condition_code = "xt2C"
-       break
     elif condition_get_code == "31":
        condition_code = "3Utr"
-       break
     elif condition_get_code == "32":
        condition_code = "YHpS"
-       break
     elif condition_get_code == "33":
        condition_code = "Hr4W"
-       break
     elif condition_get_code == "34":
        condition_code = "84WQ"
-       break
     elif condition_get_code == "35":
        condition_code = "3BH6"
-       break
     elif condition_get_code == "36":
        condition_code = "vjLN"
-       break
     elif condition_get_code == "37":
        condition_code = "41rl"
-       break
     elif condition_get_code == "38":
        condition_code = "8Ibx" 
-       break
     elif condition_get_code == "39":
        condition_code = "lIee"
-       break
     elif condition_get_code == "40":
        condition_code = "9GNz"
-       break
     elif condition_get_code == "41":
        condition_code = "uy77"
-       break
     elif condition_get_code == "42":
        condition_code = "15Ou"
-       break
     elif condition_get_code == "43":
        condition_code = "P_Jg"
-       break
     elif condition_get_code == "45":
        condition_code = "wF0D"
-       break
     elif condition_get_code == "46":
        condition_code = "1huQ"
-       break
     elif condition_get_code == "47":
        condition_code = "MlO5"
-       break
     elif condition_get_code == "3200":
        condition_code = "mgzs"
-       break
     else: 
        print ("Condition code did not match the sequence")
-       break
 
     return condition_code
 
