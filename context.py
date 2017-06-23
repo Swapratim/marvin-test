@@ -405,7 +405,7 @@ def searchhook():
     for key in keys:
         print(key in cse_thumbnail_brace_removed_final)
         print ('cse_thumbnail' in cse_thumbnail_brace_removed_final)
-        if 'cse_thumbnail' in pagemap == True:
+        if 'cse_thumbnail' in cse_thumbnail_brace_removed_final == True:
             print ('Condition matched -- Within IF block')
             for key in pagemap:
                 cse_thumbnail = key['cse_thumbnail']
