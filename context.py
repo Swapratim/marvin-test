@@ -393,7 +393,7 @@ def searchhook():
         pagemap = data_item['pagemap'],
 
     #for key in pagemap:
-    print (pagemap)
+    # print (pagemap)
     
     cse_thumbnail_u_string_removed = [str(i) for i in pagemap]
     cse_thumbnail_u_removed = str(cse_thumbnail_u_string_removed)
@@ -404,6 +404,7 @@ def searchhook():
     keys = ('cse_thumbnail', 'metatags', 'cse_image')
     for key in keys:
         print(key in cse_thumbnail_brace_removed_final)
+        print ('cse_thumbnail' in pagemap)
         if 'cse_thumbnail' in pagemap == True:
             print ('Condition matched -- Within IF block')
             for key in pagemap:
