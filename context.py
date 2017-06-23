@@ -442,11 +442,12 @@ def searchhook():
     #       if raw_str is None:
     #          return {}
 
-    src_u_string_removed = [str(i) for i in raw_str]
-    src_u_removed = str(src_u_string_removed)
-    src_brace_removed_1 = src_u_removed.strip('[')
-    src_brace_removed_2 = src_brace_removed_1.strip(']')
-    src_brace_removed_final =  src_brace_removed_2.strip("'")
+    # src_u_string_removed = [str(i) for i in raw_str]
+    # src_u_removed = str(src_u_string_removed)
+    # src_brace_removed_1 = src_u_removed.strip('[')
+    # src_brace_removed_2 = src_brace_removed_1.strip(']')
+    # src_brace_removed_final =  src_brace_removed_2.strip("'")
+    src_brace_removed_final = raw_str
     # Remove junk charaters from URL
     link_u_removal =  [str(i) for i in link]
     link_u_removed = str(link_u_removal)
