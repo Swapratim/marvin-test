@@ -404,17 +404,16 @@ def searchhook():
     keys = ('cse_thumbnail', 'metatags', 'cse_image')
     for key in keys:
         print(key in cse_thumbnail_brace_removed_final)
+        if key in cse_thumbnail_brace_removed_final:
+            cse_thumbnail = key['cse_thumbnail']
+            for image_data in cse_thumbnail:
+                raw_str = image_data['src']
+            print ('***TRUE***')
+        else:
+            raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA"
+            print ('***FALSE***') 
 
-    if 'cse_thumbnail' in pagemap:
-        cse_thumbnail = key['cse_thumbnail']
-        for image_data in cse_thumbnail:
-            raw_str = image_data['src']
-        print ('***TRUE***')
-    else:
-        raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA"
-        print ('***FALSE***')        
-
-
+    
     if 'cse_thumbnail' not in pagemap:
         raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",         
     else:
