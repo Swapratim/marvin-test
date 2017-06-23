@@ -403,9 +403,10 @@ def searchhook():
     print (cse_thumbnail_brace_removed_final)
     keys = ('cse_thumbnail', 'metatags', 'cse_image')
     for key in keys:
-        print(key in cse_thumbnail_brace_removed_final)
+        # print(key in cse_thumbnail_brace_removed_final)
         print ('cse_thumbnail' in cse_thumbnail_brace_removed_final)
-        if 'cse_thumbnail' in cse_thumbnail_brace_removed_final == True:
+        true_false = 'cse_thumbnail' in cse_thumbnail_brace_removed_final
+        if true_false == True:
             print ('Condition matched -- Within IF block')
             for key in pagemap:
                 cse_thumbnail = key['cse_thumbnail']
