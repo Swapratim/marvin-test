@@ -396,7 +396,11 @@ def searchhook():
     print (pagemap)
     print ('True False value beforehand...')
     print (true_false)
-    true_false = isinstance('cse_thumbnail'[0], pagemap)
+    json_obj = json.load(pagemap)
+
+    if isinstance(json_obj, dict) and 'cse_thumbnail' in json_obj:
+    json_obj = json_obj['cse_thumbnail']
+    print (json_obj)
     print ('True False value afterwards')
     print (true_false)
     # print pagemap.keys()
