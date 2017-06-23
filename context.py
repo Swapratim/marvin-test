@@ -398,7 +398,6 @@ def searchhook():
     # print (true_false)
     #for key in pagemap:
     #if 'cse_thumbnail' in pagemap:
-    print hasattr(pagemap, 'cse_thumbnail')
     if hasattr(pagemap, 'cse_thumbnail'):
         cse_thumbnail = key['cse_thumbnail']
         for image_data in cse_thumbnail:
