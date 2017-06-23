@@ -405,24 +405,26 @@ def searchhook():
     for key in keys:
         print(key in cse_thumbnail_brace_removed_final)
         if key in cse_thumbnail_brace_removed_final == 'cse_thumbnail':
+            print ('Condition matched -- Within IF block')
             for key in pagemap:
                 cse_thumbnail = key['cse_thumbnail']
+                print ('Within the For loop -- cse_thumbnail is been assigned')
                 for image_data in cse_thumbnail:
                     raw_str = image_data['src']
                     print ('raw_str::: ' + raw_str)
-            print ('***TRUE***')
+                    print ('***TRUE***')
+                    break
         else:
             raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA"
             print ('***FALSE***') 
-
     
-    if 'cse_thumbnail' not in pagemap:
-        raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",         
-    else:
-        for key in pagemap:
-            cse_thumbnail = key['cse_thumbnail'],
-            for image_data in cse_thumbnail:
-                raw_str = image_data['src'],
+    # if 'cse_thumbnail' not in pagemap:
+        # raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",         
+    # else:
+        # for key in pagemap:
+            # cse_thumbnail = key['cse_thumbnail'],
+            # for image_data in cse_thumbnail:
+                # raw_str = image_data['src'],
         
     # if cse_thumbnail is None:
         # return {}
