@@ -395,6 +395,10 @@ def searchhook():
     #for key in pagemap:
     print (pagemap)
     
+    keys = ('cse_thumbnail', 'metatags', 'cse_image')
+    for key in keys:
+        print(key in pagemap)
+
     if 'cse_thumbnail' in pagemap:
         cse_thumbnail = key['cse_thumbnail']
         for image_data in cse_thumbnail:
