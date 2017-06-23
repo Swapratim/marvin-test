@@ -400,7 +400,7 @@ def searchhook():
     cse_thumbnail_brace_removed_1 = cse_thumbnail_u_removed.strip('[')
     cse_thumbnail_brace_removed_2 = cse_thumbnail_brace_removed_1.strip(']')
     cse_thumbnail_brace_removed_final =  cse_thumbnail_brace_removed_2.strip("'")
-
+    print (cse_thumbnail_brace_removed_final)
     keys = ('cse_thumbnail', 'metatags', 'cse_image')
     for key in keys:
         print(key in cse_thumbnail_brace_removed_final)
