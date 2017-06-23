@@ -396,9 +396,10 @@ def searchhook():
     print (pagemap)
     print ('True False value beforehand...')
     print (true_false)
-    true_false = 'cse_thumbnail' in pagemap
+    true_false = isinstance('cse_thumbnail'[0], pagemap)
     print ('True False value afterwards')
     print (true_false)
+    # print pagemap.keys()
     #for key in pagemap:
     #if 'cse_thumbnail' in pagemap:
     if hasattr(pagemap, 'cse_thumbnail'):
