@@ -6,7 +6,6 @@ standard_library.install_aliases()
 import urllib.request, urllib.parse, urllib.error
 import json
 import os
-#import pgdb
 import psycopg2
 import urlparse
 
@@ -222,6 +221,7 @@ def weatherhook(reqContext):
               ]
             } 
         };
+   print (res)
    res = json.dumps(res, indent=4)
    r = make_response(res)
    r.headers['Content-Type'] = 'application/json'
