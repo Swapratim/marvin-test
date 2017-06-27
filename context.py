@@ -106,7 +106,7 @@ def welcome():
                    },
                   {
                   "content_type": "text",
-                  "title": "Information",
+                  "title": "Wikipedia",
                   "payload": "wikipedia",
                   "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
                    }
