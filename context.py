@@ -636,7 +636,7 @@ def news(reqContext):
 #   Below method is to get the provide News Category Quick Replies - Top News        #
 #                                                                                    #
 #************************************************************************************#
- def news_category_topnews():
+def news_category_topnews():
     res = {
             "speech": "Please select the Newspaper",
             "displayText": "Please select the Newspaper",
