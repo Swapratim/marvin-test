@@ -47,8 +47,8 @@ def webhook():
        return searchhook()
     elif reqContext.get("result").get("action") == "weather":
        return weather(reqContext)
-    elif reqContext.get("result").get("action") == "news":
-       return news(reqContext)
+    elif reqContext.get("result").get("action") == "news.category":
+       return newsCategory(reqContext)
     elif reqContext.get("result").get("action") == "news.category.topnews":
        return news_category_topnews()
     else:
@@ -580,7 +580,7 @@ def searchhook():
 #   Below method is to get the Facebook Quick Reply Webhook Handling - NEWS          #
 #                                                                                    #
 #************************************************************************************#
-def news(reqContext):
+def newsCategory(reqContext):
     print (reqContext.get("result").get("action"))
     #option = reqContext.get("result").get("action")
     res = {
