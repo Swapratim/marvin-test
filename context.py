@@ -26,6 +26,11 @@ newspai_access_token = "505c1506aeb94ba69b72a4dbdce31996"
 # Weather Update API KeyError
 weather_update_key = "747d84ccfe063ba9"
 
+#************************************************************************************#
+#                                                                                    #
+#    All Webhook requests lands within the method --webhook                          #
+#                                                                                    #
+#************************************************************************************#
 # Webhook requests are coming to this method
 @context.route('/webhook', methods=['POST'])
 def webhook():
@@ -47,7 +52,12 @@ def webhook():
     else:
        print("Good Bye")
 
-# This method is to get the username when the user says Hi
+ 
+#************************************************************************************#
+#                                                                                    #
+#   This method is to get the Facebook User Deatails via graph.facebook.com/v2.6     #
+#                                                                                    #
+#************************************************************************************#
 def welcome():
     print ("within welcome method")
     data = request.json
@@ -136,32 +146,34 @@ def reply(user_id, msg):
     resp = requests.post("https://graph.facebook.com/v2.6/me/messages?access_token=" + ACCESS_TOKEN, json=data)
     print(resp.content)
  
-# This method will check what option user has chosen:
+#************************************************************************************#
+#                                                                                    #
+#   Below 3 methods are to get the Facebook Quick Reply Webhook Handling             #
+#                                                                                    #
+#************************************************************************************#
 def weather(reqContext):
     print (reqContext.get("result").get("action"))
     option = reqContext.get("result").get("action")
-    if option == "Weather":
-        res = {
-            "speech": "Please provide the city name",
-            "displayText": "Please provide the city name",
-            "data" : {
-            "facebook" : [
-                 {
+    res = {
+        "speech": "Please provide the city name",
+        "displayText": "Please provide the city name",
+        "data" : {
+        "facebook" : [
+               {
                 "text": "Please provide the city name"
-                 }
-              ]
-            } 
+               }
+             ]
+           } 
          };
-        res = json.dumps(res, indent=4)
-        r = make_response(res)
-        r.headers['Content-Type'] = 'application/json'
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
     return r
 
 def news(reqContext):
     print (reqContext.get("result").get("action"))
     option = reqContext.get("result").get("action")
-    if option == "News":
-        res = {
+    res = {
             "speech": "Please select the category",
             "displayText": "Please select the category",
             "data" : {
@@ -204,13 +216,17 @@ def news(reqContext):
               ]
             } 
          };
-        res = json.dumps(res, indent=4)
-        r = make_response(res)
-        r.headers['Content-Type'] = 'application/json'
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
     return r
  
-# This method is to invoke Yahoo API and process the GET response
-#@run_once
+
+#************************************************************************************#
+#                                                                                    #
+#   Below 3 methods are to get the Yahoo Weather Report for a location via API       #
+#                                                                                    #
+#************************************************************************************#
 def weatherhook(reqContext):
    #req = request.get_json(silent=True, force=True)
    result = reqContext.get("result")
@@ -443,6 +459,11 @@ def weather_code(condition_get_code):
     return condition_code
 
 
+#************************************************************************************#
+#                                                                                    #
+#   This method is to get the Wikipedia Information via Google API                   #
+#                                                                                    #
+#************************************************************************************#
 # Searchhook is for searching for Wkipedia information via Google API
 def searchhook():
     req = request.get_json(silent=True, force=True)
