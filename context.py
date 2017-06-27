@@ -49,6 +49,8 @@ def webhook():
        return weather(reqContext)
     elif reqContext.get("result").get("action") == "news":
        return news(reqContext)
+    elif reqContext.get("result").get("action") == "topnews":
+       return news_category_topnews()
     else:
        print("Good Bye")
 
@@ -148,7 +150,7 @@ def reply(user_id, msg):
  
 #************************************************************************************#
 #                                                                                    #
-#   Below 3 methods are to get the Facebook Quick Reply Webhook Handling             #
+#   Below method is to get the Facebook Quick Reply Webhook Handling - Weather       #
 #                                                                                    #
 #************************************************************************************#
 def weather(reqContext):
@@ -170,57 +172,7 @@ def weather(reqContext):
     r.headers['Content-Type'] = 'application/json'
     return r
 
-def news(reqContext):
-    print (reqContext.get("result").get("action"))
-    option = reqContext.get("result").get("action")
-    res = {
-            "speech": "Please select the category",
-            "displayText": "Please select the category",
-            "data" : {
-            "facebook" : [
-                 {
-                  "text": "Select your choice:",
-                  "quick_replies": [
-                 {
-                  "content_type": "text",
-                  "title": "Top News",
-                  "payload": "topnews"
-                  },
-                 {
-                  "content_type": "text",
-                  "title": "Sports",
-                  "payload": "sports"
-                  },
-                  {
-                  "content_type": "text",
-                  "title": "Business",
-                  "payload": "business"
-                  },
-                  {
-                  "content_type": "text",
-                  "title": "Technology",
-                  "payload": "technology"
-                  },
-                  {
-                  "content_type": "text",
-                  "title": "Entertainment",
-                  "payload": "entertainment"
-                  },
-                  {
-                  "content_type": "text",
-                  "title": "Science",
-                  "payload": "science"
-                  }
-                  ]
-                 }
-              ]
-            } 
-         };
-    res = json.dumps(res, indent=4)
-    r = make_response(res)
-    r.headers['Content-Type'] = 'application/json'
-    return r
- 
+
 
 #************************************************************************************#
 #                                                                                    #
@@ -623,7 +575,140 @@ def searchhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
+#************************************************************************************#
+#                                                                                    #
+#   Below method is to get the Facebook Quick Reply Webhook Handling - NEWS          #
+#                                                                                    #
+#************************************************************************************#
+def news(reqContext):
+    print (reqContext.get("result").get("action"))
+    #option = reqContext.get("result").get("action")
+    res = {
+            "speech": "Please select the category",
+            "displayText": "Please select the category",
+            "data" : {
+            "facebook" : [
+                 {
+                  "text": "Select your choice:",
+                  "quick_replies": [
+                 {
+                  "content_type": "text",
+                  "title": "Top News",
+                  "payload": "topnews"
+                  },
+                 {
+                  "content_type": "text",
+                  "title": "Sports",
+                  "payload": "sports"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "Business",
+                  "payload": "business"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "Technology",
+                  "payload": "technology"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "Entertainment",
+                  "payload": "entertainment"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "Science",
+                  "payload": "science"
+                  }
+                  ]
+                 }
+              ]
+            } 
+         };
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
 
+#************************************************************************************#
+#                                                                                    #
+#   Below method is to get the provide News Category Quick Replies - Top News        #
+#                                                                                    #
+#************************************************************************************#
+ def news_category_topnews():
+    res = {
+            "speech": "Please select the Newspaper",
+            "displayText": "Please select the Newspaper",
+            "data" : {
+            "facebook" : [
+                 {
+                  "text": "Select Newspaper:",
+                  "quick_replies": [
+                 {
+                  "content_type": "text",
+                  "title": "The Times Of India",
+                  "payload": "timesofindia"
+                  },
+                 {
+                  "content_type": "text",
+                  "title": "BBC",
+                  "payload": "bbc"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "CNN",
+                  "payload": "cnn"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "Time",
+                  "payload": "time"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "USA Today",
+                  "payload": "usatoday"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "The Telegraph",
+                  "payload": "telegraph"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "The Washington Post",
+                  "payload": "washingtonpost"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "The Guardian (UK)",
+                  "payload": "guardianuk"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "The Guardian (AU)",
+                  "payload": "guardianau"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "Reuters",
+                  "payload": "reuters"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "The Hindu",
+                  "payload": "thehindu"
+                  }
+                  ]
+                 }
+              ]
+            } 
+         };
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
