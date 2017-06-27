@@ -40,13 +40,14 @@ def webhook():
     print ("webhook is been hit ONCE ONLY")
     if reqContext.get("result").get("action") == "input.welcome":
        return welcome()
-    elif reqContext.get("result").get("action") == "yahooWeatherForecast":
-       #print ("Within ")
-       return weatherhook(reqContext)
-    elif reqContext.get("result").get("action") == "GoogleSearch":
-       return searchhook()
     elif reqContext.get("result").get("action") == "weather":
        return weather(reqContext)
+    elif reqContext.get("result").get("action") == "yahooWeatherForecast":
+       return weatherhook(reqContext)
+    elif reqContext.get("result").get("action") == "wikipedia":
+       return wikipedia_search(reqContext)
+    elif reqContext.get("result").get("action") == "GoogleSearch":
+       return searchhook()
     elif reqContext.get("result").get("action") == "news.category":
        return newsCategory(reqContext)
     elif reqContext.get("result").get("action") == "news.category.topnews":
@@ -410,6 +411,29 @@ def weather_code(condition_get_code):
 
     return condition_code
 
+#************************************************************************************#
+#                                                                                    #
+#   Below method is to get the Facebook Quick Reply Webhook Handling - Wikipedia     #
+#                                                                                    #
+#************************************************************************************#
+def wikipedia_search(reqContext):
+    print (reqContext.get("result").get("action"))
+    option = reqContext.get("result").get("action")
+    res = {
+        "speech": "Please provide the topic you want to search in Wikipedia",
+        "displayText": "Please provide the topic you want to search in Wikipedia",
+        "data" : {
+        "facebook" : [
+               {
+                "text": "Please provide the topic you want to search in Wikipedia"
+               }
+             ]
+           } 
+         };
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
 
 #************************************************************************************#
 #                                                                                    #
@@ -447,30 +471,12 @@ def searchhook():
     print ("data = json.loads(result)")
 ############################################################
     speech = data['items'][0]['snippet'].encode('utf-8').strip()
-    #image = data['items'][0]['pagemap'].encode('utf-8').strip()
-    #items = data.get('items')
-    #if items is None:
-    #    return {}
-    #x = {"a":3,  "b":4,  "c":5}
-      
-    #for key in x:   #same thing as using x.keys()
-    #  print(key,x[key]) 
-
-    #for value in x.values():
-    #  print(value)      #this is better if the keys are irrelevant     
-
-    #for key,value in x.items(): #this gives you both
-    #  print(key,value)
-
     for data_item in data['items']:
         link = data_item['link'],
 
     for data_item in data['items']:
         pagemap = data_item['pagemap'],
 
-    #for key in pagemap:
-    # print (pagemap)
-    
     cse_thumbnail_u_string_removed = [str(i) for i in pagemap]
     cse_thumbnail_u_removed = str(cse_thumbnail_u_string_removed)
     cse_thumbnail_brace_removed_1 = cse_thumbnail_u_removed.strip('[')
@@ -636,7 +642,8 @@ def newsCategory(reqContext):
 #   Below method is to get the provide News Category Quick Replies - Top News        #
 #                                                                                    #
 #************************************************************************************#
-def news_category_topnews():
+def news_category_topnews(reqContext):
+    print (reqContext.get("result").get("action")) 
     res = {
             "speech": "Please select the Newspaper",
             "displayText": "Please select the Newspaper",
