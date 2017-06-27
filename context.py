@@ -96,16 +96,19 @@ def welcome():
                   "content_type": "text",
                   "title": "News",
                   "payload": "news"
+                  "image_url":"http://www.freeiconspng.com/uploads/newspaper-icon-20.jpg"
                  },
                  {
                   "content_type": "text",
                   "title": "Weather",
                   "payload": "weather"
+                  "image_url":"https://www.mikeafford.com/store/store-images/ww01_example_light_rain_showers.png"
                    },
                   {
                   "content_type": "text",
                   "title": "Information",
                   "payload": "wikipedia"
+                  "image_url":"https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
                    }
                   ]
                  }
