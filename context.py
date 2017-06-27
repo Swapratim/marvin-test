@@ -41,7 +41,7 @@ def webhook():
     elif reqContext.get("result").get("action") == "GoogleSearch":
        return searchhook()
     elif reqContext.get("result").get("action") == "option":
-       return option()
+       return option(reqContext)
     else:
        print("Good Bye")
 
