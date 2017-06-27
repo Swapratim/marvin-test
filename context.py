@@ -40,8 +40,10 @@ def webhook():
        return weatherhook(reqContext)
     elif reqContext.get("result").get("action") == "GoogleSearch":
        return searchhook()
-    elif reqContext.get("result").get("action") == "option":
-       return option(reqContext)
+    elif reqContext.get("result").get("action") == "weather":
+       return weather(reqContext)
+    elif reqContext.get("result").get("action") == "news":
+       return news(reqContext)
     else:
        print("Good Bye")
 
@@ -135,24 +137,76 @@ def reply(user_id, msg):
     print(resp.content)
  
 # This method will check what option user has chosen:
-def option(reqContext):
+def weather(reqContext):
     print (reqContext.get("result").get("action"))
-    r = reqContext.get("result").get("action")
-    if r == "Weather":
-     res = {
-          "speech": "Please provide the city name",
-          "displayText": "Please provide the city name",
-           "data" : {
-              "facebook" : [
-                  {
-                 "text": "Please provide the city name"
-                  }
-               ]
-             } 
+    option = reqContext.get("result").get("action")
+    if option == "Weather":
+        res = {
+            "speech": "Please provide the city name",
+            "displayText": "Please provide the city name",
+            "data" : {
+            "facebook" : [
+                 {
+                "text": "Please provide the city name"
+                 }
+              ]
+            } 
          };
-    res = json.dumps(res, indent=4)
-    r = make_response(res)
-    r.headers['Content-Type'] = 'application/json'
+        res = json.dumps(res, indent=4)
+        r = make_response(res)
+        r.headers['Content-Type'] = 'application/json'
+    return r
+
+def news(reqContext):
+    print (reqContext.get("result").get("action"))
+    option = reqContext.get("result").get("action")
+    if option == "News":
+        res = {
+            "speech": "Please select the category",
+            "displayText": "Please select the category",
+            "data" : {
+            "facebook" : [
+                 {
+                  "text": "Select your choice:",
+                  "quick_replies": [
+                 {
+                  "content_type": "text",
+                  "title": "Top News",
+                  "payload": "topnews"
+                  },
+                 {
+                  "content_type": "text",
+                  "title": "Sports",
+                  "payload": "sports"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "Business",
+                  "payload": "business"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "Technology",
+                  "payload": "technology"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "Entertainment",
+                  "payload": "entertainment"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "Science",
+                  "payload": "science"
+                  }
+                  ]
+                 }
+              ]
+            } 
+         };
+        res = json.dumps(res, indent=4)
+        r = make_response(res)
+        r.headers['Content-Type'] = 'application/json'
     return r
  
 # This method is to invoke Yahoo API and process the GET response
