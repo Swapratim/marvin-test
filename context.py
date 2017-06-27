@@ -49,7 +49,7 @@ def webhook():
        return weather(reqContext)
     elif reqContext.get("result").get("action") == "news":
        return news(reqContext)
-    elif reqContext.get("result").get("action") == "topnews":
+    elif reqContext.get("result").get("action") == "news.category.topnews":
        return news_category_topnews()
     else:
        print("Good Bye")
