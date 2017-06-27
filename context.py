@@ -136,7 +136,7 @@ def reply(user_id, msg):
  
 # This method will check what option user has chosen:
 def option(reqContext):
-    print reqContext.get("result").get("action")
+    print (reqContext.get("result").get("action"))
     r = reqContext.get("result").get("action")
     return r
  
