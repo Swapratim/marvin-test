@@ -88,7 +88,27 @@ def welcome():
                   },
                  {
                  "text": speech2
-                  }
+                  },
+                 {
+                  "text": "Click your choice:",
+                  "quick_replies": [
+                 {
+                  "content_type": "text",
+                  "title": "News",
+                  "payload": "news"
+                 },
+                 {
+                  "content_type": "text",
+                  "title": "Weather",
+                  "payload": "weather"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "Information",
+                  "payload": "wikipedia"
+                   }
+                  ]
+                 }
                ]
              } 
          };
