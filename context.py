@@ -40,6 +40,8 @@ def webhook():
        return weatherhook(reqContext)
     elif reqContext.get("result").get("action") == "GoogleSearch":
        return searchhook()
+    elif reqContext.get("result").get("action") == "option":
+       return option()
     else:
        print("Good Bye")
 
@@ -132,7 +134,11 @@ def reply(user_id, msg):
     resp = requests.post("https://graph.facebook.com/v2.6/me/messages?access_token=" + ACCESS_TOKEN, json=data)
     print(resp.content)
  
-
+# This method will check what option user has chosen:
+def option(reqContext):
+    print reqContext.get("result").get("action")
+    r = reqContext.get("result").get("action")
+    return r
  
 # This method is to invoke Yahoo API and process the GET response
 #@run_once
