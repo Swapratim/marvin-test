@@ -138,6 +138,21 @@ def reply(user_id, msg):
 def option(reqContext):
     print (reqContext.get("result").get("action"))
     r = reqContext.get("result").get("action")
+    if r == "Weather":
+     res = {
+          "speech": "Please provide the city name",
+          "displayText": "Please provide the city name",
+           "data" : {
+              "facebook" : [
+                  {
+                 "text": "Please provide the city name"
+                  }
+               ]
+             } 
+         };
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
     return r
  
 # This method is to invoke Yahoo API and process the GET response
