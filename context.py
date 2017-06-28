@@ -51,7 +51,7 @@ def webhook():
     elif reqContext.get("result").get("action") == "news.category":
        return newsCategory(reqContext)
     elif reqContext.get("result").get("action") == "news.category.topnews":
-       return news_category_topnews()
+       return news_category_topnews(reqContext)
     else:
        print("Good Bye")
 
