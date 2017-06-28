@@ -125,15 +125,15 @@ def welcome():
                    }
                   ]
                  },
-                 "persistent_menu":[
+                 "persistent_menu": [
                        {
                    "locale":"default",
                    "composer_input_disabled":true,
-                   "call_to_actions":[
+                   "call_to_actions": [
                    {
                     "title":"My Account",
                     "type":"nested",
-                    "call_to_actions":[
+                    "call_to_actions": [
                    {
                     "title":"Main Menu",
                     "type":"postback",
