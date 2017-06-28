@@ -47,7 +47,7 @@ def webhook():
     elif reqContext.get("result").get("action") == "wikipedia":
        return wikipedia_search(reqContext)
     elif reqContext.get("result").get("action") == "GoogleSearch":
-       return searchhook()
+       return searchhook(reqContext)
     elif reqContext.get("result").get("action") == "news.category":
        return newsCategory(reqContext)
     elif reqContext.get("result").get("action") == "news.category.topnews":
@@ -437,7 +437,7 @@ def wikipedia_search(reqContext):
 #                                                                                    #
 #************************************************************************************#
 # Searchhook is for searching for Wkipedia information via Google API
-def searchhook():
+def searchhook(reqContext):
     req = request.get_json(silent=True, force=True)
     print("Within Search function......!!")
     true_false = True
