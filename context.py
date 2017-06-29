@@ -124,40 +124,10 @@ def welcome():
                   "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
                    }
                   ]
-                 },
-                 "persistent_menu": [
-                       {
-                   "locale":"default",
-                   "composer_input_disabled":true,
-                   "call_to_actions": [
-                   {
-                    "title":"My Account",
-                    "type":"nested",
-                    "call_to_actions": [
-                   {
-                    "title":"Main Menu",
-                    "type":"postback",
-                    "payload":"PAYBILL_PAYLOAD"
-                    }
-                   ]
-                 },
-               {
-                  "type":"web_url",
-                  "title":"Latest News",
-                  "url":"http://petershats.parseapp.com/hat-news",
-                  "webview_height_ratio":"full"
-                }
-              ]
-            },
-           {
-                 "locale":"zh_CN",
-                "composer_input_disabled":false
-           }
-          ]
-         }
-        ]
-       } 
-      };
+                 }
+               }
+             ]
+           };
     print (res)
     res = json.dumps(res, indent=4)
     r = make_response(res)
