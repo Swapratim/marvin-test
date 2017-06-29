@@ -127,6 +127,7 @@ def welcome():
                  }
                }
              ]
+            }
            };
     print (res)
     res = json.dumps(res, indent=4)
