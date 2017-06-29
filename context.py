@@ -125,6 +125,7 @@ def welcome():
                    }
                   ]
                  }
+                ]
                }
             };
     print (res)
