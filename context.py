@@ -664,7 +664,7 @@ def news_category_topnews(reqContext):
                   "content_type": "text",
                   "title": "BBC News",
                   "payload": "bbc-news",
-                  "image_url": "http://www.bbc.co.uk/staticarchive/1a266aa1aff999c90639e9b02eae37fd5a58fba8.gif"
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWrLeudSaMDHDclbCjfvVoOdIK9q3XKqbWG5G1aDJzO3z6YZUP"
                   },
                   {
                   "content_type": "text",
@@ -676,7 +676,7 @@ def news_category_topnews(reqContext):
                   "content_type": "text",
                   "title": "Time",
                   "payload": "time",
-                  "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Time_Magazine_logo.svg"
+                  "image_url": "https://s0.wp.com/wp-content/themes/vip/time2014/img/time-touch_icon_152.png"
                   },
                   {
                   "content_type": "text",
@@ -712,13 +712,13 @@ def news_category_topnews(reqContext):
                   "content_type": "text",
                   "title": "Reuters",
                   "payload": "reuters",
-                  "image_url": "http://s4.reutersmedia.net/resources/r/?m=02&d=20160816&t=2&i=1149917667&w=780&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEC7F1BR"
+                  "image_url": "http://www.adweek.com/wp-content/uploads/sites/9/2013/09/reuters-logo.jpg"
                   },
                   {
                   "content_type": "text",
                   "title": "The Hindu",
                   "payload": "the-hindu",
-                  "image_url": "https://pbs.twimg.com/profile_images/627376030282416128/pYl_LmcW_400x400.jpg"
+                  "image_url": "https://lh4.ggpht.com/_wAwneNQFfcruC-YiUpWKPtBTpzfdqLVTIArJyYRt52xGm4ABVQKT5eeLb_rl6em42kO=w300"
                   }
                   ]
                  }
@@ -737,27 +737,32 @@ def news_category_topnews(reqContext):
                  {
                   "content_type": "text",
                   "title": "ESPN",
-                  "payload": "espn"
+                  "payload": "espn",
+                  "image_url": "https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/052016/untitled-1_242.png?itok=vy3l2HxD"
                   },
                  {
                   "content_type": "text",
                   "title": "ESPN Cric Info",
-                  "payload": "espn-cric-info"
+                  "payload": "espn-cric-info",
+                  "image_url": "http://topnews.ae/images/ESPNcricinfo.jpg"
                   },
                   {
                   "content_type": "text",
                   "title": "BBC Sport",
-                  "payload": "bbc-sport"
+                  "payload": "bbc-sport",
+                  "image_url": "http://yellingperformance.com/wp-content/uploads/2014/08/bbc-sport.png"
                   },
                   {
                   "content_type": "text",
                   "title": "Fox Sports",
-                  "payload": "fox-sports"
+                  "payload": "fox-sports",
+                  "image_url": "https://s-media-cache-ak0.pinimg.com/originals/87/4f/c2/874fc272383102ec71e5723c000d2e7b.png"
                   },
                   {
                   "content_type": "text",
                   "title": "The Sport Bible",
-                  "payload": "the-sport-bible"
+                  "payload": "the-sport-bible",
+                  "image_url": "https://pbs.twimg.com/profile_images/528682495923859456/yuXwYzR4.png"
                   }
                   ]
                  }
@@ -776,32 +781,38 @@ def news_category_topnews(reqContext):
                  {
                   "content_type": "text",
                   "title": "The Economist",
-                  "payload": "the-economist"
+                  "payload": "the-economist",
+                  "image_url": "https://gs-img.112.ua/original/2016/04/01/221445.jpg"
                   },
                  {
                   "content_type": "text",
                   "title": "Financial Times",
-                  "payload": "financial-times"
+                  "payload": "financial-times",
+                  "image_url": "http://www.adweek.com/wp-content/uploads/sites/10/2014/03/financial_times_logo304x200.jpg"
                   },
                   {
                   "content_type": "text",
                   "title": "CNBC",
-                  "payload": "cnbc"
+                  "payload": "cnbc",
+                  "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/CNBC_logo.svg/961px-CNBC_logo.svg.png"
                   },
                   {
                   "content_type": "text",
                   "title": "Business Insider",
-                  "payload": "business-insider"
+                  "payload": "business-insider",
+                  "image_url": "https://pbs.twimg.com/profile_images/661313209605976064/EjEK7KeO.jpg"
                   },
                   {
                   "content_type": "text",
                   "title": "Fortune",
-                  "payload": "fortune"
+                  "payload": "fortune",
+                  "image_url": "https://fortunedotcom.files.wordpress.com/2014/05/f_icon_orange_1.png"
                   },
                   {
                   "content_type": "text",
                   "title": "The Wall Street Journal",
-                  "payload": "the-wall-street-journal"
+                  "payload": "the-wall-street-journal",
+                  "image_url": "https://www.wsj.com/apple-touch-icon.png"
                   }
                   ]
                  }
@@ -820,37 +831,44 @@ def news_category_topnews(reqContext):
                  {
                   "content_type": "text",
                   "title": "TechRadar",
-                  "payload": "techradar"
+                  "payload": "techradar",
+                  "image_url": "http://www.ittiam.com/vividhdr/img/techradar.jpg"
                   },
                  {
                   "content_type": "text",
                   "title": "TechCrunch",
-                  "payload": "techcrunch"
+                  "payload": "techcrunch",
+                  "image_url": "https://tctechcrunch2011.files.wordpress.com/2014/04/tc-logo.jpg"
                   },
                   {
                   "content_type": "text",
                   "title": "T3N",
-                  "payload": "t3n"
+                  "payload": "t3n",
+                  "image_url": "https://pbs.twimg.com/profile_images/2267864145/8oalkkbzq6davn5snoi4.png"
                   },
                   {
                   "content_type": "text",
                   "title": "Hacker News",
-                  "payload": "hacker-news"
+                  "payload": "hacker-news",
+                  "image_url": "https://pbs.twimg.com/profile_images/659012257985097728/AXXMa-X2.png"
                   },
                   {
                   "content_type": "text",
                   "title": "Buzzfeed",
-                  "payload": "buzzfeed"
+                  "payload": "buzzfeed",
+                  "image_url": "https://static-s.aa-cdn.net/img/ios/352969997/d5f0fe265f21af1cffd41964bc7b46ab"
                   },
                   {
                   "content_type": "text",
                   "title": "Recode",
-                  "payload": "recode"
+                  "payload": "recode",
+                  "image_url": "https://cdn.vox-cdn.com/uploads/hub/sbnu_logo/633/large_mark.64395.png"
                   },
                   {
                   "content_type": "text",
                   "title": "Reddit",
-                  "payload": "reddit"
+                  "payload": "reddit",
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCOC1gOn12VNBdquLlqxTCt9XGF_vWiF3Y3gjfnCxCBIN_FXdZ"
                   }
                   ]
                  }
@@ -869,17 +887,20 @@ def news_category_topnews(reqContext):
                  {
                   "content_type": "text",
                   "title": "Entertainment Weekly",
-                  "payload": "entertainment-weekly"
+                  "payload": "entertainment-weekly",
+                  "image_url": "https://i.redd.it/ndughnbltu2z.png"
                   },
                  {
                   "content_type": "text",
                   "title": "MTV News",
-                  "payload": "mtv-news"
+                  "payload": "mtv-news",
+                  "image_url": "http://imagesmtv-a.akamaihd.net/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2016/07/staff-author-250-1468362828.png?format=jpg&quality=.8"
                   },
                   {
                   "content_type": "text",
                   "title": "MTV News (UK)",
-                  "payload": "mtv-news-uk"
+                  "payload": "mtv-news-uk",
+                  "image_url": "http://imagesmtv-a.akamaihd.net/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2016/07/staff-author-250-1468362828.png?format=jpg&quality=.8"
                   }
                   ]
                  }
@@ -898,12 +919,14 @@ def news_category_topnews(reqContext):
                  {
                   "content_type": "text",
                   "title": "National Geographic",
-                  "payload": "national-geographic"
+                  "payload": "national-geographic",
+                  "image_url": "https://pbs.twimg.com/profile_images/798181194202566656/U8QbCBdH_400x400.jpg"
                   },
                  {
                   "content_type": "text",
                   "title": "New Scientist",
-                  "payload": "new-scientist"
+                  "payload": "new-scientist",
+                  "image_url": "http://www.peteraldhous.com/Images/ns.jpg"
                   }
                   ]
                  }
