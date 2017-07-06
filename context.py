@@ -51,9 +51,11 @@ def webhook():
     elif reqContext.get("result").get("action") == "news.category":
        return newsCategory(reqContext)
     elif reqContext.get("result").get("action") == "topnews":
-       print ("Just Before the method Hitting: printing reqContext")
        print (reqContext.get("result").get("action"))
        return news_category_topnews(reqContext)
+    elif reqContext.get("result").get("action") == "topfivenewsarticle":
+       print (reqContext.get("result").get("action"))
+       return topfivenewsarticle(reqContext)
     else:
        print("Good Bye")
 
@@ -714,6 +716,13 @@ def news_category_topnews(reqContext):
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
+
+
+def topfivenewsarticle(reqContext):
+    resolvedQuery = reqContext.get("result").get("resolvedQuery")
+    print ("resolvedQuery: " + resolvedQuery)
+    return r
+
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
