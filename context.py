@@ -967,7 +967,6 @@ def topSevenNewsArticle(reqContext):
                     "default_action": {
                         "type": "web_url",
                         "url": "https://peterssendreceiveapp.ngrok.io/shop_collection",
-                        "messenger_extensions": True,
                         "webview_height_ratio": "tall",
                         "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                     },
@@ -976,7 +975,6 @@ def topSevenNewsArticle(reqContext):
                             "title": "View",
                             "type": "web_url",
                             "url": "https://peterssendreceiveapp.ngrok.io/collection",
-                            "messenger_extensions": True,
                             "webview_height_ratio": "tall",
                             "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
                         }
