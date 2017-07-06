@@ -948,7 +948,119 @@ def topSevenNewsArticle(reqContext):
     print (result)
     data = json.loads(result)
     print ("data = json.loads(result)")
-
+    res = {
+            "speech": "Please select the Newspaper",
+            "displayText": "Please select the Newspaper",
+            "data" : {
+            "facebook" : [
+                 {
+                "attachment" : {
+                  "type" : "template",
+                    "payload" : {
+                     "template_type" : "list",
+                      "elements" : [ 
+                                {
+                    "title": "Classic T-Shirt Collection",
+                    "image_url": "https://static4.cilory.com/238653-thickbox_default/black-superman-t-shirt.jpg",
+                    "subtitle": "See all our colors",
+                    "default_action": {
+                        "type": "web_url",
+                        "url": "http://peterssendreceiveapp.ngrok.io/shop_collection",
+                        "messenger_extensions": true,
+                        "webview_height_ratio": "tall",
+                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                    },
+                    "buttons": [
+                        {
+                            "title": "View",
+                            "type": "web_url",
+                            "url": "https://peterssendreceiveapp.ngrok.io/collection",
+                            "messenger_extensions": true,
+                            "webview_height_ratio": "tall",
+                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
+                        }
+                    ]
+                },
+                  {
+                    "title": "Classic White T-Shirt",
+                    "image_url": "https://static4.cilory.com/238653-thickbox_default/black-superman-t-shirt.jpg",
+                    "subtitle": "100% Cotton, 200% Comfortable",
+                    "default_action": {
+                        "type": "web_url",
+                        "url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
+                        "messenger_extensions": true,
+                        "webview_height_ratio": "tall",
+                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                    },
+                    "buttons": [
+                        {
+                            "title": "Shop Now",
+                            "type": "web_url",
+                            "url": "https://peterssendreceiveapp.ngrok.io/shop?item=100",
+                            "messenger_extensions": true,
+                            "webview_height_ratio": "tall",
+                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
+                        }
+                    ]                
+                },
+                {
+                    "title": "Classic Blue T-Shirt",
+                    "image_url": "https://static4.cilory.com/238653-thickbox_default/black-superman-t-shirt.jpg",
+                    "subtitle": "100% Cotton, 200% Comfortable",
+                    "default_action": {
+                        "type": "web_url",
+                        "url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
+                        "messenger_extensions": true,
+                        "webview_height_ratio": "tall",
+                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                    },
+                    "buttons": [
+                        {
+                            "title": "Shop Now",
+                            "type": "web_url",
+                            "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
+                            "messenger_extensions": true,
+                            "webview_height_ratio": "tall",
+                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
+                        }
+                    ]                
+                },
+                {
+                    "title": "Classic Black T-Shirt",
+                    "image_url": "https://static4.cilory.com/238653-thickbox_default/black-superman-t-shirt.jpg",
+                    "subtitle": "100% Cotton, 200% Comfortable",
+                    "default_action": {
+                        "type": "web_url",
+                        "url": "https://peterssendreceiveapp.ngrok.io/view?item=102",
+                        "messenger_extensions": true,
+                        "webview_height_ratio": "tall",
+                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                    },
+                    "buttons": [
+                        {
+                            "title": "Shop Now",
+                            "type": "web_url",
+                            "url": "https://peterssendreceiveapp.ngrok.io/shop?item=102",
+                            "messenger_extensions": true,
+                            "webview_height_ratio": "tall",
+                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
+                        }
+                    ]                
+                }
+              ],
+              "buttons": [
+                {
+                    "title": "View More",
+                    "type": "postback",
+                    "payload": "payload"                        
+                }
+            ]  
+           } 
+          }
+         }
+        ]
+       } 
+      };
     res = json.dumps(res, indent=4)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
