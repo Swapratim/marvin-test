@@ -964,12 +964,6 @@ def topSevenNewsArticle(reqContext):
                             "title": "Classic White T-Shirt",
                             "image_url": "https://s20.postimg.org/gbwoaexl9/SALA_1.jpg",
                             "subtitle": "100% Cotton, 200% Comfortable",
-                            "default_action": 
-                                {
-                                    "type": "web_url",
-                                    "url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
-                                    "webview_height_ratio": "tall"
-                                },
                                 "buttons": [
                                 {
                                      "title": "Buy",
