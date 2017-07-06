@@ -721,7 +721,12 @@ def news_category_topnews(reqContext):
 def topfivenewsarticle(reqContext):
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
     print ("resolvedQuery: " + resolvedQuery)
-    
+    newsAPI = "https://newsapi.org/v1/articles?source=" + resolvedQuery + "&sortBy=top&apiKey=" + newspai_access_token
+    print("newsAPI::::" + newsAPI)
+    result = urllib.request.urlopen(newsAPI).read()
+    print (result)
+    data = json.loads(result)
+    print ("data = json.loads(result)")
 
     res = json.dumps(res, indent=4)
     r = make_response(res)
