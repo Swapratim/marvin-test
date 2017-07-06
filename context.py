@@ -974,7 +974,6 @@ def topSevenNewsArticle(reqContext):
                                      "title": "Buy",
                                      "type": "web_url",
                                      "url": "https://peterssendreceiveapp.ngrok.io/shop?item=100",
-                                     "messenger_extensions": True,
                                      "webview_height_ratio": "tall"
                                 }
                                ]
@@ -994,7 +993,6 @@ def topSevenNewsArticle(reqContext):
                                    "title": "Buy",
                                    "type": "web_url",
                                    "url": "https://peterssendreceiveapp.ngrok.io/shop?item=102",
-                                   "messenger_extensions": True,
                                    "webview_height_ratio": "tall"
                                 }
                               ]
@@ -1014,7 +1012,6 @@ def topSevenNewsArticle(reqContext):
                                 "title": "Buy",
                                 "type": "web_url",
                                 "url": "https://peterssendreceiveapp.ngrok.io/shop?item=102",
-                                "messenger_extensions": True,
                                 "webview_height_ratio": "tall"
                             }
                            ]
@@ -1033,7 +1030,6 @@ def topSevenNewsArticle(reqContext):
                                 "title": "Buy",
                                 "type": "web_url",
                                 "url": "https://peterssendreceiveapp.ngrok.io/shop?item=103",
-                                "messenger_extensions": True,
                                 "webview_height_ratio": "tall"
                             }
                            ]
