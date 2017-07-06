@@ -646,7 +646,7 @@ def news_category_topnews(reqContext):
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
     print ("resolvedQuery: " + resolvedQuery)
     if resolvedQuery == "topnews":
-    res = {
+        res = {
             "speech": "Please select the Newspaper",
             "displayText": "Please select the Newspaper",
             "data" : {
@@ -726,7 +726,7 @@ def news_category_topnews(reqContext):
             } 
          };
     elif resolvedQuery == "sports":
-    res = {
+        res = {
             "speech": "Please select the Newspaper",
             "displayText": "Please select the Newspaper",
             "data" : {
@@ -765,7 +765,7 @@ def news_category_topnews(reqContext):
             } 
          };
     elif resolvedQuery == "business":
-    res = {
+        res = {
             "speech": "Please select the Newspaper",
             "displayText": "Please select the Newspaper",
             "data" : {
@@ -809,7 +809,7 @@ def news_category_topnews(reqContext):
             } 
          };
     elif resolvedQuery == "technology":
-    res = {
+        res = {
             "speech": "Please select the Newspaper",
             "displayText": "Please select the Newspaper",
             "data" : {
@@ -858,7 +858,7 @@ def news_category_topnews(reqContext):
             } 
          };
     elif resolvedQuery == "entertainment":
-    res = {
+        res = {
             "speech": "Please select the Newspaper",
             "displayText": "Please select the Newspaper",
             "data" : {
@@ -887,7 +887,7 @@ def news_category_topnews(reqContext):
             } 
          };
     elif resolvedQuery == "science":
-    res = {
+        res = {
             "speech": "Please select the Newspaper",
             "displayText": "Please select the Newspaper",
             "data" : {
