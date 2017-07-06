@@ -961,25 +961,23 @@ def topSevenNewsArticle(reqContext):
                      "top_element_style": "large",
                       "elements" : [ 
                         {
-                    "title": "Classic T-Shirt Collection",
-                    "image_url": "http://1.bp.blogspot.com/-6kvyhUbdzHo/VCFQYmDu-HI/AAAAAAAABcg/GKJ4QHEwnDM/s1600/crab.jpg",
-                    "subtitle": "See all our colors",
-                    "default_action": {
-                        "type": "web_url",
-                        "url": "http://1.bp.blogspot.com/-6kvyhUbdzHo/VCFQYmDu-HI/AAAAAAAABcg/GKJ4QHEwnDM/s1600/crab.jpg",
-                        "webview_height_ratio": "tall",
-                        "fallback_url": "http://1.bp.blogspot.com/-6kvyhUbdzHo/VCFQYmDu-HI/AAAAAAAABcg/GKJ4QHEwnDM/s1600/crab.jpg"
-                    },
-                    "buttons": [
-                        {
-                            "title": "View",
-                            "type": "web_url",
-                            "url": "http://1.bp.blogspot.com/-6kvyhUbdzHo/VCFQYmDu-HI/AAAAAAAABcg/GKJ4QHEwnDM/s1600/crab.jpg",
-                            "webview_height_ratio": "tall",
-                            "fallback_url": "http://1.bp.blogspot.com/-6kvyhUbdzHo/VCFQYmDu-HI/AAAAAAAABcg/GKJ4QHEwnDM/s1600/crab.jpg"                        
-                        }
-                    ]
-                       },
+                            "title": "Classic T-Shirt Collection",
+                            "image_url": "http://1.bp.blogspot.com/-6kvyhUbdzHo/VCFQYmDu-HI/AAAAAAAABcg/GKJ4QHEwnDM/s1600/crab.jpg",
+                            "subtitle": "See all our colors",
+                            "default_action": {
+                               "type": "web_url",
+                               "url": "http://1.bp.blogspot.com/-6kvyhUbdzHo/VCFQYmDu-HI/AAAAAAAABcg/GKJ4QHEwnDM/s1600/crab.jpg",
+                                "webview_height_ratio": "tall",
+                                },
+                            "buttons": [
+                            {
+                               "title": "View",
+                               "type": "web_url",
+                               "url": "http://1.bp.blogspot.com/-6kvyhUbdzHo/VCFQYmDu-HI/AAAAAAAABcg/GKJ4QHEwnDM/s1600/crab.jpg",
+                               "webview_height_ratio": "tall",
+                            }
+                          ]
+                        },
                         {
                             "title": "Classic White T-Shirt",
                             "image_url": "http://ecx.images-amazon.com/images/I/71A2pxQc3XL._UL1500_.jpg",
