@@ -961,9 +961,37 @@ def topSevenNewsArticle(reqContext):
                      "top_element_style": "large",
                       "elements" : [ 
                         {
+                    "title": "Classic T-Shirt Collection",
+                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+                    "subtitle": "See all our colors",
+                    "default_action": {
+                        "type": "web_url",
+                        "url": "https://peterssendreceiveapp.ngrok.io/shop_collection",
+                        "messenger_extensions": true,
+                        "webview_height_ratio": "tall",
+                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                    },
+                    "buttons": [
+                        {
+                            "title": "View",
+                            "type": "web_url",
+                            "url": "https://peterssendreceiveapp.ngrok.io/collection",
+                            "messenger_extensions": true,
+                            "webview_height_ratio": "tall",
+                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
+                        }
+                    ]
+                       },
+                        {
                             "title": "Classic White T-Shirt",
-                            "image_url": "https://s20.postimg.org/gbwoaexl9/SALA_1.jpg",
+                            "image_url": "http://ecx.images-amazon.com/images/I/71A2pxQc3XL._UL1500_.jpg",
                             "subtitle": "100% Cotton, 200% Comfortable",
+                            "default_action": 
+                                {
+                                    "type": "web_url",
+                                    "url": "http://ecx.images-amazon.com/images/I/71A2pxQc3XL._UL1500_.jpg",
+                                    "webview_height_ratio": "tall"
+                                },
                                 "buttons": [
                                 {
                                      "title": "Buy",
@@ -1010,25 +1038,7 @@ def topSevenNewsArticle(reqContext):
                                 "webview_height_ratio": "tall"
                             }
                            ]
-                        },
-                           {
-                            "title": "Classic Gray T-Shirt",
-                            "image_url": "https://peterssendreceiveapp.ngrok.io/img/gray-t-shirt.png",
-                            "subtitle": "100% Cotton, 200% Comfortable",
-                            "default_action": {
-                            "type": "web_url",
-                            "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
-                            "webview_height_ratio": "tall"
-                            },
-                           "buttons": [
-                            {
-                                "title": "Buy",
-                                "type": "web_url",
-                                "url": "https://peterssendreceiveapp.ngrok.io/shop?item=103",
-                                "webview_height_ratio": "tall"
-                            }
-                           ]
-                          }
+                        }
                         ],
                         "buttons": [
                          {
