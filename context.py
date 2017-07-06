@@ -655,12 +655,12 @@ def news_category_topnews(reqContext):
                  {
                   "content_type": "text",
                   "title": "The Times Of India",
-                  "payload": "timesofindia"
+                  "payload": "the-times-of-india"
                   },
                  {
                   "content_type": "text",
-                  "title": "BBC",
-                  "payload": "bbc"
+                  "title": "BBC News",
+                  "payload": "bbc-news"
                   },
                   {
                   "content_type": "text",
@@ -675,27 +675,27 @@ def news_category_topnews(reqContext):
                   {
                   "content_type": "text",
                   "title": "USA Today",
-                  "payload": "usatoday"
+                  "payload": "usa-today"
                   },
                   {
                   "content_type": "text",
                   "title": "The Telegraph",
-                  "payload": "telegraph"
+                  "payload": "the-telegraph"
                   },
                   {
                   "content_type": "text",
                   "title": "The Washington Post",
-                  "payload": "washingtonpost"
+                  "payload": "the-washington-post"
                   },
                   {
                   "content_type": "text",
                   "title": "The Guardian (UK)",
-                  "payload": "guardianuk"
+                  "payload": "the-guardian-uk"
                   },
                   {
                   "content_type": "text",
                   "title": "The Guardian (AU)",
-                  "payload": "guardianau"
+                  "payload": "the-guardian-au"
                   },
                   {
                   "content_type": "text",
@@ -705,7 +705,7 @@ def news_category_topnews(reqContext):
                   {
                   "content_type": "text",
                   "title": "The Hindu",
-                  "payload": "thehindu"
+                  "payload": "the-hindu"
                   }
                   ]
                  }
@@ -721,6 +721,11 @@ def news_category_topnews(reqContext):
 def topfivenewsarticle(reqContext):
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
     print ("resolvedQuery: " + resolvedQuery)
+    
+
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
     return r
 
 
