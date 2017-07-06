@@ -55,7 +55,7 @@ def webhook():
        return news_category_topnews(reqContext)
     elif reqContext.get("result").get("action") == "topfivenewsarticle":
        print (reqContext.get("result").get("action"))
-       return topfivenewsarticle(reqContext)
+       return topSevenNewsArticle(reqContext)
     else:
        print("Good Bye")
 
@@ -643,7 +643,8 @@ def newsCategory(reqContext):
 #                                                                                    #
 #************************************************************************************#
 def news_category_topnews(reqContext):
-    print (reqContext.get("result").get("action")) 
+    resolvedQuery = reqContext.get("result").get("resolvedQuery")
+    print ("resolvedQuery: " + resolvedQuery)
     res = {
             "speech": "Please select the Newspaper",
             "displayText": "Please select the Newspaper",
@@ -718,7 +719,7 @@ def news_category_topnews(reqContext):
     return r
 
 
-def topfivenewsarticle(reqContext):
+def topSevenNewsArticle(reqContext):
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
     print ("resolvedQuery: " + resolvedQuery)
     newsAPI = "https://newsapi.org/v1/articles?source=" + resolvedQuery + "&sortBy=top&apiKey=" + newspai_access_token
