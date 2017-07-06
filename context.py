@@ -962,21 +962,21 @@ def topSevenNewsArticle(reqContext):
                       "elements" : [ 
                         {
                     "title": "Classic T-Shirt Collection",
-                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+                    "image_url": "http://1.bp.blogspot.com/-6kvyhUbdzHo/VCFQYmDu-HI/AAAAAAAABcg/GKJ4QHEwnDM/s1600/crab.jpg",
                     "subtitle": "See all our colors",
                     "default_action": {
                         "type": "web_url",
-                        "url": "https://peterssendreceiveapp.ngrok.io/shop_collection",
+                        "url": "http://1.bp.blogspot.com/-6kvyhUbdzHo/VCFQYmDu-HI/AAAAAAAABcg/GKJ4QHEwnDM/s1600/crab.jpg",
                         "webview_height_ratio": "tall",
-                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                        "fallback_url": "http://1.bp.blogspot.com/-6kvyhUbdzHo/VCFQYmDu-HI/AAAAAAAABcg/GKJ4QHEwnDM/s1600/crab.jpg"
                     },
                     "buttons": [
                         {
                             "title": "View",
                             "type": "web_url",
-                            "url": "https://peterssendreceiveapp.ngrok.io/collection",
+                            "url": "http://1.bp.blogspot.com/-6kvyhUbdzHo/VCFQYmDu-HI/AAAAAAAABcg/GKJ4QHEwnDM/s1600/crab.jpg",
                             "webview_height_ratio": "tall",
-                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
+                            "fallback_url": "http://1.bp.blogspot.com/-6kvyhUbdzHo/VCFQYmDu-HI/AAAAAAAABcg/GKJ4QHEwnDM/s1600/crab.jpg"                        
                         }
                     ]
                        },
