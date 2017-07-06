@@ -966,7 +966,7 @@ def topSevenNewsArticle(reqContext):
                     "default_action": {
                         "type": "web_url",
                         "url": "http://peterssendreceiveapp.ngrok.io/shop_collection",
-                        "messenger_extensions": true,
+                        "messenger_extensions": True,
                         "webview_height_ratio": "tall",
                         "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                     },
@@ -975,7 +975,7 @@ def topSevenNewsArticle(reqContext):
                             "title": "View",
                             "type": "web_url",
                             "url": "https://peterssendreceiveapp.ngrok.io/collection",
-                            "messenger_extensions": true,
+                            "messenger_extensions": True,
                             "webview_height_ratio": "tall",
                             "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
                         }
@@ -988,7 +988,7 @@ def topSevenNewsArticle(reqContext):
                     "default_action": {
                         "type": "web_url",
                         "url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
-                        "messenger_extensions": true,
+                        "messenger_extensions": True,
                         "webview_height_ratio": "tall",
                         "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                     },
@@ -997,7 +997,7 @@ def topSevenNewsArticle(reqContext):
                             "title": "Shop Now",
                             "type": "web_url",
                             "url": "https://peterssendreceiveapp.ngrok.io/shop?item=100",
-                            "messenger_extensions": true,
+                            "messenger_extensions": True,
                             "webview_height_ratio": "tall",
                             "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
                         }
@@ -1010,7 +1010,7 @@ def topSevenNewsArticle(reqContext):
                     "default_action": {
                         "type": "web_url",
                         "url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
-                        "messenger_extensions": true,
+                        "messenger_extensions": True,
                         "webview_height_ratio": "tall",
                         "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                     },
@@ -1019,7 +1019,7 @@ def topSevenNewsArticle(reqContext):
                             "title": "Shop Now",
                             "type": "web_url",
                             "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
-                            "messenger_extensions": true,
+                            "messenger_extensions": True,
                             "webview_height_ratio": "tall",
                             "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
                         }
@@ -1032,7 +1032,7 @@ def topSevenNewsArticle(reqContext):
                     "default_action": {
                         "type": "web_url",
                         "url": "https://peterssendreceiveapp.ngrok.io/view?item=102",
-                        "messenger_extensions": true,
+                        "messenger_extensions": True,
                         "webview_height_ratio": "tall",
                         "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
                     },
@@ -1041,7 +1041,7 @@ def topSevenNewsArticle(reqContext):
                             "title": "Shop Now",
                             "type": "web_url",
                             "url": "https://peterssendreceiveapp.ngrok.io/shop?item=102",
-                            "messenger_extensions": true,
+                            "messenger_extensions": True,
                             "webview_height_ratio": "tall",
                             "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
                         }
