@@ -958,6 +958,7 @@ def topSevenNewsArticle(reqContext):
                   "type" : "template",
                     "payload" : {
                      "template_type" : "list",
+                     "top_element_style": "large",
                       "elements" : [ 
                         {
                             "title": "Classic White T-Shirt",
