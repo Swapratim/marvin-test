@@ -645,6 +645,7 @@ def newsCategory(reqContext):
 def news_category_topnews(reqContext):
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
     print ("resolvedQuery: " + resolvedQuery)
+    if resolvedQuery == "topnews":
     res = {
             "speech": "Please select the Newspaper",
             "displayText": "Please select the Newspaper",
@@ -656,57 +657,253 @@ def news_category_topnews(reqContext):
                  {
                   "content_type": "text",
                   "title": "The Times Of India",
-                  "payload": "the-times-of-india"
+                  "payload": "the-times-of-india",
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGUM0uhwsV3vp9ZzMEnjJo4MDZRSC3cgp32qH64zZlWFsAiGNv"
                   },
                  {
                   "content_type": "text",
                   "title": "BBC News",
-                  "payload": "bbc-news"
+                  "payload": "bbc-news",
+                  "image_url": "http://www.bbc.co.uk/staticarchive/1a266aa1aff999c90639e9b02eae37fd5a58fba8.gif"
                   },
                   {
                   "content_type": "text",
                   "title": "CNN",
-                  "payload": "cnn"
+                  "payload": "cnn",
+                  "image_url": "https://qph.ec.quoracdn.net/main-qimg-583846beabeef96102a6f18fc2096a82-c"
                   },
                   {
                   "content_type": "text",
                   "title": "Time",
-                  "payload": "time"
+                  "payload": "time",
+                  "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Time_Magazine_logo.svg"
                   },
                   {
                   "content_type": "text",
                   "title": "USA Today",
-                  "payload": "usa-today"
+                  "payload": "usa-today",
+                  "image_url": "http://www.gmkfreelogos.com/logos/U/img/U_Bahn.gif"
                   },
                   {
                   "content_type": "text",
                   "title": "The Telegraph",
-                  "payload": "the-telegraph"
+                  "payload": "the-telegraph",
+                  "image_url": "https://media.glassdoor.com/sqll/700053/the-telegraph-calcutta-squarelogo-1475068747795.png"
                   },
                   {
                   "content_type": "text",
                   "title": "The Washington Post",
-                  "payload": "the-washington-post"
+                  "payload": "the-washington-post",
+                  "image_url": "https://static1.squarespace.com/static/58505df4579fb348904cdf5f/t/58ab141b20099e74879fe27f/1487606851497/wp.jog"
                   },
                   {
                   "content_type": "text",
                   "title": "The Guardian (UK)",
-                  "payload": "the-guardian-uk"
+                  "payload": "the-guardian-uk",
+                  "image_url": "http://a2.mzstatic.com/eu/r30/Purple62/v4/0b/a9/56/0ba956de-3621-3585-285e-1141b53d4d51/icon175x175.png"
                   },
                   {
                   "content_type": "text",
                   "title": "The Guardian (AU)",
-                  "payload": "the-guardian-au"
+                  "payload": "the-guardian-au",
+                  "image_url": "http://a2.mzstatic.com/eu/r30/Purple62/v4/0b/a9/56/0ba956de-3621-3585-285e-1141b53d4d51/icon175x175.png"
                   },
                   {
                   "content_type": "text",
                   "title": "Reuters",
-                  "payload": "reuters"
+                  "payload": "reuters",
+                  "image_url": "http://s4.reutersmedia.net/resources/r/?m=02&d=20160816&t=2&i=1149917667&w=780&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEC7F1BR"
                   },
                   {
                   "content_type": "text",
                   "title": "The Hindu",
-                  "payload": "the-hindu"
+                  "payload": "the-hindu",
+                  "image_url": "https://pbs.twimg.com/profile_images/627376030282416128/pYl_LmcW_400x400.jpg"
+                  }
+                  ]
+                 }
+              ]
+            } 
+         };
+    elif resolvedQuery == "sports":
+    res = {
+            "speech": "Please select the Newspaper",
+            "displayText": "Please select the Newspaper",
+            "data" : {
+            "facebook" : [
+                 {
+                  "text": "Please Select Newspaper:",
+                  "quick_replies": [
+                 {
+                  "content_type": "text",
+                  "title": "ESPN",
+                  "payload": "espn"
+                  },
+                 {
+                  "content_type": "text",
+                  "title": "ESPN Cric Info",
+                  "payload": "espn-cric-info"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "BBC Sport",
+                  "payload": "bbc-sport"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "Fox Sports",
+                  "payload": "fox-sports"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "The Sport Bible",
+                  "payload": "the-sport-bible"
+                  }
+                  ]
+                 }
+              ]
+            } 
+         };
+    elif resolvedQuery == "business":
+    res = {
+            "speech": "Please select the Newspaper",
+            "displayText": "Please select the Newspaper",
+            "data" : {
+            "facebook" : [
+                 {
+                  "text": "Please Select Newspaper:",
+                  "quick_replies": [
+                 {
+                  "content_type": "text",
+                  "title": "The Economist",
+                  "payload": "the-economist"
+                  },
+                 {
+                  "content_type": "text",
+                  "title": "Financial Times",
+                  "payload": "financial-times"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "CNBC",
+                  "payload": "cnbc"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "Business Insider",
+                  "payload": "business-insider"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "Fortune",
+                  "payload": "fortune"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "The Wall Street Journal",
+                  "payload": "the-wall-street-journal"
+                  }
+                  ]
+                 }
+              ]
+            } 
+         };
+    elif resolvedQuery == "technology":
+    res = {
+            "speech": "Please select the Newspaper",
+            "displayText": "Please select the Newspaper",
+            "data" : {
+            "facebook" : [
+                 {
+                  "text": "Please Select Newspaper:",
+                  "quick_replies": [
+                 {
+                  "content_type": "text",
+                  "title": "TechRadar",
+                  "payload": "techradar"
+                  },
+                 {
+                  "content_type": "text",
+                  "title": "TechCrunch",
+                  "payload": "techcrunch"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "T3N",
+                  "payload": "t3n"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "Hacker News",
+                  "payload": "hacker-news"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "Buzzfeed",
+                  "payload": "buzzfeed"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "Recode",
+                  "payload": "recode"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "Reddit",
+                  "payload": "reddit"
+                  }
+                  ]
+                 }
+              ]
+            } 
+         };
+    elif resolvedQuery == "entertainment":
+    res = {
+            "speech": "Please select the Newspaper",
+            "displayText": "Please select the Newspaper",
+            "data" : {
+            "facebook" : [
+                 {
+                  "text": "Please Select Newspaper:",
+                  "quick_replies": [
+                 {
+                  "content_type": "text",
+                  "title": "Entertainment Weekly",
+                  "payload": "entertainment-weekly"
+                  },
+                 {
+                  "content_type": "text",
+                  "title": "MTV News",
+                  "payload": "mtv-news"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "MTV News (UK)",
+                  "payload": "mtv-news-uk"
+                  }
+                  ]
+                 }
+              ]
+            } 
+         };
+    elif resolvedQuery == "science":
+    res = {
+            "speech": "Please select the Newspaper",
+            "displayText": "Please select the Newspaper",
+            "data" : {
+            "facebook" : [
+                 {
+                  "text": "Please Select Newspaper:",
+                  "quick_replies": [
+                 {
+                  "content_type": "text",
+                  "title": "National Geographic",
+                  "payload": "national-geographic"
+                  },
+                 {
+                  "content_type": "text",
+                  "title": "New Scientist",
+                  "payload": "new-scientist"
                   }
                   ]
                  }
