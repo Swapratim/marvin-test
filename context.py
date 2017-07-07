@@ -930,7 +930,7 @@ def topFourNewsArticle(reqContext):
                      "top_element_style": "large",
                       "elements" : [ 
                         {
-                            "title": data['articles'][0]['title'].strip(' - Times of India'),
+                            "title": data['articles'][0]['title'],
                             "image_url": data['articles'][0]['urlToImage'],
                             "subtitle": data['articles'][0]['description'],
                             "default_action": {
@@ -940,7 +940,7 @@ def topFourNewsArticle(reqContext):
                                 },
                             "buttons": [
                             {
-                               "title": "View",
+                               "title": "Read Full Article",
                                "type": "web_url",
                                "url": data['articles'][0]['url'],
                                "webview_height_ratio": "tall",
@@ -948,70 +948,63 @@ def topFourNewsArticle(reqContext):
                           ]
                         },
                         {
-                            "title": "Classic White T-Shirt",
-                            "image_url": "http://ecx.images-amazon.com/images/I/71A2pxQc3XL._UL1500_.jpg",
-                            "subtitle": "100% Cotton, 200% Comfortable",
+                            "title": data['articles'][1]['title'],
+                            "image_url": data['articles'][1]['urlToImage'],
+                            "subtitle": data['articles'][1]['description'],
                             "default_action": 
                                 {
                                     "type": "web_url",
-                                    "url": "http://ecx.images-amazon.com/images/I/71A2pxQc3XL._UL1500_.jpg",
+                                    "url": data['articles'][1]['url'],
                                     "webview_height_ratio": "tall"
                                 },
                                 "buttons": [
                                 {
-                                     "title": "Buy",
+                                     "title": "Read Full Article",
                                      "type": "web_url",
-                                     "url": "https://peterssendreceiveapp.ngrok.io/shop?item=100",
+                                     "url": data['articles'][1]['url'],
                                      "webview_height_ratio": "tall"
                                 }
                                ]
                         },
                         {
-                            "title": "Classic Blue T-Shirt",
-                            "image_url": "https://s20.postimg.org/gbwoaexl9/SALA_1.jpg",
-                            "subtitle": "100% Cotton, 200% Comfortable",
+                            "title": data['articles'][2]['title'],
+                            "image_url": data['articles'][2]['urlToImage'],
+                            "subtitle": data['articles'][2]['description'],
                             "default_action": 
                                {
                                    "type": "web_url",
-                                   "url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
+                                   "url": data['articles'][2]['url'],
                                    "webview_height_ratio": "tall"
                                 },
                                 "buttons": [
                                 {
-                                   "title": "Buy",
+                                   "title": "Read Full Article",
                                    "type": "web_url",
-                                   "url": "https://peterssendreceiveapp.ngrok.io/shop?item=102",
+                                   "url": data['articles'][2]['url'],
                                    "webview_height_ratio": "tall"
                                 }
                               ]
                        },
                        {
-                            "title": "Classic Black T-Shirt",
-                            "image_url": "https://peterssendreceiveapp.ngrok.io/img/black-t-shirt.png",
-                            "subtitle": "100% Cotton, 200% Comfortable",
+                            "title": data['articles'][3]['title'],
+                            "image_url": data['articles'][3]['urlToImage'],
+                            "subtitle": data['articles'][3]['description'],
                             "default_action": 
                             {
                                 "type": "web_url",
-                                "url": "https://peterssendreceiveapp.ngrok.io/view?item=102",
+                                "url": data['articles'][3]['url'],
                                 "webview_height_ratio": "tall"
                             },
                             "buttons": [
                             {
-                                "title": "Buy",
+                                "title": "Read Full Article",
                                 "type": "web_url",
-                                "url": "https://peterssendreceiveapp.ngrok.io/shop?item=102",
+                                "url": data['articles'][3]['url'],
                                 "webview_height_ratio": "tall"
                             }
                            ]
                         }
                         ],
-                        "buttons": [
-                         {
-                            "title": "View More",
-                            "type": "postback",
-                            "payload": "payload"
-                          }
-                           ],
                         "buttons": [
                          {
                             "title": "View More",
