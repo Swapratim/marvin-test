@@ -925,7 +925,6 @@ def topFourNewsArticle(reqContext):
                         {
                             "title": data['articles'][0]['title'],
                             "image_url": data['articles'][0]['urlToImage'],
-                            "subtitle": data['articles'][0]['description'],
                             "default_action": {
                                "type": "web_url",
                                "url": data['articles'][0]['url'],
@@ -933,7 +932,7 @@ def topFourNewsArticle(reqContext):
                                 },
                             "buttons": [
                             {
-                               "title": "Read Full Article",
+                               "title": "Read Article",
                                "type": "web_url",
                                "url": data['articles'][0]['url'],
                                "webview_height_ratio": "tall",
@@ -952,7 +951,7 @@ def topFourNewsArticle(reqContext):
                                 },
                                 "buttons": [
                                 {
-                                     "title": "Read Full Article",
+                                     "title": "Read Article",
                                      "type": "web_url",
                                      "url": data['articles'][1]['url'],
                                      "webview_height_ratio": "tall"
@@ -971,7 +970,7 @@ def topFourNewsArticle(reqContext):
                                 },
                                 "buttons": [
                                 {
-                                   "title": "Read Full Article",
+                                   "title": "Read Article",
                                    "type": "web_url",
                                    "url": data['articles'][2]['url'],
                                    "webview_height_ratio": "tall"
@@ -990,7 +989,7 @@ def topFourNewsArticle(reqContext):
                             },
                             "buttons": [
                             {
-                                "title": "Read Full Article",
+                                "title": "Read Article",
                                 "type": "web_url",
                                 "url": data['articles'][3]['url'],
                                 "webview_height_ratio": "tall"
