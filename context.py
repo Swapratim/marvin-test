@@ -911,7 +911,7 @@ def topSevenNewsArticle(reqContext):
     result = urllib.request.urlopen(newsAPI).read()
     data = json.loads(result)
     print ("data = json.loads(result)")
-    speech = data['articles'].encode('utf-8').strip()
+    #speech = data['articles'].encode('utf-8').strip()
     
     for articles_map in data['articles']:
         articles = articles_map['pagemap'],
