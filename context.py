@@ -53,9 +53,9 @@ def webhook():
     elif reqContext.get("result").get("action") == "topnews":
        print (reqContext.get("result").get("action"))
        return news_category_topnews(reqContext)
-    elif reqContext.get("result").get("action") == "topfivenewsarticle":
+    elif reqContext.get("result").get("action") == "topfournewsarticle":
        print (reqContext.get("result").get("action"))
-       return topSevenNewsArticle(reqContext)
+       return topFourNewsArticle(reqContext)
     else:
        print("Good Bye")
 
@@ -903,7 +903,7 @@ def news_category_topnews(reqContext):
 #   Below method is to get the News Details in JSON Format and put as List Template  #
 #                                                                                    #
 #************************************************************************************#
-def topSevenNewsArticle(reqContext):
+def topFourNewsArticle(reqContext):
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
     print ("resolvedQuery: " + resolvedQuery)
     newsAPI = "https://newsapi.org/v1/articles?source=" + resolvedQuery + "&sortBy=top&apiKey=" + newspai_access_token
@@ -913,9 +913,10 @@ def topSevenNewsArticle(reqContext):
     #print ("data = json.loads(result)")
     #speech = data['articles'].encode('utf-8').strip()
     
-    for articles_map in data['articles']:
-        #articles = articles_map['articles'],
-        print (articles)
+    print (data['articles'][0]['title'])
+    print (data['articles'][1]['title'])
+    print (data['articles'][2]['title'])
+    print (data['articles'][3]['title'])
     res = {
             "speech": "Please select the Newspaper",
             "displayText": "Please select the Newspaper",
