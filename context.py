@@ -910,11 +910,11 @@ def topSevenNewsArticle(reqContext):
     print("newsAPI::::" + newsAPI)
     result = urllib.request.urlopen(newsAPI).read()
     data = json.loads(result)
-    print ("data = json.loads(result)")
+    #print ("data = json.loads(result)")
     #speech = data['articles'].encode('utf-8').strip()
     
     for articles_map in data['articles']:
-        articles = articles_map['articles'],
+        #articles = articles_map['articles'],
         print (articles)
     res = {
             "speech": "Please select the Newspaper",
