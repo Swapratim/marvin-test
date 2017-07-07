@@ -910,13 +910,7 @@ def topFourNewsArticle(reqContext):
     print("newsAPI::::" + newsAPI)
     result = urllib.request.urlopen(newsAPI).read()
     data = json.loads(result)
-    #print ("data = json.loads(result)")
-    #speech = data['articles'].encode('utf-8').strip()
     
-    print (data['articles'][0]['title'])
-    print (data['articles'][1]['title'])
-    print (data['articles'][2]['title'])
-    print (data['articles'][3]['title'])
     res = {
             "speech": "Please select the Newspaper",
             "displayText": "Please select the Newspaper",
@@ -927,8 +921,7 @@ def topFourNewsArticle(reqContext):
                   "type" : "template",
                     "payload" : {
                      "template_type" : "list",
-                     "top_element_style": "large",
-                      "elements" : [ 
+                     "elements" : [ 
                         {
                             "title": data['articles'][0]['title'],
                             "image_url": data['articles'][0]['urlToImage'],
