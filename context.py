@@ -914,7 +914,7 @@ def topSevenNewsArticle(reqContext):
     #speech = data['articles'].encode('utf-8').strip()
     
     for articles_map in data['articles']:
-        articles = articles_map['pagemap'],
+        articles = articles_map['articles'],
         print (articles)
     res = {
             "speech": "Please select the Newspaper",
