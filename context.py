@@ -930,19 +930,19 @@ def topFourNewsArticle(reqContext):
                      "top_element_style": "large",
                       "elements" : [ 
                         {
-                            "title": "Classic T-Shirt Collection",
-                            "image_url": "http://1.bp.blogspot.com/-6kvyhUbdzHo/VCFQYmDu-HI/AAAAAAAABcg/GKJ4QHEwnDM/s1600/crab.jpg",
-                            "subtitle": "See all our colors",
+                            "title": data['articles'][0]['title'].strip(' - Times of India'),
+                            "image_url": data['articles'][0]['urlToImage'],
+                            "subtitle": data['articles'][0]['description'],
                             "default_action": {
                                "type": "web_url",
-                               "url": "http://1.bp.blogspot.com/-6kvyhUbdzHo/VCFQYmDu-HI/AAAAAAAABcg/GKJ4QHEwnDM/s1600/crab.jpg",
+                               "url": data['articles'][0]['url'],
                                 "webview_height_ratio": "tall",
                                 },
                             "buttons": [
                             {
                                "title": "View",
                                "type": "web_url",
-                               "url": "http://1.bp.blogspot.com/-6kvyhUbdzHo/VCFQYmDu-HI/AAAAAAAABcg/GKJ4QHEwnDM/s1600/crab.jpg",
+                               "url": data['articles'][0]['url'],
                                "webview_height_ratio": "tall",
                             }
                           ]
