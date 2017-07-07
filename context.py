@@ -183,26 +183,12 @@ def weather(reqContext):
 def weatherhook(reqContext):
    #req = request.get_json(silent=True, force=True)
    result = reqContext.get("result")
-   print ("SSSSSSSSSSSSSSSSSSSSSSS")
-   #print ("Within weatherhook method " + req.get("result").get("action"))
-   #if req.get("result").get("action") != "yahooWeatherForecast":
-   #    return {}
-   ###########################################################
-   #print (result)
-   #print ('####################')
    parameters = result.get("parameters")
    city = parameters.get("geo-city")
    if not parameters.get("geo-city"):
       city = parameters.get("geo-city-dk")
       #return 
 
-   #if not parameters.get("geo-city-dk"):
-   #   city = parameters.get("geo-city")
-      #return city
-   #print (city)
-   #print ('********************')
-   #if city is None:
-   #    return None
    ###########################################################
    data = yahoo_weatherapi(city)
    #print (data)
@@ -502,33 +488,7 @@ def searchhook(reqContext):
             raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA"
             print ('***FALSE***') 
     
-    # if 'cse_thumbnail' not in pagemap:
-        # raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",         
-    # else:
-        # for key in pagemap:
-            # cse_thumbnail = key['cse_thumbnail'],
-            # for image_data in cse_thumbnail:
-                # raw_str = image_data['src'],
-        
-    # if cse_thumbnail is None:
-        # return {}
     
-    #for image_data in cse_thumbnail:
-    #    raw_str = image_data['src'],
-
-    # if raw_str is None:
-        # return {}
-
-    #if not cse_thumbnail:
-    #    raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA",
-    #       if raw_str is None:
-    #          return {}
-
-    # src_u_string_removed = [str(i) for i in raw_str]
-    # src_u_removed = str(src_u_string_removed)
-    # src_brace_removed_1 = src_u_removed.strip('[')
-    # src_brace_removed_2 = src_brace_removed_1.strip(']')
-    # src_brace_removed_final =  src_brace_removed_2.strip("'")
     src_brace_removed_final = raw_str
     # Remove junk charaters from URL
     link_u_removal =  [str(i) for i in link]
@@ -938,16 +898,24 @@ def news_category_topnews(reqContext):
     r.headers['Content-Type'] = 'application/json'
     return r
 
-
+#************************************************************************************#
+#                                                                                    #
+#   Below method is to get the News Details in JSON Format and put as List Template  #
+#                                                                                    #
+#************************************************************************************#
 def topSevenNewsArticle(reqContext):
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
     print ("resolvedQuery: " + resolvedQuery)
     newsAPI = "https://newsapi.org/v1/articles?source=" + resolvedQuery + "&sortBy=top&apiKey=" + newspai_access_token
     print("newsAPI::::" + newsAPI)
     result = urllib.request.urlopen(newsAPI).read()
-    print (result)
     data = json.loads(result)
     print ("data = json.loads(result)")
+    speech = data['articles'].encode('utf-8').strip()
+    
+    for articles_map in data['articles']:
+        articles = articles_map['pagemap'],
+        print (articles)
     res = {
             "speech": "Please select the Newspaper",
             "displayText": "Please select the Newspaper",
