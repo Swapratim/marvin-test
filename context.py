@@ -106,7 +106,38 @@ def welcome():
                  {
                  "text": speech
                   },
-                 {
+                 ]
+               }
+            };
+    print (res)
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    print (r)
+    return r
+
+def reply(user_id, msg):
+    data = {
+        "recipient": {"id": user_id},
+        "message": {"text": msg}
+    }
+    print ("Data.........")
+    print (data)
+    resp = requests.post("https://graph.facebook.com/v2.6/me/messages?access_token=" + ACCESS_TOKEN, json=data)
+    print(resp.content)
+
+#************************************************************************************#
+#                                                                                    #
+#   This method is to get the Facebook User Deatails via graph.facebook.com/v2.6     #
+#                                                                                    #
+#************************************************************************************#
+def quickReply():
+res = {
+          "speech": speech,
+          "displayText": speech,
+           "data" : {
+              "facebook" : [
+                  {
                   "text": "Click your choice:",
                   "quick_replies": [
                  {
@@ -139,16 +170,6 @@ def welcome():
     print (r)
     return r
 
-def reply(user_id, msg):
-    data = {
-        "recipient": {"id": user_id},
-        "message": {"text": msg}
-    }
-    print ("Data.........")
-    print (data)
-    resp = requests.post("https://graph.facebook.com/v2.6/me/messages?access_token=" + ACCESS_TOKEN, json=data)
-    print(resp.content)
- 
 #************************************************************************************#
 #                                                                                    #
 #   Below method is to get the Facebook Quick Reply Webhook Handling - Weather       #
