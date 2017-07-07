@@ -907,10 +907,9 @@ def topFourNewsArticle(reqContext):
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
     print ("resolvedQuery: " + resolvedQuery)
     newsAPI = "https://newsapi.org/v1/articles?source=" + resolvedQuery + "&sortBy=top&apiKey=" + newspai_access_token
-    print("newsAPI::::" + newsAPI)
     result = urllib.request.urlopen(newsAPI).read()
     data = json.loads(result)
-    
+    view_url = newsWebsiteIdentification(resolvedQuery)
     res = {
             "speech": "Please select the Newspaper",
             "displayText": "Please select the Newspaper",
@@ -999,9 +998,9 @@ def topFourNewsArticle(reqContext):
                         ],
                         "buttons": [
                          {
-                            "title": "View More",
+                            "title": "View Site",
                             "type": "postback",
-                            "payload": "payload"                        
+                            "url": view_url,                        
                         }
                        ]  
                      } 
@@ -1017,6 +1016,77 @@ def topFourNewsArticle(reqContext):
     r.headers['Content-Type'] = 'application/json'
     return r
 
+# Identifying Newspaper Websites
+def newsWebsiteIdentification(resolvedQuery):
+
+    if resolvedQuery == "the-times-of-india":
+       condition_code = "http://timesofindia.indiatimes.com"
+    elif resolvedQuery == "bbc-news":
+       condition_code = "http://www.bbc.com/news"
+    elif resolvedQuery == "cnn":
+       condition_code = "http://edition.cnn.com"
+    elif resolvedQuery == "time":
+       condition_code = "http://time.com"
+    elif resolvedQuery == "usa-today":
+       condition_code = "https://www.usatoday.com"
+    elif resolvedQuery == "the-telegraph":
+       condition_code = "http://www.telegraph.co.uk"
+    elif resolvedQuery == "the-washington-post":
+       condition_code = "https://www.washingtonpost.com"
+    elif resolvedQuery == "the-guardian-uk":
+       condition_code = "https://www.theguardian.com/uk"
+    elif resolvedQuery == "the-guardian-au":
+       condition_code = "https://www.theguardian.com/au"
+    elif resolvedQuery == "reuters":
+       condition_code = "http://www.reuters.com"
+    elif resolvedQuery == "the-hindu":
+       condition_code = "http://www.thehindu.com"
+    elif resolvedQuery == "espn":
+       condition_code = "http://espn.go.com"
+    elif resolvedQuery == "espn-cric-info":
+       condition_code = "http://www.espncricinfo.com"
+    elif resolvedQuery == "bbc-sport":
+       condition_code = "http://www.bbc.com/sport"
+    elif resolvedQuery == "fox-sports":
+       condition_code = "http://www.foxsports.com"
+    elif resolvedQuery == "the-sport-bible":
+       condition_code = "http://www.sportbible.com"
+    elif resolvedQuery == "the-economist":
+       condition_code = "https://www.economist.com"
+    elif resolvedQuery == "financial-times":
+       condition_code = "https://www.ft.com"
+    elif resolvedQuery == "cnbc":
+       condition_code = "http://www.cnbc.com"
+    elif resolvedQuery == "business-insider":
+       condition_code = "http://nordic.businessinsider.com"
+    elif resolvedQuery == "fortune":
+       condition_code = "http://fortune.com"
+    elif resolvedQuery == "the-wall-street-journal":
+       condition_code = "https://www.wsj.com"
+    elif resolvedQuery == "techradar":
+       condition_code = "http://www.techradar.com"
+    elif resolvedQuery == "techcrunch":
+       condition_code = "https://techcrunch.com"
+    elif resolvedQuery == "t3n":
+       condition_code = "http://t3n.de"
+    elif resolvedQuery == "hacker-news":
+       condition_code = "http://thehackernews.com"
+    elif resolvedQuery == "buzzfeed":
+       condition_code = "https://www.buzzfeed.com"
+    elif resolvedQuery == "entertainment-weekly":
+       condition_code = "http://ew.com"
+    elif resolvedQuery == "mtv-news":
+       condition_code = "http://www.mtv.com"
+    elif resolvedQuery == "mtv-news-uk":
+       condition_code = "http://www.mtv.co.uk/news"
+    elif resolvedQuery == "national-geographic":
+       condition_code = "http://www.nationalgeographic.com"
+    elif resolvedQuery == "new-scientist":
+       condition_code = "https://www.newscientist.com"
+    else: 
+       print ("Newspaper name did not match the input")
+
+    return condition_code
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
