@@ -132,7 +132,7 @@ def reply(user_id, msg):
 #                                                                                    #
 #************************************************************************************#
 def quickReply():
-res = {
+    res = {
           "speech": speech,
           "displayText": speech,
            "data" : {
