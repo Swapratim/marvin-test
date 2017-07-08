@@ -953,7 +953,8 @@ def topFourNewsArticle(reqContext):
     newsAPI = "https://newsapi.org/v1/articles?source=" + resolvedQuery + "&sortBy=top&apiKey=" + newspai_access_token
     result = urllib.request.urlopen(newsAPI).read()
     data = json.loads(result)
-    view_url = newsWebsiteIdentification(resolvedQuery)
+    newspaper_url = newsWebsiteIdentification(resolvedQuery)
+    print ("newspaper_url finally: " + newspaper_url)
     res = {
             "speech": "Please select the Newspaper",
             "displayText": "Please select the Newspaper",
@@ -1044,7 +1045,7 @@ def topFourNewsArticle(reqContext):
                          {
                             "title": "View Site",
                             "type": "postback",
-                            "url": view_url,                        
+                            "url": newspaper_url,                        
                         }
                        ]  
                      } 
@@ -1064,72 +1065,73 @@ def topFourNewsArticle(reqContext):
 def newsWebsiteIdentification(resolvedQuery):
 
     if resolvedQuery == "the-times-of-india":
-       condition_code = "http://timesofindia.indiatimes.com"
+       newspaper_url = "http://timesofindia.indiatimes.com"
     elif resolvedQuery == "bbc-news":
-       condition_code = "http://www.bbc.com/news"
+       newspaper_url = "http://www.bbc.com/news"
     elif resolvedQuery == "cnn":
-       condition_code = "http://edition.cnn.com"
+       newspaper_url = "http://edition.cnn.com"
     elif resolvedQuery == "time":
-       condition_code = "http://time.com"
+       newspaper_url = "http://time.com"
     elif resolvedQuery == "usa-today":
-       condition_code = "https://www.usatoday.com"
+       newspaper_url = "https://www.usatoday.com"
     elif resolvedQuery == "the-telegraph":
-       condition_code = "http://www.telegraph.co.uk"
+       newspaper_url = "http://www.telegraph.co.uk"
     elif resolvedQuery == "the-washington-post":
-       condition_code = "https://www.washingtonpost.com"
+       newspaper_url = "https://www.washingtonpost.com"
     elif resolvedQuery == "the-guardian-uk":
-       condition_code = "https://www.theguardian.com/uk"
+       newspaper_url = "https://www.theguardian.com/uk"
     elif resolvedQuery == "the-guardian-au":
-       condition_code = "https://www.theguardian.com/au"
+       newspaper_url = "https://www.theguardian.com/au"
     elif resolvedQuery == "reuters":
-       condition_code = "http://www.reuters.com"
+       newspaper_url = "http://www.reuters.com"
     elif resolvedQuery == "the-hindu":
-       condition_code = "http://www.thehindu.com"
+       newspaper_url = "http://www.thehindu.com"
     elif resolvedQuery == "espn":
-       condition_code = "http://espn.go.com"
+       newspaper_url = "http://espn.go.com"
     elif resolvedQuery == "espn-cric-info":
-       condition_code = "http://www.espncricinfo.com"
+       newspaper_url = "http://www.espncricinfo.com"
     elif resolvedQuery == "bbc-sport":
-       condition_code = "http://www.bbc.com/sport"
+       newspaper_url = "http://www.bbc.com/sport"
     elif resolvedQuery == "fox-sports":
-       condition_code = "http://www.foxsports.com"
+       newspaper_url = "http://www.foxsports.com"
     elif resolvedQuery == "the-sport-bible":
-       condition_code = "http://www.sportbible.com"
+       newspaper_url = "http://www.sportbible.com"
     elif resolvedQuery == "the-economist":
-       condition_code = "https://www.economist.com"
+       newspaper_url = "https://www.economist.com"
     elif resolvedQuery == "financial-times":
-       condition_code = "https://www.ft.com"
+       newspaper_url = "https://www.ft.com"
     elif resolvedQuery == "cnbc":
-       condition_code = "http://www.cnbc.com"
+       newspaper_url = "http://www.cnbc.com"
     elif resolvedQuery == "business-insider":
-       condition_code = "http://nordic.businessinsider.com"
+       newspaper_url = "http://nordic.businessinsider.com"
     elif resolvedQuery == "fortune":
-       condition_code = "http://fortune.com"
+       newspaper_url = "http://fortune.com"
     elif resolvedQuery == "the-wall-street-journal":
-       condition_code = "https://www.wsj.com"
+       newspaper_url = "https://www.wsj.com"
     elif resolvedQuery == "techradar":
-       condition_code = "http://www.techradar.com"
+       newspaper_url = "http://www.techradar.com"
     elif resolvedQuery == "techcrunch":
-       condition_code = "https://techcrunch.com"
+       newspaper_url = "https://techcrunch.com"
     elif resolvedQuery == "t3n":
-       condition_code = "http://t3n.de"
+       newspaper_url = "http://t3n.de"
     elif resolvedQuery == "hacker-news":
-       condition_code = "http://thehackernews.com"
+       newspaper_url = "http://thehackernews.com"
     elif resolvedQuery == "buzzfeed":
-       condition_code = "https://www.buzzfeed.com"
+       newspaper_url = "https://www.buzzfeed.com"
     elif resolvedQuery == "entertainment-weekly":
-       condition_code = "http://ew.com"
+       newspaper_url = "http://ew.com"
     elif resolvedQuery == "mtv-news":
-       condition_code = "http://www.mtv.com"
+       newspaper_url = "http://www.mtv.com"
     elif resolvedQuery == "mtv-news-uk":
-       condition_code = "http://www.mtv.co.uk/news"
+       newspaper_url = "http://www.mtv.co.uk/news"
     elif resolvedQuery == "national-geographic":
-       condition_code = "http://www.nationalgeographic.com"
+       newspaper_url = "http://www.nationalgeographic.com"
     elif resolvedQuery == "new-scientist":
-       condition_code = "https://www.newscientist.com"
+       newspaper_url = "https://www.newscientist.com"
     else: 
        print ("Newspaper name did not match the input")
 
+    print ("Within newsWebsiteIdentification Method, the newspaper_url is: " + newspaper_url)
     return condition_code
 
 if __name__ == '__main__':
