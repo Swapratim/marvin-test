@@ -768,7 +768,7 @@ def news_category_topnews(reqContext):
             "data" : {
             "facebook" : [
                  {
-                  "text": "Please select your the Newspaper of your choice:",
+                  "text": "Please select the Newspaper of your choice:",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -843,12 +843,12 @@ def news_category_topnews(reqContext):
          };
     elif resolvedQuery == "sports":
         res = {
-            "speech": "Please select your the Newspaper of your choice:",
-            "displayText": "Please select your the Newspaper of your choice:",
+            "speech": "Please select the Newspaper of your choice:",
+            "displayText": "Please select the Newspaper of your choice:",
             "data" : {
             "facebook" : [
                  {
-                  "text": "Please select your the Newspaper of your choice:",
+                  "text": "Please select the Newspaper of your choice:",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -887,12 +887,12 @@ def news_category_topnews(reqContext):
          };
     elif resolvedQuery == "business":
         res = {
-            "speech": "Please select your the Newspaper of your choice:",
-            "displayText": "Please select your the Newspaper of your choice:",
+            "speech": "Please select the Newspaper of your choice:",
+            "displayText": "Please select the Newspaper of your choice:",
             "data" : {
             "facebook" : [
                  {
-                  "text": "Please select your the Newspaper of your choice:",
+                  "text": "Please select the Newspaper of your choice:",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -937,12 +937,12 @@ def news_category_topnews(reqContext):
          };
     elif resolvedQuery == "technology":
         res = {
-            "speech": "Please select your the Newspaper of your choice:",
-            "displayText": "Please select your the Newspaper of your choice:",
+            "speech": "Please select the Newspaper of your choice:",
+            "displayText": "Please select the Newspaper of your choice:",
             "data" : {
             "facebook" : [
                  {
-                  "text": "Please select your the Newspaper of your choice:",
+                  "text": "Please select the Newspaper of your choice:",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -993,12 +993,12 @@ def news_category_topnews(reqContext):
          };
     elif resolvedQuery == "entertainment":
         res = {
-            "speech": "Please select your the Newspaper of your choice:",
-            "displayText": "Please select your the Newspaper of your choice:",
+            "speech": "Please select the Newspaper of your choice:",
+            "displayText": "Please select the Newspaper of your choice:",
             "data" : {
             "facebook" : [
                  {
-                  "text": "Please select your the Newspaper of your choice:",
+                  "text": "Please select the Newspaper of your choice:",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -1025,12 +1025,12 @@ def news_category_topnews(reqContext):
          };
     elif resolvedQuery == "science":
         res = {
-            "speech": "Please select your the Newspaper of your choice:",
-            "displayText": "Please select your the Newspaper of your choice:",
+            "speech": "Please select the Newspaper of your choice:",
+            "displayText": "Please select the Newspaper of your choice:",
             "data" : {
             "facebook" : [
                  {
-                  "text": "Please select your the Newspaper of your choice:",
+                  "text": "Please select the Newspaper of your choice:",
                   "quick_replies": [
                  {
                   "content_type": "text",
