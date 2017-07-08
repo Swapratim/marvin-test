@@ -1166,7 +1166,7 @@ def topFourNewsArticle(reqContext):
                    }
                  },
                  {
-                  "text": " ",
+                  "text": "Search Again",
                   "quick_replies": [
                  {
                   "content_type": "text",
