@@ -156,8 +156,8 @@ def reply(user_id, msg):
 #************************************************************************************#
 def quickReply():
     res = {
-          "speech": speech,
-          "displayText": speech,
+          "speech": "QuickReply",
+          "displayText": "QuickReply",
            "data" : {
               "facebook" : [
                   {
