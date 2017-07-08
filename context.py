@@ -1045,7 +1045,7 @@ def topFourNewsArticle(reqContext):
                          {
                             "title": "View Site",
                             "type": "postback",
-                            "url": newspaper_url,                        
+                            "url": newspaper_url
                         }
                        ]  
                      } 
