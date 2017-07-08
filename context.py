@@ -453,7 +453,7 @@ def wikipedia_search(reqContext):
         "data" : {
         "facebook" : [
                {
-                "text": "Please provide the topic you want to search in Wikipedia"
+                "text": "Please ask a question you want to search in Wikipedia"
                }
              ]
            } 
