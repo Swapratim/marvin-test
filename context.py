@@ -56,6 +56,8 @@ def webhook():
        return news_category_topnews(reqContext)
     elif reqContext.get("result").get("action") == "topfournewsarticle":
        return topFourNewsArticle(reqContext)
+    elif reqContext.get("result").get("action") == "youtubeVideoSearch":
+       return youtubeVideoSearch(reqContext)
     else:
        print("Good Bye")
 
@@ -637,7 +639,7 @@ def searchhook(reqContext):
 
 #************************************************************************************#
 #                                                                                    #
-#   This method is to get the Wikipedia Information via Google API                   #
+#   This method is to get the Wikipedia Information via Google API via Funnel        #
 #                                                                                    #
 #************************************************************************************#
 # Searchhook is for searching for Wkipedia information via Google API
@@ -751,6 +753,35 @@ def wikipediaInformationSearch(reqContext):
                   "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
                    }
                   ]
+                 }
+               ]
+             } 
+         };
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
+
+#************************************************************************************#
+#                                                                                    #
+#   This method is for searching YouTube videos via YouTube API via Funnel           #
+#                                                                                    #
+#************************************************************************************#
+
+def youtubeVideoSearch(reqContext):
+    
+    res = {
+          "speech": "Video",
+          "displayText": "Video",
+           "data" : {
+              "facebook" : [
+                  {
+                    "attachment":{
+                    "type":"video",
+                    "payload":{
+                       "url":"https://www.youtube.com/watch?v=YmIhZCNXfJE"
+                      }
+                   }
                  }
                ]
              } 
