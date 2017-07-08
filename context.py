@@ -605,7 +605,7 @@ def newsCategory(reqContext):
                   "content_type": "text",
                   "title": "Top News",
                   "payload": "topnews",
-                  "image_url": "http://previews.123rf.com/images/valentint/valentint1504/valentint150400625/38275034-Top-news-icon-Internet-button-on-white-background--Stock-Photo.jpg"
+                  "image_url": "https://previews.123rf.com/images/alexwhite/alexwhite1209/alexwhite120900529/15471651-news-icon-Stock-Photo-icons.jpg"
                   },
                  {
                   "content_type": "text",
@@ -623,13 +623,13 @@ def newsCategory(reqContext):
                   "content_type": "text",
                   "title": "Technology",
                   "payload": "technology",
-                  "image_url": "https://image.shutterstock.com/z/stock-vector-technology-icon-310169531.jpg"
+                  "image_url": "https://cdn.pixabay.com/photo/2015/12/04/22/20/gear-1077550_640.png"
                   },
                   {
                   "content_type": "text",
                   "title": "Entertainment",
                   "payload": "entertainment",
-                  "image_url": "http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/3d-glossy-blue-orbs-icons-sports-hobbies/041834-3d-glossy-blue-orb-icon-sports-hobbies-masks-sc37.png"
+                  "image_url": "https://userscontent2.emaze.com/images/2afc7b67-eba3-41c8-adce-b1e2b1c34b02/99782968e977045b1f88f94d0c4e00cf.png"
                   },
                   {
                   "content_type": "text",
