@@ -107,7 +107,7 @@ def welcome():
                  "text": speech
                   },
                  {
-                  "text": "Click your choice:",
+                  "text": "Please select your choice:",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -161,7 +161,7 @@ def quickReply():
            "data" : {
               "facebook" : [
                   {
-                  "text": "Click your choice:",
+                  "text": "Please select your choice:",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -202,12 +202,12 @@ def weather(reqContext):
     print (reqContext.get("result").get("action"))
     option = reqContext.get("result").get("action")
     res = {
-        "speech": "Please provide the city name",
-        "displayText": "Please provide the city name",
+        "speech": "Please provide a city name for weather report:",
+        "displayText": "Please provide a city name for weather report:",
         "data" : {
         "facebook" : [
                {
-                "text": "Please provide the city name"
+                "text": "Please provide a city name for weather report:"
                }
              ]
            } 
@@ -455,7 +455,7 @@ def wikipedia_search(reqContext):
         "data" : {
         "facebook" : [
                {
-                "text": "Please ask a question you want to search in Wikipedia"
+                "text": "Please write the topic you want to search in Wikipedia"
                }
              ]
            } 
@@ -597,13 +597,11 @@ def searchhook(reqContext):
 # Searchhook is for searching for Wkipedia information via Google API
 def wikipediaInformationSearch(reqContext):
     req = request.get_json(silent=True, force=True)
-    print("Within Search function......!!")
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
     print ("resolvedQuery: " + resolvedQuery)
     true_false = True
     baseurl = "https://www.googleapis.com/customsearch/v1?"
     resolvedQueryFinal = resolvedQuery.replace(" ", "%20")
-    print(resolvedQueryFinal)
     search_string_ascii = resolvedQueryFinal.encode('ascii')
     if search_string_ascii is None:
         return None
@@ -629,27 +627,18 @@ def wikipediaInformationSearch(reqContext):
     cse_thumbnail_brace_removed_1 = cse_thumbnail_u_removed.strip('[')
     cse_thumbnail_brace_removed_2 = cse_thumbnail_brace_removed_1.strip(']')
     cse_thumbnail_brace_removed_final =  cse_thumbnail_brace_removed_2.strip("'")
-    print (cse_thumbnail_brace_removed_final)
     keys = ('cse_thumbnail', 'metatags', 'cse_image')
     for key in keys:
-        # print(key in cse_thumbnail_brace_removed_final)
-        print ('cse_thumbnail' in cse_thumbnail_brace_removed_final)
         true_false = 'cse_thumbnail' in cse_thumbnail_brace_removed_final
         if true_false == True:
-            print ('Condition matched -- Within IF block')
             for key in pagemap:
                 cse_thumbnail = key['cse_thumbnail']
-                print ('Within the For loop -- cse_thumbnail is been assigned')
                 for image_data in cse_thumbnail:
                     raw_str = image_data['src']
-                    print ('raw_str::: ' + raw_str)
-                    print ('***TRUE***')
                     break
         else:
             raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA"
-            print ('***FALSE***') 
-    
-    
+           
     src_brace_removed_final = raw_str
     # Remove junk charaters from URL
     link_u_removal =  [str(i) for i in link]
@@ -659,12 +648,12 @@ def wikipediaInformationSearch(reqContext):
     link_final =  link_brace_removed_2.strip("'")
     # Remove junk character from search item
     search_string_final = resolvedQuery.strip("'")
-    print ("Image::::::::")
-    print (src_brace_removed_final)
-    print ("link_final....")
-    print (link_final)
-    print("Response:")
-    print(speech)
+    #print ("Image::::::::")
+    #print (src_brace_removed_final)
+    #print ("link_final....")
+    #print (link_final)
+    #print("Response:")
+    #print(speech)
 ############################################################
     res = {
           "speech": speech,
@@ -716,11 +705,11 @@ def newsCategory(reqContext):
             "data" : {
             "facebook" : [
                  {
-                  "text": "Select your choice:",
+                  "text": "Please select your favourite category:",
                   "quick_replies": [
                  {
                   "content_type": "text",
-                  "title": "Top News",
+                  "title": "Latest News",
                   "payload": "topnews",
                   "image_url": "https://previews.123rf.com/images/alexwhite/alexwhite1209/alexwhite120900529/15471651-news-icon-Stock-Photo-icons.jpg"
                   },
@@ -774,12 +763,12 @@ def news_category_topnews(reqContext):
     print ("resolvedQuery: " + resolvedQuery)
     if resolvedQuery == "topnews":
         res = {
-            "speech": "Please select the Newspaper",
-            "displayText": "Please select the Newspaper",
+            "speech": "Please select your favourite Newspaper:",
+            "displayText": "Please select your favourite Newspaper:",
             "data" : {
             "facebook" : [
                  {
-                  "text": "Please Select Newspaper:",
+                  "text": "Please select your the Newspaper of your choice:",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -854,12 +843,12 @@ def news_category_topnews(reqContext):
          };
     elif resolvedQuery == "sports":
         res = {
-            "speech": "Please select the Newspaper",
-            "displayText": "Please select the Newspaper",
+            "speech": "Please select your the Newspaper of your choice:",
+            "displayText": "Please select your the Newspaper of your choice:",
             "data" : {
             "facebook" : [
                  {
-                  "text": "Please Select Newspaper:",
+                  "text": "Please select your the Newspaper of your choice:",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -898,12 +887,12 @@ def news_category_topnews(reqContext):
          };
     elif resolvedQuery == "business":
         res = {
-            "speech": "Please select the Newspaper",
-            "displayText": "Please select the Newspaper",
+            "speech": "Please select your the Newspaper of your choice:",
+            "displayText": "Please select your the Newspaper of your choice:",
             "data" : {
             "facebook" : [
                  {
-                  "text": "Please Select Newspaper:",
+                  "text": "Please select your the Newspaper of your choice:",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -948,12 +937,12 @@ def news_category_topnews(reqContext):
          };
     elif resolvedQuery == "technology":
         res = {
-            "speech": "Please select the Newspaper",
-            "displayText": "Please select the Newspaper",
+            "speech": "Please select your the Newspaper of your choice:",
+            "displayText": "Please select your the Newspaper of your choice:",
             "data" : {
             "facebook" : [
                  {
-                  "text": "Please Select Newspaper:",
+                  "text": "Please select your the Newspaper of your choice:",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -1004,12 +993,12 @@ def news_category_topnews(reqContext):
          };
     elif resolvedQuery == "entertainment":
         res = {
-            "speech": "Please select the Newspaper",
-            "displayText": "Please select the Newspaper",
+            "speech": "Please select your the Newspaper of your choice:",
+            "displayText": "Please select your the Newspaper of your choice:",
             "data" : {
             "facebook" : [
                  {
-                  "text": "Please Select Newspaper:",
+                  "text": "Please select your the Newspaper of your choice:",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -1036,12 +1025,12 @@ def news_category_topnews(reqContext):
          };
     elif resolvedQuery == "science":
         res = {
-            "speech": "Please select the Newspaper",
-            "displayText": "Please select the Newspaper",
+            "speech": "Please select your the Newspaper of your choice:",
+            "displayText": "Please select your the Newspaper of your choice:",
             "data" : {
             "facebook" : [
                  {
-                  "text": "Please Select Newspaper:",
+                  "text": "Please select your the Newspaper of your choice:",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -1081,8 +1070,8 @@ def topFourNewsArticle(reqContext):
     newspaper_url = newsWebsiteIdentification(resolvedQuery)
     print ("newspaper_url finally: " + newspaper_url)
     res = {
-            "speech": "Please select the Newspaper",
-            "displayText": "Please select the Newspaper",
+            "speech": "NewsList",
+            "displayText": "NewsList",
             "data" : {
             "facebook" : [
                  {
@@ -1184,6 +1173,7 @@ def topFourNewsArticle(reqContext):
     print (res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
+    quickReply()
     return r
 
 
