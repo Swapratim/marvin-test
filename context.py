@@ -478,10 +478,10 @@ def searchhook(reqContext):
     result = req.get("result")
     parameters = result.get("parameters")
     search_list0 = parameters.get("any")
-    print ("search_list0" + search_list0)
+    #print ("search_list0" + search_list0)
     search_u_string_removed = [str(i) for i in search_list0]
     search_list1 = str(search_u_string_removed)
-    print ("search_list1" + search_list1)
+    #print ("search_list1" + search_list1)
     cumulative_string = search_list1.strip('[]')
     search_string = cumulative_string.replace(" ", "%20")
     print(search_string)
