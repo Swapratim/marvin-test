@@ -48,6 +48,8 @@ def webhook():
        return wikipedia_search(reqContext)
     elif reqContext.get("result").get("action") == "GoogleSearch":
        return searchhook(reqContext)
+    elif reqContext.get("result").get("action") == "wikipediaInformationSearch":
+       return wikipediaInformationSearch(reqContext)
     elif reqContext.get("result").get("action") == "news.category":
        return newsCategory(reqContext)
     elif reqContext.get("result").get("action") == "topnews":
@@ -499,6 +501,119 @@ def searchhook(reqContext):
     print("google_url::::"+google_url)
     result = urllib.request.urlopen(google_url).read()
     #print (result)
+    data = json.loads(result)
+    print ("data = json.loads(result)")
+############################################################
+    speech = data['items'][0]['snippet'].encode('utf-8').strip()
+    for data_item in data['items']:
+        link = data_item['link'],
+
+    for data_item in data['items']:
+        pagemap = data_item['pagemap'],
+
+    cse_thumbnail_u_string_removed = [str(i) for i in pagemap]
+    cse_thumbnail_u_removed = str(cse_thumbnail_u_string_removed)
+    cse_thumbnail_brace_removed_1 = cse_thumbnail_u_removed.strip('[')
+    cse_thumbnail_brace_removed_2 = cse_thumbnail_brace_removed_1.strip(']')
+    cse_thumbnail_brace_removed_final =  cse_thumbnail_brace_removed_2.strip("'")
+    print (cse_thumbnail_brace_removed_final)
+    keys = ('cse_thumbnail', 'metatags', 'cse_image')
+    for key in keys:
+        # print(key in cse_thumbnail_brace_removed_final)
+        print ('cse_thumbnail' in cse_thumbnail_brace_removed_final)
+        true_false = 'cse_thumbnail' in cse_thumbnail_brace_removed_final
+        if true_false == True:
+            print ('Condition matched -- Within IF block')
+            for key in pagemap:
+                cse_thumbnail = key['cse_thumbnail']
+                print ('Within the For loop -- cse_thumbnail is been assigned')
+                for image_data in cse_thumbnail:
+                    raw_str = image_data['src']
+                    print ('raw_str::: ' + raw_str)
+                    print ('***TRUE***')
+                    break
+        else:
+            raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA"
+            print ('***FALSE***') 
+    
+    
+    src_brace_removed_final = raw_str
+    # Remove junk charaters from URL
+    link_u_removal =  [str(i) for i in link]
+    link_u_removed = str(link_u_removal)
+    link_brace_removed_1 = link_u_removed.strip('[')
+    link_brace_removed_2 = link_brace_removed_1.strip(']')
+    link_final =  link_brace_removed_2.strip("'")
+    # Remove junk character from search item
+    search_string_final = cumulative_string.strip("'")
+    print ("Image::::::::")
+    print (src_brace_removed_final)
+    print ("link_final....")
+    print (link_final)
+    print("Response:")
+    print(speech)
+############################################################
+    res = {
+          "speech": speech,
+          "displayText": speech,
+           "data" : {
+              "facebook" : [
+                  {
+                 "attachment" : {
+                   "type" : "template",
+                     "payload" : {
+                      "template_type" : "generic",
+                       "elements" : [ 
+                                 {
+                                   "title" : search_string_final,
+                                   "image_url" : src_brace_removed_final,
+                                   "subtitle" : "",
+                                   "buttons": [{
+                                        "type": "web_url",
+                                        "url": link_final,
+                                        "title": "More info"
+                                    }]
+                                 } 
+                           ]
+                       } 
+                   }
+                },
+                 {
+                 "text": speech
+                  }
+               ]
+             } 
+         };
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
+
+#************************************************************************************#
+#                                                                                    #
+#   This method is to get the Wikipedia Information via Google API                   #
+#                                                                                    #
+#************************************************************************************#
+# Searchhook is for searching for Wkipedia information via Google API
+def wikipediaInformationSearch(reqContext):
+    req = request.get_json(silent=True, force=True)
+    print("Within Search function......!!")
+    resolvedQuery = reqContext.get("result").get("resolvedQuery")
+    print ("resolvedQuery: " + resolvedQuery)
+    true_false = True
+    baseurl = "https://www.googleapis.com/customsearch/v1?"
+    resolvedQuery = cumulative_string.replace(" ", "%20")
+    print(resolvedQuery)
+    search_string_ascii = search_string.encode('ascii')
+    if search_string_ascii is None:
+        return None
+    google_query = "key=AIzaSyDNYsLn4JGIR4UaZMFTAgDB9gKN3rty2aM&cx=003066316917117435589%3Avcms6hy5lxs&q=" + search_string_ascii + "&num=1"
+###########################################################
+    if google_query is None:
+        return {}
+    google_url = baseurl + google_query
+    print("google_url::::"+google_url)
+    result = urllib.request.urlopen(google_url).read()
     data = json.loads(result)
     print ("data = json.loads(result)")
 ############################################################
