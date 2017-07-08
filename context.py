@@ -613,7 +613,7 @@ def newsCategory(reqContext):
                   },
                   {
                   "content_type": "text",
-                  "title": "Business",
+                  "title": "Finance",
                   "payload": "business"
                   },
                   {
@@ -628,7 +628,7 @@ def newsCategory(reqContext):
                   },
                   {
                   "content_type": "text",
-                  "title": "Science",
+                  "title": "Science & Nature",
                   "payload": "science"
                   }
                   ]
@@ -1041,13 +1041,6 @@ def topFourNewsArticle(reqContext):
                            ]
                         }
                         ],
-                        "buttons": [
-                         {
-                            "title": "View More",
-                            "type": "postback",
-                            "payload": "payload"
-                          }
-                           ],
                         "buttons": [
                          {
                             "title": "View Site",
