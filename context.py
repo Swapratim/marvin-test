@@ -1132,7 +1132,7 @@ def newsWebsiteIdentification(resolvedQuery):
        print ("Newspaper name did not match the input")
 
     print ("Within newsWebsiteIdentification Method, the newspaper_url is: " + newspaper_url)
-    return condition_code
+    return newspaper_url
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
