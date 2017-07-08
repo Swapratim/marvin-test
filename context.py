@@ -602,9 +602,9 @@ def wikipediaInformationSearch(reqContext):
     print ("resolvedQuery: " + resolvedQuery)
     true_false = True
     baseurl = "https://www.googleapis.com/customsearch/v1?"
-    resolvedQuery = cumulative_string.replace(" ", "%20")
-    print(resolvedQuery)
-    search_string_ascii = search_string.encode('ascii')
+    resolvedQueryFinal = resolvedQuery.replace(" ", "%20")
+    print(resolvedQueryFinal)
+    search_string_ascii = resolvedQueryFinal.encode('ascii')
     if search_string_ascii is None:
         return None
     google_query = "key=AIzaSyDNYsLn4JGIR4UaZMFTAgDB9gKN3rty2aM&cx=003066316917117435589%3Avcms6hy5lxs&q=" + search_string_ascii + "&num=1"
