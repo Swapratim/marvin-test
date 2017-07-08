@@ -954,6 +954,7 @@ def news_category_topnews(reqContext):
 #                                                                                    #
 #************************************************************************************#
 newspaper_url = ''
+data = ''
 def topFourNewsArticle(reqContext):
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
     print ("resolvedQuery: " + resolvedQuery)
@@ -1051,8 +1052,8 @@ def topFourNewsArticle(reqContext):
                         "buttons": [
                          {
                             "title": "View Site",
-                            "type": "postback",
-                            "payload": "viewsite"
+                            "type": "web_url",
+                            "url": newspaper_url
                         }
                        ]  
                      } 
@@ -1061,16 +1062,18 @@ def topFourNewsArticle(reqContext):
                ]
              } 
            };
-    print (res)
+    #print (res)
     res = json.dumps(res, indent=4)
     print (res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
 
-def viewNewspaperWebsite():
-
- return r
+#def viewNewspaperWebsite():
+    
+   
+  
+#    return r
 
 #************************************************************************************#
 #                                                                                    #
