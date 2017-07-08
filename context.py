@@ -51,11 +51,11 @@ def webhook():
     elif reqContext.get("result").get("action") == "news.category":
        return newsCategory(reqContext)
     elif reqContext.get("result").get("action") == "topnews":
-       print (reqContext.get("result").get("action"))
        return news_category_topnews(reqContext)
     elif reqContext.get("result").get("action") == "topfournewsarticle":
-       print (reqContext.get("result").get("action"))
        return topFourNewsArticle(reqContext)
+    elif reqContext.get("result").get("action") == "viewNewspaperWebsite":
+       return viewNewspaperWebsite(reqContext)
     else:
        print("Good Bye")
 
@@ -604,32 +604,38 @@ def newsCategory(reqContext):
                  {
                   "content_type": "text",
                   "title": "Top News",
-                  "payload": "topnews"
+                  "payload": "topnews",
+                  "image_url": "http://previews.123rf.com/images/valentint/valentint1504/valentint150400625/38275034-Top-news-icon-Internet-button-on-white-background--Stock-Photo.jpg"
                   },
                  {
                   "content_type": "text",
                   "title": "Sports",
-                  "payload": "sports"
+                  "payload": "sports",
+                  "image_url": "http://thebridgeconference.com/wp-content/uploads/2014/05/main_paragraph_icon.png"
                   },
                   {
                   "content_type": "text",
                   "title": "Finance",
-                  "payload": "business"
+                  "payload": "business",
+                  "image_url": "http://www.22traders.com/wp-content/uploads/2014/09/statistics-market-icon11.png"
                   },
                   {
                   "content_type": "text",
                   "title": "Technology",
-                  "payload": "technology"
+                  "payload": "technology",
+                  "image_url": "https://image.shutterstock.com/z/stock-vector-technology-icon-310169531.jpg"
                   },
                   {
                   "content_type": "text",
                   "title": "Entertainment",
-                  "payload": "entertainment"
+                  "payload": "entertainment",
+                  "image_url": "http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/3d-glossy-blue-orbs-icons-sports-hobbies/041834-3d-glossy-blue-orb-icon-sports-hobbies-masks-sc37.png"
                   },
                   {
                   "content_type": "text",
                   "title": "Science & Nature",
-                  "payload": "science"
+                  "payload": "science",
+                  "image_url": "https://previews.123rf.com/images/sasigallery/sasigallery1510/sasigallery151000046/46507337-Atom-with-nature-Science-Environmental-Protection-Icon-symbol-design-Vector-illustration--Stock-Vector.jpg"
                   }
                   ]
                  }
@@ -947,6 +953,7 @@ def news_category_topnews(reqContext):
 #   Below method is to get the News Details in JSON Format and put as List Template  #
 #                                                                                    #
 #************************************************************************************#
+newspaper_url = ''
 def topFourNewsArticle(reqContext):
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
     print ("resolvedQuery: " + resolvedQuery)
@@ -1045,7 +1052,7 @@ def topFourNewsArticle(reqContext):
                          {
                             "title": "View Site",
                             "type": "postback",
-                            "payload": "payload"
+                            "payload": "viewsite"
                         }
                        ]  
                      } 
@@ -1061,7 +1068,15 @@ def topFourNewsArticle(reqContext):
     r.headers['Content-Type'] = 'application/json'
     return r
 
-# Identifying Newspaper Websites
+def viewNewspaperWebsite():
+
+ return r
+
+#************************************************************************************#
+#                                                                                    #
+#   Identifying Newspaper Website                                                    #
+#                                                                                    #
+#************************************************************************************#
 def newsWebsiteIdentification(resolvedQuery):
 
     if resolvedQuery == "the-times-of-india":
