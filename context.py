@@ -472,6 +472,8 @@ def wikipedia_search(reqContext):
 def searchhook(reqContext):
     req = request.get_json(silent=True, force=True)
     print("Within Search function......!!")
+    resolvedQuery = reqContext.get("result").get("resolvedQuery")
+    print ("resolvedQuery: " + resolvedQuery)
     true_false = True
     baseurl = "https://www.googleapis.com/customsearch/v1?"
 ###########################################################
