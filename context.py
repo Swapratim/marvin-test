@@ -1139,8 +1139,8 @@ def newsWebsiteIdentification(resolvedQuery):
        print ("Newspaper name did not match the input")
 
     print ("Within newsWebsiteIdentification Method, the newspaper_url is: " + newspaper_url)
-    return newspaper_url  print("Starting APPLICATION on port %d" % port)
+    return newspaper_url  
+if __name__ == '__main__':
+    port = int(os.getenv('PORT', 5000))
+    print("Starting APPLICATION on port %d" % port)
     context.run(debug=True, port=port, host='0.0.0.0')
- code = "mh7N"
-	   elif resolvedQuery == "espn":
-       condition_code 
