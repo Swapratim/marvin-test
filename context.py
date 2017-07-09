@@ -669,7 +669,7 @@ def wikipediaInformationSearch(reqContext):
     print("google_url::::"+google_url)
     result = urllib.request.urlopen(google_url).read()
     data = json.loads(result)
-    print (data)
+    #print (data)
 ############################################################
     speech = data['items'][0]['snippet'].encode('utf-8').strip()
     for data_item in data['items']:
@@ -820,9 +820,9 @@ def youtubeVideoSearch(reqContext):
     print ("data = json.loads(result)")
 
     items = data['items']
-        
-    id1 = items['items'][0]['videoId']
-    print (id1)
+        for id in items:
+            videoId = id['videoId']
+            print (videoId)
     res = {
           "speech": "Video",
           "displayText": "Video",
