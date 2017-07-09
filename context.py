@@ -669,7 +669,7 @@ def wikipediaInformationSearch(reqContext):
     print("google_url::::"+google_url)
     result = urllib.request.urlopen(google_url).read()
     data = json.loads(result)
-    print ("data = json.loads(result)")
+    print (data)
 ############################################################
     speech = data['items'][0]['snippet'].encode('utf-8').strip()
     for data_item in data['items']:
@@ -767,7 +767,6 @@ def wikipediaInformationSearch(reqContext):
          };
     res = json.dumps(res, indent=4)
     r = make_response(res)
-    print (r)
     r.headers['Content-Type'] = 'application/json'
     return r
 
