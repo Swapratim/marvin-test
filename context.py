@@ -803,6 +803,9 @@ def youtubeVideoSearch(reqContext):
            "data" : {
               "facebook" : [
                   {
+                    "sender_action": "typing_on"
+                  },
+                  {
                     "attachment":{
                     "type":"template",
                     "payload":{
