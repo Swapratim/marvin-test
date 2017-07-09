@@ -787,6 +787,7 @@ def youtubeVideoSearch(reqContext):
                     ]
                    }
                  }
+                }
                ]
              } 
          };
