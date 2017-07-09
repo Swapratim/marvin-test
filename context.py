@@ -159,49 +159,6 @@ def reply(user_id, msg):
     resp = requests.post("https://graph.facebook.com/v2.6/me/messages?access_token=" + ACCESS_TOKEN, json=data)
     print(resp.content)
 
-#************************************************************************************#
-#                                                                                    #
-#   This method is to get the Facebook User Deatails via graph.facebook.com/v2.6     #
-#                                                                                    #
-#************************************************************************************#
-def quickReply():
-    res = {
-          "speech": "QuickReply",
-          "displayText": "QuickReply",
-           "data" : {
-              "facebook" : [
-                  {
-                  "text": "Please select your choice:",
-                  "quick_replies": [
-                 {
-                  "content_type": "text",
-                  "title": "News",
-                  "payload": "news",
-                  "image_url": "http://www.freeiconspng.com/uploads/newspaper-icon-20.jpg"
-                 },
-                 {
-                  "content_type": "text",
-                  "title": "Weather",
-                  "payload": "weather",
-                  "image_url": "https://www.mikeafford.com/store/store-images/ww01_example_light_rain_showers.png"
-                   },
-                  {
-                  "content_type": "text",
-                  "title": "Wikipedia",
-                  "payload": "wikipedia",
-                  "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
-                   }
-                  ]
-                 }
-                ]
-               }
-            };
-    print (res)
-    res = json.dumps(res, indent=4)
-    r = make_response(res)
-    r.headers['Content-Type'] = 'application/json'
-    print (r)
-    return r
 
 #************************************************************************************#
 #                                                                                    #
@@ -345,6 +302,12 @@ def weatherhook(reqContext):
                   "title": "Wikipedia",
                   "payload": "wikipedia",
                   "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "YouTube",
+                  "payload": "youtube",
+                  "image_url": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png"
                    }
                   ]
                  }
@@ -634,6 +597,12 @@ def searchhook(reqContext):
                   "title": "Wikipedia",
                   "payload": "wikipedia",
                   "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "YouTube",
+                  "payload": "youtube",
+                  "image_url": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png"
                    }
                   ]
                  }
@@ -897,7 +866,36 @@ def youtubeVideoSearch(reqContext):
                     ]
                    }
                  }
-                }
+                },
+                 {
+                  "text": "Search Again",
+                  "quick_replies": [
+                 {
+                  "content_type": "text",
+                  "title": "News",
+                  "payload": "news",
+                  "image_url": "http://www.freeiconspng.com/uploads/newspaper-icon-20.jpg"
+                 },
+                 {
+                  "content_type": "text",
+                  "title": "Weather",
+                  "payload": "weather",
+                  "image_url": "https://www.mikeafford.com/store/store-images/ww01_example_light_rain_showers.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "Wikipedia",
+                  "payload": "wikipedia",
+                  "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "YouTube",
+                  "payload": "youtube",
+                  "image_url": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png"
+                   }
+                  ]
+                 }
                ]
              } 
          };
@@ -1401,6 +1399,12 @@ def topFourNewsArticle(reqContext):
                   "title": "Wikipedia",
                   "payload": "wikipedia",
                   "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "YouTube",
+                  "payload": "youtube",
+                  "image_url": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png"
                    }
                   ]
                  }
