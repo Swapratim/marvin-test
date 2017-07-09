@@ -840,7 +840,7 @@ def youtubeVideoSearch(reqContext):
                        "template_type":"open_graph",
                        "elements":[
                         {
-                          "url":"https://www.youtube.com/watch?v=YmIhZCNXfJE"
+                          "url":"https://www.youtube.com/watch?v=" + id_list[0].get('videoId')
                         }
                     ]
                    }
@@ -853,7 +853,46 @@ def youtubeVideoSearch(reqContext):
                        "template_type":"open_graph",
                        "elements":[
                         {
-                          "url":"https://www.youtube.com/watch?v=ltn3VpfRJmU"
+                          "url":"https://www.youtube.com/watch?v=" + id_list[1].get('videoId')
+                        }
+                    ]
+                   }
+                 }
+                },
+                {
+                    "attachment":{
+                    "type":"template",
+                    "payload":{
+                       "template_type":"open_graph",
+                       "elements":[
+                        {
+                          "url":"https://www.youtube.com/watch?v=" + id_list[2].get('videoId')
+                        }
+                    ]
+                   }
+                 }
+                },
+                {
+                    "attachment":{
+                    "type":"template",
+                    "payload":{
+                       "template_type":"open_graph",
+                       "elements":[
+                        {
+                          "url":"https://www.youtube.com/watch?v=" + id_list[3].get('videoId')
+                        }
+                    ]
+                   }
+                 }
+                },
+                {
+                    "attachment":{
+                    "type":"template",
+                    "payload":{
+                       "template_type":"open_graph",
+                       "elements":[
+                        {
+                          "url":"https://www.youtube.com/watch?v=" + id_list[4].get('videoId')
                         }
                     ]
                    }
