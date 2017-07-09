@@ -783,12 +783,19 @@ def youtubeVideoSearch(reqContext):
                        "elements":[
                         {
                           "url":"https://www.youtube.com/watch?v=YmIhZCNXfJE"
-                        },
+                        }
+                    ]
+                   }
+                 }
+                },
+                {
+                    "attachment":{
+                    "type":"template",
+                    "payload":{
+                       "template_type":"open_graph",
+                       "elements":[
                         {
                           "url":"https://www.youtube.com/watch?v=ltn3VpfRJmU"
-                        },
-                        {
-                          "url":"https://www.youtube.com/watch?v=AvNdOJMDMyQ"
                         }
                     ]
                    }
@@ -799,6 +806,7 @@ def youtubeVideoSearch(reqContext):
          };
     res = json.dumps(res, indent=4)
     r = make_response(res)
+    print (r)
     r.headers['Content-Type'] = 'application/json'
     return r
 
