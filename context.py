@@ -826,6 +826,8 @@ def youtubeVideoSearch(reqContext):
 
     videoId = id.get('videoId')
     print (videoId)
+    videoId1 = items['id'][0]['videoId']
+    print (videoId1)
     res = {
           "speech": "Video",
           "displayText": "Video",
