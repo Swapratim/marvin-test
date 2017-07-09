@@ -788,7 +788,7 @@ def youtubeVideoSearch(reqContext):
     search_string_ascii = resolvedQueryFinal.encode('ascii')
     if search_string_ascii is None:
         return None
-    youtube_query = "&key=AIzaSyDNYsLn4JGIR4UaZMFTAgDB9gKN3rty2aM&cx=003066316917117435589%3Avcms6hy5lxs"
+    youtube_query = "&key=AIzaSyDNYsLn4JGIR4UaZMFTAgDB9gKN3rty2aM&cx=003066316917117435589%3Avcms6hy5lxs&num=5"
     if youtube_query is None:
         return {}
     youtube_query = baseurl + search_string_ascii + youtube_query
@@ -799,12 +799,12 @@ def youtubeVideoSearch(reqContext):
 
     items = data['items']
     id_list = []
+
     for id_block in items:
         id = id_block['id']
+        print (id.get('videoId'))
         id_list.append(id)
 
-    videoId = id_list[0].get('videoId')
-    print (videoId)
     
     res = {
           "speech": "Video",
