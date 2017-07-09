@@ -260,6 +260,9 @@ def weatherhook(reqContext):
           "data" : {
              "facebook" : [
                  {
+                    "sender_action": "typing_on"
+                  },
+                 {
                 "text": speech
                  },
                  {
@@ -555,6 +558,9 @@ def searchhook(reqContext):
            "data" : {
               "facebook" : [
                   {
+                    "sender_action": "typing_on"
+                  },
+                  {
                  "attachment" : {
                    "type" : "template",
                      "payload" : {
@@ -685,6 +691,9 @@ def wikipediaInformationSearch(reqContext):
           "displayText": speech,
            "data" : {
               "facebook" : [
+                  {
+                    "sender_action": "typing_on"
+                  },
                   {
                  "attachment" : {
                    "type" : "template",
@@ -1291,6 +1300,9 @@ def topFourNewsArticle(reqContext):
             "displayText": "NewsList",
             "data" : {
             "facebook" : [
+                 {
+                    "sender_action": "typing_on"
+                  },
                  {
                 "attachment" : {
                   "type" : "template",
