@@ -777,10 +777,14 @@ def youtubeVideoSearch(reqContext):
               "facebook" : [
                   {
                     "attachment":{
-                    "type":"video",
+                    "type":"template",
                     "payload":{
-                       "url":"https://www.youtube.com/watch?v=YmIhZCNXfJE"
+                       "template_type":"open_graph",
+                       "elements":[
+                        {
+                          "url":"https://www.youtube.com/watch?v=YmIhZCNXfJE"
                       }
+                    ]
                    }
                  }
                ]
