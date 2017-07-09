@@ -140,6 +140,25 @@ def welcome():
                   ]
                  }
                 ]
+               "persistent_menu":[
+               {
+                 "locale":"default",
+                 "composer_input_disabled":false,
+                 "call_to_actions":[
+               {
+                 "title":"My Account",
+                 "type":"nested",
+                 "call_to_actions":[
+               {
+              "title":"Home",
+              "type":"postback",
+              "payload":"homeQuickReply"
+            }
+          ]
+        }
+      ]
+    }
+  ]
                }
             };
     print (res)
