@@ -819,9 +819,10 @@ def youtubeVideoSearch(reqContext):
     data = json.loads(result)
     print ("data = json.loads(result)")
 
-    for items in data['items']:
-        id = items['id'],
-        print (id['videoId'])
+    items = data['items']
+        
+    id1 = items['items'][0]['videoId']
+    print (id1)
     res = {
           "speech": "Video",
           "displayText": "Video",
