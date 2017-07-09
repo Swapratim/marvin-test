@@ -821,13 +821,12 @@ def youtubeVideoSearch(reqContext):
 
     items = data['items']
     for id_block in items:
-        id = id_block['id']
-        print (id_block)
+        id[accumulator] = id_block['id']
+        accumulator += 1
 
-    videoId = id.get('videoId')
+    videoId = id[0].get('videoId')
     print (videoId)
-    videoId1 = items['id'][0]['videoId']
-    print (videoId1)
+    
     res = {
           "speech": "Video",
           "displayText": "Video",
