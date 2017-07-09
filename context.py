@@ -783,7 +783,13 @@ def youtubeVideoSearch(reqContext):
                        "elements":[
                         {
                           "url":"https://www.youtube.com/watch?v=YmIhZCNXfJE"
-                      }
+                        },
+                        {
+                          "url":"https://www.youtube.com/watch?v=ltn3VpfRJmU"
+                        },
+                        {
+                          "url":"https://www.youtube.com/watch?v=AvNdOJMDMyQ"
+                        }
                     ]
                    }
                  }
