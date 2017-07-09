@@ -20,7 +20,7 @@ context = Flask(__name__)
 #ACCESS_TOKEN = "EAAXRzkKCxVQBAImZBQo8kEpHVn0YDSVxRcadEHiMlZAcqSpu5pV7wAkZBKUs0eIZBcX1RmZCEV6cxJzuZAp5NO5ZCcJgZBJu4OPrFpKiAPJ5Hxlve2vrSthfMSZC3GqLnzwwRENQSzZAMyBXFCi1LtLWm9PhYucY88zPT4KEwcZCmhLYAZDZD"
 ACCESS_TOKEN = "EAADCpnCTbUoBAMlgDxoEVTifvyD80zCxvfakHu6m3VjYVdS5VnbIdDnZCxxonXJTK2LBMFemzYo2a4DGrz0SxNJIFkMAsU8WBfRS7IRrZAaHRrXEMBEL5wmdUvzawASQWtZAMNBr90Gattw3IGzeJ7pZBBUthMewXDvnmBELCgZDZD"
 # Google Access Token
-Google_Acces_Toekn = "key=AIzaSyDNYsLn4JGIR4UaZMFTAgDB9gKN3rty2aM&cx=003066316917117435589%3Avcms6hy5lxs&q="
+Google_Acces_Token = "key=AIzaSyDNYsLn4JGIR4UaZMFTAgDB9gKN3rty2aM&cx=003066316917117435589%3Avcms6hy5lxs&q="
 # NewsAPI Access Token
 newspai_access_token = "505c1506aeb94ba69b72a4dbdce31996"
 # Weather Update API KeyError
@@ -56,6 +56,8 @@ def webhook():
        return news_category_topnews(reqContext)
     elif reqContext.get("result").get("action") == "topfournewsarticle":
        return topFourNewsArticle(reqContext)
+    elif reqContext.get("result").get("action") == "youtubeTopic":
+       return youtubeTopic(reqContext)
     elif reqContext.get("result").get("action") == "youtubeVideoSearch":
        return youtubeVideoSearch(reqContext)
     else:
@@ -128,6 +130,12 @@ def welcome():
                   "title": "Wikipedia",
                   "payload": "wikipedia",
                   "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "YouTube",
+                  "payload": "youtube",
+                  "image_url": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png"
                    }
                   ]
                  }
@@ -644,7 +652,7 @@ def searchhook(reqContext):
 #************************************************************************************#
 # Searchhook is for searching for Wkipedia information via Google API
 def wikipediaInformationSearch(reqContext):
-    req = request.get_json(silent=True, force=True)
+    #req = request.get_json(silent=True, force=True)
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
     print ("resolvedQuery: " + resolvedQuery)
     true_false = True
@@ -762,6 +770,31 @@ def wikipediaInformationSearch(reqContext):
     r.headers['Content-Type'] = 'application/json'
     return r
 
+
+#************************************************************************************#
+#                                                                                    #
+#   Below method is to get the Facebook Quick Reply Webhook Handling - YOUTUBE       #
+#                                                                                    #
+#************************************************************************************#
+def youtubeTopic(reqContext):
+    print (reqContext.get("result").get("action"))
+    option = reqContext.get("result").get("action")
+    res = {
+        "speech": "Please provide a topic to search in YouTube:",
+        "displayText": "Please provide a topic to search in YouTube:",
+        "data" : {
+        "facebook" : [
+               {
+                "text": "Please provide a topic to search in YouTube:"
+               }
+             ]
+           } 
+         };
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
+
 #************************************************************************************#
 #                                                                                    #
 #   This method is for searching YouTube videos via YouTube API via Funnel           #
@@ -769,7 +802,26 @@ def wikipediaInformationSearch(reqContext):
 #************************************************************************************#
 
 def youtubeVideoSearch(reqContext):
-    
+    resolvedQuery = reqContext.get("result").get("resolvedQuery")
+    print ("resolvedQuery: " + resolvedQuery)
+    true_false = True
+    baseurl = "https://www.googleapis.com/youtube/v3/search?part=snippet&q="
+    resolvedQueryFinal = resolvedQuery.replace(" ", "%20")
+    search_string_ascii = resolvedQueryFinal.encode('ascii')
+    if search_string_ascii is None:
+        return None
+    youtube_query = "&key=AIzaSyDNYsLn4JGIR4UaZMFTAgDB9gKN3rty2aM&cx=003066316917117435589%3Avcms6hy5lxs"
+    if youtube_query is None:
+        return {}
+    youtube_query = baseurl + search_string_ascii + youtube_query
+    print("youtube_query::::"+youtube_query)
+    result = urllib.request.urlopen(youtube_query).read()
+    data = json.loads(result)
+    print ("data = json.loads(result)")
+
+    for items in data['items']:
+        id = items['id'],
+        print (id['videoId'])
     res = {
           "speech": "Video",
           "displayText": "Video",
