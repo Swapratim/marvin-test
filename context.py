@@ -128,7 +128,7 @@ def welcome():
                   {
                   "content_type": "text",
                   "title": "Wikipedia",
-                  "payload": "wikipedia",
+                  "payload": "Wikipedia",
                   "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
                    },
                   {
@@ -159,6 +159,56 @@ def reply(user_id, msg):
     resp = requests.post("https://graph.facebook.com/v2.6/me/messages?access_token=" + ACCESS_TOKEN, json=data)
     print(resp.content)
 
+
+#************************************************************************************#
+#                                                                                    #
+#   HOME - Quick Reply Options                                                       #
+#                                                                                    #
+#************************************************************************************#
+def homeQuickReplyOptions(reqContext):
+    print (reqContext.get("result").get("action"))
+    option = reqContext.get("result").get("action")
+    res = {
+        "speech": "Please provide a city name for weather report:",
+        "displayText": "Please provide a city name for weather report:",
+        "data" : {
+        "facebook" : [
+               {
+                  "text": "Please select your choice:",
+                  "quick_replies": [
+                 {
+                  "content_type": "text",
+                  "title": "News",
+                  "payload": "News",
+                  "image_url": "http://www.freeiconspng.com/uploads/newspaper-icon-20.jpg"
+                 },
+                 {
+                  "content_type": "text",
+                  "title": "Weather",
+                  "payload": "Weather",
+                  "image_url": "https://www.mikeafford.com/store/store-images/ww01_example_light_rain_showers.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "Wikipedia",
+                  "payload": "Wikipedia",
+                  "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "YouTube",
+                  "payload": "YouTube",
+                  "image_url": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png"
+                   }
+                  ]
+                 }
+             ]
+           } 
+         };
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
 
 #************************************************************************************#
 #                                                                                    #
@@ -311,6 +361,12 @@ def weatherhook(reqContext):
                   "title": "YouTube",
                   "payload": "youtube",
                   "image_url": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "Home",
+                  "payload": "Home",
+                  "image_url": "http://www.ptt.com.au/wp-content/uploads/2016/04/traffic-house-icon.png"
                    }
                   ]
                  }
@@ -589,7 +645,7 @@ def searchhook(reqContext):
                  {
                   "content_type": "text",
                   "title": "News",
-                  "payload": "news",
+                  "payload": "News",
                   "image_url": "http://www.freeiconspng.com/uploads/newspaper-icon-20.jpg"
                  },
                  {
@@ -607,8 +663,14 @@ def searchhook(reqContext):
                   {
                   "content_type": "text",
                   "title": "YouTube",
-                  "payload": "youtube",
+                  "payload": "YouTube",
                   "image_url": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "Home",
+                  "payload": "Home",
+                  "image_url": "http://www.ptt.com.au/wp-content/uploads/2016/04/traffic-house-icon.png"
                    }
                   ]
                  }
@@ -723,20 +785,26 @@ def wikipediaInformationSearch(reqContext):
                  {
                   "content_type": "text",
                   "title": "News",
-                  "payload": "news",
+                  "payload": "News",
                   "image_url": "http://www.freeiconspng.com/uploads/newspaper-icon-20.jpg"
                  },
                  {
                   "content_type": "text",
                   "title": "Weather",
-                  "payload": "weather",
+                  "payload": "Weather",
                   "image_url": "https://www.mikeafford.com/store/store-images/ww01_example_light_rain_showers.png"
                    },
                   {
                   "content_type": "text",
                   "title": "Wikipedia",
-                  "payload": "wikipedia",
+                  "payload": "Wikipedia",
                   "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "Home",
+                  "payload": "Home",
+                  "image_url": "http://www.ptt.com.au/wp-content/uploads/2016/04/traffic-house-icon.png"
                    }
                   ]
                  }
@@ -886,26 +954,32 @@ def youtubeVideoSearch(reqContext):
                  {
                   "content_type": "text",
                   "title": "News",
-                  "payload": "news",
+                  "payload": "News",
                   "image_url": "http://www.freeiconspng.com/uploads/newspaper-icon-20.jpg"
                  },
                  {
                   "content_type": "text",
                   "title": "Weather",
-                  "payload": "weather",
+                  "payload": "Weather",
                   "image_url": "https://www.mikeafford.com/store/store-images/ww01_example_light_rain_showers.png"
                    },
                   {
                   "content_type": "text",
                   "title": "Wikipedia",
-                  "payload": "wikipedia",
+                  "payload": "Wikipedia",
                   "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
                    },
                   {
                   "content_type": "text",
                   "title": "YouTube",
-                  "payload": "youtube",
+                  "payload": "YouTube",
                   "image_url": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "Home",
+                  "payload": "Home",
+                  "image_url": "http://www.ptt.com.au/wp-content/uploads/2016/04/traffic-house-icon.png"
                    }
                   ]
                  }
@@ -1401,26 +1475,32 @@ def topFourNewsArticle(reqContext):
                  {
                   "content_type": "text",
                   "title": "News",
-                  "payload": "news",
+                  "payload": "News",
                   "image_url": "http://www.freeiconspng.com/uploads/newspaper-icon-20.jpg"
                  },
                  {
                   "content_type": "text",
                   "title": "Weather",
-                  "payload": "weather",
+                  "payload": "Weather",
                   "image_url": "https://www.mikeafford.com/store/store-images/ww01_example_light_rain_showers.png"
                    },
                   {
                   "content_type": "text",
                   "title": "Wikipedia",
-                  "payload": "wikipedia",
+                  "payload": "Wikipedia",
                   "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
                    },
                   {
                   "content_type": "text",
                   "title": "YouTube",
-                  "payload": "youtube",
+                  "payload": "YouTube",
                   "image_url": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "Home",
+                  "payload": "Home",
+                  "image_url": "http://www.ptt.com.au/wp-content/uploads/2016/04/traffic-house-icon.png"
                    }
                   ]
                  }
