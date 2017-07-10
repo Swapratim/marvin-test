@@ -60,6 +60,8 @@ def webhook():
        return youtubeTopic(reqContext)
     elif reqContext.get("result").get("action") == "youtubeVideoSearch":
        return youtubeVideoSearch(reqContext)
+    elif reqContext.get("result").get("action") == "homeQuickReplyOptions":
+       return homeQuickReplyOptions(reqContext)
     else:
        print("Good Bye")
 
