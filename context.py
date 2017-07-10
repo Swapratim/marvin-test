@@ -116,13 +116,13 @@ def welcome():
                  {
                   "content_type": "text",
                   "title": "News",
-                  "payload": "news",
+                  "payload": "News",
                   "image_url": "http://www.freeiconspng.com/uploads/newspaper-icon-20.jpg"
                  },
                  {
                   "content_type": "text",
                   "title": "Weather",
-                  "payload": "weather",
+                  "payload": "Weather",
                   "image_url": "https://www.mikeafford.com/store/store-images/ww01_example_light_rain_showers.png"
                    },
                   {
@@ -134,7 +134,7 @@ def welcome():
                   {
                   "content_type": "text",
                   "title": "YouTube",
-                  "payload": "youtube",
+                  "payload": "YouTube",
                   "image_url": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png"
                    }
                   ]
