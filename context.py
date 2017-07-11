@@ -90,7 +90,7 @@ def welcome():
     data = json.loads(result)
     first_name = data.get('first_name')
     print (first_name)
-    speech = "I can provide News, Weather Report or Information search from Wikipedia"
+    speech = "I'm your Personal Chatbot. I'll provide you News & Weather foercast with Wikipedia & YouTube search facilities"
     res = {
           "speech": speech,
           "displayText": speech,
@@ -104,7 +104,7 @@ def welcome():
                        "elements" : [ 
                                  {
                                    "title" : "Hi " + first_name + "! I am Marvin",
-                                   "image_url" : "https://pbs.twimg.com/profile_images/717482045019136001/aYzlNG5L.jpg",
+                                   "image_url" : "http://gdurl.com/qsS5",
                                  } 
                            ]
                        } 
