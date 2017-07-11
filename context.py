@@ -807,7 +807,7 @@ def youtubeVideoSearch(reqContext):
 
     for id_block in items:
         id = id_block['id']
-        print (id.)
+        print (id)
         id_list.append(id)
 
     
