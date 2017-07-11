@@ -60,6 +60,9 @@ def webhook():
        return youtubeTopic(reqContext)
     elif reqContext.get("result").get("action") == "youtubeVideoSearch":
        return youtubeVideoSearch(reqContext)
+    elif reqContext.get("result").get("action") == "Help":
+       return help(reqContext)
+    
     else:
        print("Good Bye")
 
@@ -803,9 +806,11 @@ def youtubeVideoSearch(reqContext):
 
     for id_block in items:
         id = id_block['id']
+        #if not id.get("videoId"):
+        #   id_list.append(id.get("channelId"))
         print (id)
         print (id.get("videoId"))
-        id_list.append(id)
+        id_list.append(id.get("videoId"))
 
     
     res = {
@@ -823,7 +828,7 @@ def youtubeVideoSearch(reqContext):
                        "template_type":"open_graph",
                        "elements":[
                         {
-                          "url":"https://www.youtube.com/watch?v=" + id_list[0].get('videoId')
+                          "url":"https://www.youtube.com/watch?v=" + id_list[0]
                         }
                     ]
                    }
@@ -836,7 +841,7 @@ def youtubeVideoSearch(reqContext):
                        "template_type":"open_graph",
                        "elements":[
                         {
-                          "url":"https://www.youtube.com/watch?v=" + id_list[1].get('videoId')
+                          "url":"https://www.youtube.com/watch?v=" + id_list[1]
                         }
                     ]
                    }
@@ -849,7 +854,7 @@ def youtubeVideoSearch(reqContext):
                        "template_type":"open_graph",
                        "elements":[
                         {
-                          "url":"https://www.youtube.com/watch?v=" + id_list[2].get('videoId')
+                          "url":"https://www.youtube.com/watch?v=" + id_list[2]
                         }
                     ]
                    }
@@ -862,7 +867,7 @@ def youtubeVideoSearch(reqContext):
                        "template_type":"open_graph",
                        "elements":[
                         {
-                          "url":"https://www.youtube.com/watch?v=" + id_list[3].get('videoId')
+                          "url":"https://www.youtube.com/watch?v=" + id_list[3]
                         }
                     ]
                    }
@@ -875,7 +880,7 @@ def youtubeVideoSearch(reqContext):
                        "template_type":"open_graph",
                        "elements":[
                         {
-                          "url":"https://www.youtube.com/watch?v=" + id_list[4].get('videoId')
+                          "url":"https://www.youtube.com/watch?v=" + id_list[4]
                         }
                     ]
                    }
@@ -1513,8 +1518,32 @@ def newsWebsiteIdentification(resolvedQuery):
     print ("Within newsWebsiteIdentification Method, the newspaper_url is: " + newspaper_url)
     return newspaper_url
 
-###############################################
-
+#************************************************************************************#
+#                                                                                    #
+#   Identifying Newspaper Website                                                    #
+#                                                                                    #
+#************************************************************************************#
+def help(resolvedQuery):
+    speech = "If I make you confused, I'm sorry for that. Please follow the below guidelines." + \
+            "1. Click on News to read latest news from your favourite newspaper" + \
+            "2. Click on Weather and write a city name to get weather forecast" + \
+            "3. Click on Wikipedia and write a topic you want to know about" + \
+            "4. Click on YouTube and search for your favourite videos."
+    res = {
+        "speech": speech,
+        "displayText": speech,
+        "data" : {
+        "facebook" : [
+               {
+                "text": speech
+               }
+             ]
+           } 
+         };
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
