@@ -741,6 +741,12 @@ def wikipediaInformationSearch(reqContext):
                   "title": "Wikipedia",
                   "payload": "Wikipedia",
                   "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "YouTube",
+                  "payload": "YouTube",
+                  "image_url": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png"
                    }
                   ]
                  }
