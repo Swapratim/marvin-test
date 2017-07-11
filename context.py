@@ -787,25 +787,27 @@ def youtubeVideoSearch(reqContext):
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
     print ("resolvedQuery: " + resolvedQuery)
     true_false = True
-    baseurl = "https://www.googleapis.com/youtube/v3/search?part=snippet&q="
+    baseurl = "https://www.googleapis.com/youtube/v3/search?part=id&q="
     resolvedQueryFinal = resolvedQuery.replace(" ", "%20")
     search_string_ascii = resolvedQueryFinal.encode('ascii')
     if search_string_ascii is None:
         return None
-    youtube_query = "&key=AIzaSyDNYsLn4JGIR4UaZMFTAgDB9gKN3rty2aM&cx=003066316917117435589%3Avcms6hy5lxs&num=5"
+    youtube_query = "&type=video&fields=items%2Fid&key=AIzaSyDNYsLn4JGIR4UaZMFTAgDB9gKN3rty2aM&cx=003066316917117435589%3Avcms6hy5lxs&num=5"
     if youtube_query is None:
         return {}
     youtube_query = baseurl + search_string_ascii + youtube_query
     print("youtube_query::::"+youtube_query)
     result = urllib.request.urlopen(youtube_query).read()
     data = json.loads(result)
-    print ("data = json.loads(result)")
+    print (data)
 
     items = data['items']
+    print (items)
     id_list = []
 
     for id_block in items:
         id = id_block['id']
+        print (id.)
         id_list.append(id)
 
     
