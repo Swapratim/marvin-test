@@ -60,9 +60,6 @@ def webhook():
        return youtubeTopic(reqContext)
     elif reqContext.get("result").get("action") == "youtubeVideoSearch":
        return youtubeVideoSearch(reqContext)
-    elif reqContext.get("result").get("action") == "Keyboard":
-       return Keyboard(reqContext)
-    
     else:
        print("Good Bye")
 
@@ -1518,30 +1515,6 @@ def newsWebsiteIdentification(resolvedQuery):
 
 ###############################################
 
-def Keyboard(reqContext):
-
-   curl -X DELETE -H "Content-Type: application/json" -d '{
-       "fields":[
-       "persistent_menu"
-       ]
-    }' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAADCpnCTbUoBAMlgDxoEVTifvyD80zCxvfakHu6m3VjYVdS5VnbIdDnZCxxonXJTK2LBMFemzYo2a4DGrz0SxNJIFkMAsU8WBfRS7IRrZAaHRrXEMBEL5wmdUvzawASQWtZAMNBr90Gattw3IGzeJ7pZBBUthMewXDvnmBELCgZDZD"    
-
-    res = {
-        "speech": "Type Now",
-        "displayText": "Type Now",
-        "data" : {
-        "facebook" : [
-               {
-                "text": "Type Now"
-               }
-             ]
-           } 
-         };
-    res = json.dumps(res, indent=4)
-    r = make_response(res)
-    r.headers['Content-Type'] = 'application/json'
-    return r
- 
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
