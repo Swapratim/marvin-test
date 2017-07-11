@@ -810,7 +810,7 @@ def youtubeVideoSearch(reqContext):
         #   id_list.append(id.get("channelId"))
         print (id)
         print (id.get("videoId"))
-        id_list.append(id.get("videoId"))
+        id_list.append(id)
 
     
     res = {
@@ -828,7 +828,7 @@ def youtubeVideoSearch(reqContext):
                        "template_type":"open_graph",
                        "elements":[
                         {
-                          "url":"https://www.youtube.com/watch?v=" + id_list[0]
+                          "url":"https://www.youtube.com/watch?v=" + id_list[0].get('videoId')
                         }
                     ]
                    }
@@ -841,7 +841,7 @@ def youtubeVideoSearch(reqContext):
                        "template_type":"open_graph",
                        "elements":[
                         {
-                          "url":"https://www.youtube.com/watch?v=" + id_list[1]
+                          "url":"https://www.youtube.com/watch?v=" + id_list[1].get('videoId')
                         }
                     ]
                    }
@@ -854,7 +854,7 @@ def youtubeVideoSearch(reqContext):
                        "template_type":"open_graph",
                        "elements":[
                         {
-                          "url":"https://www.youtube.com/watch?v=" + id_list[2]
+                          "url":"https://www.youtube.com/watch?v=" + id_list[2].get('videoId')
                         }
                     ]
                    }
@@ -867,7 +867,7 @@ def youtubeVideoSearch(reqContext):
                        "template_type":"open_graph",
                        "elements":[
                         {
-                          "url":"https://www.youtube.com/watch?v=" + id_list[3]
+                          "url":"https://www.youtube.com/watch?v=" + id_list[3].get('videoId')
                         }
                     ]
                    }
@@ -880,7 +880,7 @@ def youtubeVideoSearch(reqContext):
                        "template_type":"open_graph",
                        "elements":[
                         {
-                          "url":"https://www.youtube.com/watch?v=" + id_list[4]
+                          "url":"https://www.youtube.com/watch?v=" + id_list[4].get('videoId')
                         }
                     ]
                    }
