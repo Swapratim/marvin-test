@@ -806,10 +806,6 @@ def youtubeVideoSearch(reqContext):
 
     for id_block in items:
         id = id_block['id']
-        #if not id.get("videoId"):
-        #   id_list.append(id.get("channelId"))
-        print (id)
-        print (id.get("videoId"))
         id_list.append(id)
 
     
@@ -920,7 +916,6 @@ def youtubeVideoSearch(reqContext):
          };
     res = json.dumps(res, indent=4)
     r = make_response(res)
-    print (r)
     r.headers['Content-Type'] = 'application/json'
     return r
 
