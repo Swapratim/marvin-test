@@ -1465,6 +1465,8 @@ def newsWebsiteIdentification(resolvedQuery):
 
     if resolvedQuery == "the-times-of-india":
        newspaper_url = "http://timesofindia.indiatimes.com"
+    elif resolvedQuery == "google-news":
+       newspaper_url = "https://news.google.com/news"
     elif resolvedQuery == "bbc-news":
        newspaper_url = "http://www.bbc.com/news"
     elif resolvedQuery == "cnn":
@@ -1489,6 +1491,8 @@ def newsWebsiteIdentification(resolvedQuery):
        newspaper_url = "http://espn.go.com"
     elif resolvedQuery == "espn-cric-info":
        newspaper_url = "http://www.espncricinfo.com"
+    elif resolvedQuery == "four-four-two":
+       newspaper_url = "https://www.fourfourtwo.com/"
     elif resolvedQuery == "bbc-sport":
        newspaper_url = "http://www.bbc.com/sport"
     elif resolvedQuery == "fox-sports":
