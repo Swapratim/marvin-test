@@ -1014,12 +1014,6 @@ def news_category_topnews(reqContext):
                   },
                  {
                   "content_type": "text",
-                  "title": "Google News",
-                  "payload": "google-news",
-                  "image_url": "http://iconbug.com/data/2f/128/7090d90b6a06b0ca3d948bcea9e676f9.png"
-                  },
-                 {
-                  "content_type": "text",
                   "title": "BBC News",
                   "payload": "bbc-news",
                   "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWrLeudSaMDHDclbCjfvVoOdIK9q3XKqbWG5G1aDJzO3z6YZUP"
@@ -1103,12 +1097,6 @@ def news_category_topnews(reqContext):
                   "title": "ESPN Cric Info",
                   "payload": "espn-cric-info",
                   "image_url": "http://topnews.ae/images/ESPNcricinfo.jpg"
-                  },
-                 {
-                  "content_type": "text",
-                  "title": "Four Four Two",
-                  "payload": "four-four-two",
-                  "image_url": "http://www.free-icons-download.net/images/football-icon-53581.png"
                   },
                   {
                   "content_type": "text",
@@ -1465,8 +1453,6 @@ def newsWebsiteIdentification(resolvedQuery):
 
     if resolvedQuery == "the-times-of-india":
        newspaper_url = "http://timesofindia.indiatimes.com"
-    elif resolvedQuery == "google-news":
-       newspaper_url = "https://news.google.com/news"
     elif resolvedQuery == "bbc-news":
        newspaper_url = "http://www.bbc.com/news"
     elif resolvedQuery == "cnn":
@@ -1491,8 +1477,6 @@ def newsWebsiteIdentification(resolvedQuery):
        newspaper_url = "http://espn.go.com"
     elif resolvedQuery == "espn-cric-info":
        newspaper_url = "http://www.espncricinfo.com"
-    elif resolvedQuery == "four-four-two":
-       newspaper_url = "https://www.fourfourtwo.com/"
     elif resolvedQuery == "bbc-sport":
        newspaper_url = "http://www.bbc.com/sport"
     elif resolvedQuery == "fox-sports":
