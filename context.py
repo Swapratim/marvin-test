@@ -290,7 +290,7 @@ def weatherhook(reqContext):
                   }
                 },
                  {
-                  "text": "Search Again",
+                  "text": "Click on the below options to start over",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -588,7 +588,7 @@ def searchhook(reqContext):
                  "text": speech
                   },
                  {
-                  "text": "Search Again",
+                  "text": "Click on the below options to start over",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -722,7 +722,7 @@ def wikipediaInformationSearch(reqContext):
                  "text": speech
                   },
                  {
-                  "text": "Search Again",
+                  "text": "Click on the below options to start over",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -891,7 +891,7 @@ def youtubeVideoSearch(reqContext):
                  }
                 },
                  {
-                  "text": "Search Again",
+                  "text": "Click on the below options to start over",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -1405,7 +1405,7 @@ def topFourNewsArticle(reqContext):
                    }
                  },
                  {
-                  "text": "Search Again",
+                  "text": "Click on the below options to start over",
                   "quick_replies": [
                  {
                   "content_type": "text",
