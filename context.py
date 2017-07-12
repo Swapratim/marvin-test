@@ -1100,6 +1100,12 @@ def news_category_topnews(reqContext):
                   },
                   {
                   "content_type": "text",
+                  "title": "Four Four Two",
+                  "payload": "four-four-two",
+                  "image_url": "http://www.free-icons-download.net/images/football-icon-53581.png"
+                  },
+                  {
+                  "content_type": "text",
                   "title": "BBC Sport",
                   "payload": "bbc-sport",
                   "image_url": "http://yellingperformance.com/wp-content/uploads/2014/08/bbc-sport.png"
@@ -1477,6 +1483,8 @@ def newsWebsiteIdentification(resolvedQuery):
        newspaper_url = "http://espn.go.com"
     elif resolvedQuery == "espn-cric-info":
        newspaper_url = "http://www.espncricinfo.com"
+    elif resolvedQuery == "four-four-two":
+       newspaper_url = "https://www.fourfourtwo.com/"
     elif resolvedQuery == "bbc-sport":
        newspaper_url = "http://www.bbc.com/sport"
     elif resolvedQuery == "fox-sports":
