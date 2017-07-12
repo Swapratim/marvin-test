@@ -1014,6 +1014,12 @@ def news_category_topnews(reqContext):
                   },
                  {
                   "content_type": "text",
+                  "title": "Google News",
+                  "payload": "google-news",
+                  "image_url": "http://iconbug.com/data/2f/128/7090d90b6a06b0ca3d948bcea9e676f9.png"
+                  },
+                 {
+                  "content_type": "text",
                   "title": "BBC News",
                   "payload": "bbc-news",
                   "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWrLeudSaMDHDclbCjfvVoOdIK9q3XKqbWG5G1aDJzO3z6YZUP"
@@ -1097,6 +1103,12 @@ def news_category_topnews(reqContext):
                   "title": "ESPN Cric Info",
                   "payload": "espn-cric-info",
                   "image_url": "http://topnews.ae/images/ESPNcricinfo.jpg"
+                  },
+                 {
+                  "content_type": "text",
+                  "title": "Four Four Two",
+                  "payload": "four-four-two",
+                  "image_url": "http://www.free-icons-download.net/images/football-icon-53581.png"
                   },
                   {
                   "content_type": "text",
