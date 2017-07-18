@@ -6,12 +6,15 @@ standard_library.install_aliases()
 import urllib.request, urllib.parse, urllib.error
 import json
 import os
+import sys
+import pymongo
 import psycopg2
 import urlparse
 
 from flask import Flask
 from flask import request, render_template
 from flask import make_response
+from pymongo import MongoClient
 
 
 # Flask should start in global layout
@@ -60,6 +63,8 @@ def webhook():
        return youtubeTopic(reqContext)
     elif reqContext.get("result").get("action") == "youtubeVideoSearch":
        return youtubeVideoSearch(reqContext)
+    elif reqContext.get("result").get("action") == "subscription":
+       return subscription(reqContext)
     elif reqContext.get("result").get("action") == "Help":
        return help(reqContext)
     
@@ -1551,6 +1556,55 @@ def help(resolvedQuery):
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
+
+#************************************************************************************#
+#                                                                                    #
+#   MongoDB Connection and Subscription Field update                                 #
+#                                                                                    #
+#************************************************************************************#
+def subscription(reqContext):
+
+   uri = 'mongodb://heroku_d55glc3f:heroku_d55glc3f"@ds161032.mlab.com:61032/heroku_d55glc3f'
+   SEED_DATA = [
+    {
+        'decade': '1970s',
+        'artist': 'Debby Boone',
+        'song': 'You Light Up My Life',
+        'weeksAtOne': 10
+    },
+    {
+        'decade': '1980s',
+        'artist': 'Olivia Newton-John',
+        'song': 'Physical',
+        'weeksAtOne': 10
+    },
+    {
+        'decade': '1990s',
+        'artist': 'Mariah Carey',
+        'song': 'One Sweet Day',
+        'weeksAtOne': 16
+    }
+    ]
+   client = pymongo.MongoClient(uri)
+   db = client.get_default_database()
+   songs = db['songs']
+   songs.insert_many(SEED_DATA)
+
+   query = {'song': 'One Sweet Day'}
+
+   songs.update(query, {'$set': {'artist': 'Mariah Carey ft. Boyz II Men'}})
+
+   cursor = songs.find({'weeksAtOne': {'$gte': 10}}).sort('decade', 1)
+
+   for doc in cursor:
+       print ('In the %s, %s by %s topped the charts for %d straight weeks.' %
+              (doc['decade'], doc['song'], doc['artist'], doc['weeksAtOne']))
+    
+   db.drop_collection('songs')
+
+   client.close()
+   r = "Database connection tested successfully"
+   return r
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
