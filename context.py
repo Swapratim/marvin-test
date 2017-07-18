@@ -1566,9 +1566,9 @@ def subscription(reqContext):
 
    uri = 'mongodb://heroku_d55glc3f:heroku_d55glc3f"@ds161032.mlab.com:61032/heroku_d55glc3f'
    SEED_DATA = {
-               "id": 1,
-               "email":Swapratim Roy,
-               "name":swapratim.roy@gmail.com
+               "id": "1",
+               "email":"Swapratim Roy",
+               "name":"swapratim.roy@gmail.com"
                }
 
    client = pymongo.MongoClient(uri)
