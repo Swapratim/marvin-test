@@ -253,7 +253,7 @@ def weatherhook(reqContext):
    #   image_url = "http://l.yimg.com/a/i/us/we/" + condition.get('code') + "/14.gif"
    #print (image_url) 
     
-   speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
+   speech = "Today in " + location.get('city') + "(" +location.get('country') + ")" + ": " + condition.get('text') + \
             ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
    print ("City - Country: " +location.get('city') + "-" + location.get('country'))
    print ("image url: " + image_url)
@@ -298,7 +298,7 @@ def weatherhook(reqContext):
                   }
                 },
                  {
-                  "text": "Click on the below options to start over",
+                  "text": "Click on the below options to start over again",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -596,7 +596,7 @@ def searchhook(reqContext):
                  "text": speech
                   },
                  {
-                  "text": "Click on the below options to start over",
+                  "text": "Click on the below options to start over again",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -730,7 +730,7 @@ def wikipediaInformationSearch(reqContext):
                  "text": speech
                   },
                  {
-                  "text": "Click on the below options to start over",
+                  "text": "Click on the below options to start over again",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -899,7 +899,7 @@ def youtubeVideoSearch(reqContext):
                  }
                 },
                  {
-                  "text": "Click on the below options to start over",
+                  "text": "Click on the below options to start over again",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -1419,7 +1419,7 @@ def topFourNewsArticle(reqContext):
                    }
                  },
                  {
-                  "text": "Click on the below options to start over",
+                  "text": "Click on the below options to start over again",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -1576,15 +1576,15 @@ def subscription(reqContext):
 
    client = pymongo.MongoClient(uri)
    db = client.get_default_database()
-   songs = db['subscription_collection']
-   songs.insert_many(SEED_DATA)
+   subscription_collection = db['subscription_collection']
+   subscription_collection.insert_many(SEED_DATA)
    cursor = db.subscription_collection.find()
    #query = {'song': 'One Sweet Day'}
    #songs.update(query, {'$set': {'artist': 'Mariah Carey ft. Boyz II Men'}})
    #cursor = songs.find({'weeksAtOne': {'$gte': 10}}).sort('decade', 1)
 
-   #for doc in cursor:
-   #   print doc['email']
+   for doc in cursor:
+      print (doc['email'])
     
    #db.drop_collection('songs')
 
