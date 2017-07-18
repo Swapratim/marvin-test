@@ -1577,7 +1577,7 @@ def subscription(reqContext):
    client = pymongo.MongoClient(uri)
    db = client.get_default_database()
    subscription_collection = db['subscription_collection']
-   subscription_collection.insert_many(SEED_DATA)
+   subscription_collection.insert_one(SEED_DATA)
    cursor = db.subscription_collection.find()
    #query = {'song': 'One Sweet Day'}
    #songs.update(query, {'$set': {'artist': 'Mariah Carey ft. Boyz II Men'}})
