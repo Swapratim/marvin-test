@@ -63,8 +63,6 @@ def webhook():
        return youtubeTopic(reqContext)
     elif reqContext.get("result").get("action") == "youtubeVideoSearch":
        return youtubeVideoSearch(reqContext)
-    elif reqContext.get("result").get("action") == "subscription":
-       return subscription(reqContext)
     elif reqContext.get("result").get("action") == "Help":
        return help(reqContext)
     
@@ -1560,37 +1558,6 @@ def help(resolvedQuery):
     r.headers['Content-Type'] = 'application/json'
     return r
 
-#************************************************************************************#
-#                                                                                    #
-#   MongoDB Connection and Subscription Field update                                 #
-#                                                                                    #
-#************************************************************************************#
-def subscription(reqContext):
-
-   uri = 'mongodb://heroku_d55glc3f:heroku_d55glc3f"@ds161032.mlab.com:61032/heroku_d55glc3f'
-   SEED_DATA = {
-               "id": "1",
-               "email":"Swapratim Roy",
-               "name":"swapratim.roy@gmail.com"
-               }
-
-   client = pymongo.MongoClient(uri)
-   db = client.get_default_database()
-   subscription_collection = db['subscription_collection']
-   subscription_collection.insert_one(SEED_DATA)
-   cursor = db.subscription_collection.find()
-   #query = {'song': 'One Sweet Day'}
-   #songs.update(query, {'$set': {'artist': 'Mariah Carey ft. Boyz II Men'}})
-   #cursor = songs.find({'weeksAtOne': {'$gte': 10}}).sort('decade', 1)
-
-   for doc in cursor:
-      print (doc['email'])
-    
-   #db.drop_collection('songs')
-
-   client.close()
-   r = "Database connection tested successfully"
-   return r
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
