@@ -255,10 +255,10 @@ def weatherhook(reqContext):
     
    speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
             ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
-   #print ("City - Country: " +location.get('city') + "-" + location.get('country'))
-   #print ("image url: " + image_url)
-   #print ("forecast link: " + link_forecast)
-   #print("speech: " + speech)
+   print ("City - Country: " +location.get('city') + "-" + location.get('country'))
+   print ("image url: " + image_url)
+   print ("forecast link: " + link_forecast)
+   print("speech: " + speech)
    ##############################################################
    #res = {"speech": speech,
    #       "displayText": speech,
@@ -269,6 +269,9 @@ def weatherhook(reqContext):
           "data" : {
              "facebook" : [
                  {
+                    "sender_action": "typing_on"
+                  },
+                  {
                     "sender_action": "typing_on"
                   },
                  {
