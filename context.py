@@ -1580,8 +1580,8 @@ def subscription(reqContext):
    #songs.update(query, {'$set': {'artist': 'Mariah Carey ft. Boyz II Men'}})
    #cursor = songs.find({'weeksAtOne': {'$gte': 10}}).sort('decade', 1)
 
-   for doc in cursor:
-      print doc['email']
+   #for doc in cursor:
+   #   print doc['email']
     
    #db.drop_collection('songs')
 
