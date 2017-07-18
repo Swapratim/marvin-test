@@ -1565,42 +1565,25 @@ def help(resolvedQuery):
 def subscription(reqContext):
 
    uri = 'mongodb://heroku_d55glc3f:heroku_d55glc3f"@ds161032.mlab.com:61032/heroku_d55glc3f'
-   SEED_DATA = [
-    {
-        'decade': '1970s',
-        'artist': 'Debby Boone',
-        'song': 'You Light Up My Life',
-        'weeksAtOne': 10
-    },
-    {
-        'decade': '1980s',
-        'artist': 'Olivia Newton-John',
-        'song': 'Physical',
-        'weeksAtOne': 10
-    },
-    {
-        'decade': '1990s',
-        'artist': 'Mariah Carey',
-        'song': 'One Sweet Day',
-        'weeksAtOne': 16
-    }
-    ]
+   SEED_DATA = {
+               "id": 1,
+               "email":Swapratim Roy,
+               "name":swapratim.roy@gmail.com
+               }
+
    client = pymongo.MongoClient(uri)
    db = client.get_default_database()
-   songs = db['songs']
+   songs = db['subscription_collection']
    songs.insert_many(SEED_DATA)
-
-   query = {'song': 'One Sweet Day'}
-
-   songs.update(query, {'$set': {'artist': 'Mariah Carey ft. Boyz II Men'}})
-
-   cursor = songs.find({'weeksAtOne': {'$gte': 10}}).sort('decade', 1)
+   cursor = db.subscription_collection.find()
+   #query = {'song': 'One Sweet Day'}
+   #songs.update(query, {'$set': {'artist': 'Mariah Carey ft. Boyz II Men'}})
+   #cursor = songs.find({'weeksAtOne': {'$gte': 10}}).sort('decade', 1)
 
    for doc in cursor:
-       print ('In the %s, %s by %s topped the charts for %d straight weeks.' %
-              (doc['decade'], doc['song'], doc['artist'], doc['weeksAtOne']))
+       print doc
     
-   db.drop_collection('songs')
+   #db.drop_collection('songs')
 
    client.close()
    r = "Database connection tested successfully"
