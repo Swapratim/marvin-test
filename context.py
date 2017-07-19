@@ -107,7 +107,7 @@ def welcome():
                        "elements" : [ 
                                  {
                                    "title" : "Hi " + first_name + "! I am Marvin",
-                                   "image_url" : "http://gdurl.com/BZRE",
+                                   "image_url" : "http://gdurl.com/aUst",
                                  } 
                            ]
                        } 
