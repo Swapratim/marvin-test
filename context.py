@@ -951,7 +951,7 @@ def newsCategory(reqContext):
                   "content_type": "text",
                   "title": "Latest News",
                   "payload": "topnews",
-                  "image_url": "https://previews.123rf.com/images/alexwhite/alexwhite1209/alexwhite120900529/15471651-news-icon-Stock-Photo-icons.jpg"
+                  "image_url": "http://www.freeiconspng.com/uploads/news-icon-13.png"
                   },
                  {
                   "content_type": "text",
