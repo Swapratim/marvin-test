@@ -963,7 +963,7 @@ def newsCategory(reqContext):
                   "content_type": "text",
                   "title": "Finance",
                   "payload": "business",
-                  "image_url": "http://www.22traders.com/wp-content/uploads/2014/09/statistics-market-icon11.png"
+                  "image_url": "https://phil.ca/wp-content/uploads/2015/12/funraising-icons_fundraising.png"
                   },
                   {
                   "content_type": "text",
@@ -981,7 +981,7 @@ def newsCategory(reqContext):
                   "content_type": "text",
                   "title": "Science & Nature",
                   "payload": "science",
-                  "image_url": "https://previews.123rf.com/images/sasigallery/sasigallery1510/sasigallery151000046/46507337-Atom-with-nature-Science-Environmental-Protection-Icon-symbol-design-Vector-illustration--Stock-Vector.jpg"
+                  "image_url": "http://www.ccc.edu/SiteAssets/Lists/Program%20Categories/EditForm/college_2_careers_symbols_education.png"
                   }
                   ]
                  }
