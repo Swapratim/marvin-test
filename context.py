@@ -981,7 +981,7 @@ def newsCategory(reqContext):
                   "content_type": "text",
                   "title": "Science & Nature",
                   "payload": "science",
-                  "image_url": "http://www.ccc.edu/SiteAssets/Lists/Program%20Categories/EditForm/college_2_careers_symbols_education.png"
+                  "image_url": "https://www.designmate.com/images/biology1.png"
                   }
                   ]
                  }
