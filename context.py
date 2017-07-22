@@ -1539,7 +1539,7 @@ def newsWebsiteIdentification(resolvedQuery):
 #                                                                                    #
 #************************************************************************************#
 def help(resolvedQuery):
-    speech = "If I make you confused, I'm sorry for that. Please follow the below guidelines. \n 1. Click on News to read latest news from your favourite newspaper \n 2. Click on Weather and write a city name to get weather forecast \n 3. Click on Wikipedia and write a topic you want to know about \n 4. Click on YouTube and search for your favourite videos."
+    speech = "I'm sorry if I make you confused. Please follow the below guidelines. \n 1. Click on "News" to read latest news from 33 globally leading newspapers \n 2. Click on "Weather" and write a city name to get weather forecast \n 3. Click on "Wikipedia" and write a topic you want to know about. No need to ask a full question. \n 4. Click on "YouTube" and search for your favourite videos."
     res = {
         "speech": speech,
         "displayText": speech,
