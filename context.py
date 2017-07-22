@@ -74,23 +74,23 @@ def webhook():
 #                                                                                    #
 #************************************************************************************#
 def welcome():
-    #print ("within welcome method")
+    print ("within welcome method")
     data = request.json
-    #print (data)
+    print (data)
     if data is None:
         return {}
     entry = data.get('originalRequest')
     dataall = entry.get('data')
     sender = dataall.get('sender')
     id = sender.get('id')
-    #print ("id :" + id)
+    print ("id :" + id)
     fb_info = "https://graph.facebook.com/v2.6/" + id + "?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=" + ACCESS_TOKEN
-    #print (fb_info)
+    print (fb_info)
     result = urllib.request.urlopen(fb_info).read()
-    #print (result)
+    print (result)
     data = json.loads(result)
     first_name = data.get('first_name')
-    #print (first_name)
+    print (first_name)
     speech = "I'm your Personal Chatbot. I'll provide you News & Weather foercast with Wikipedia & YouTube search facilities"
     res = {
           "speech": speech,
@@ -146,22 +146,22 @@ def welcome():
                 ]
               }
             };
-    #print (res)
+    print (res)
     res = json.dumps(res, indent=4)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
-    #print (r)
-    #return r
+    print (r)
+    return r
 
 def reply(user_id, msg):
     data = {
         "recipient": {"id": user_id},
         "message": {"text": msg}
     }
-    #print ("Data.........")
-    #print (data)
+    print ("Data.........")
+    print (data)
     resp = requests.post("https://graph.facebook.com/v2.6/me/messages?access_token=" + ACCESS_TOKEN, json=data)
-    #print(resp.content)
+    print(resp.content)
 
 
 
@@ -171,7 +171,7 @@ def reply(user_id, msg):
 #                                                                                    #
 #************************************************************************************#
 def weather(reqContext):
-    #print (reqContext.get("result").get("action"))
+    print (reqContext.get("result").get("action"))
     option = reqContext.get("result").get("action")
     res = {
         "speech": "Please provide a city name for weather report:",
@@ -251,10 +251,10 @@ def weatherhook(reqContext):
     
    speech = "Today in " + location.get('city') + "(" +location.get('country') + ")" + ": " + condition.get('text') + \
             ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
-   #print ("City - Country: " +location.get('city') + "-" + location.get('country'))
-   #print ("image url: " + image_url)
-   #print ("forecast link: " + link_forecast)
-   #print("speech: " + speech)
+   print ("City - Country: " +location.get('city') + "-" + location.get('country'))
+   print ("image url: " + image_url)
+   print ("forecast link: " + link_forecast)
+   print("speech: " + speech)
    ##############################################################
    #res = {"speech": speech,
    #       "displayText": speech,
@@ -325,11 +325,11 @@ def weatherhook(reqContext):
               ]
             } 
         };
-   #print (res)
+   print (res)
    res = json.dumps(res, indent=4)
    r = make_response(res)
    r.headers['Content-Type'] = 'application/json'
-   #print ("City - Country: " +location.get('city') + "-" + location.get('country'))
+   print ("City - Country: " +location.get('city') + "-" + location.get('country'))
    return r
 
 def yahoo_weatherapi(city):
@@ -454,7 +454,7 @@ def weather_code(condition_get_code):
 #                                                                                    #
 #************************************************************************************#
 def wikipedia_search(reqContext):
-    #print (reqContext.get("result").get("action"))
+    print (reqContext.get("result").get("action"))
     option = reqContext.get("result").get("action")
     res = {
         "speech": "Please provide the topic you want to search in Wikipedia",
@@ -480,9 +480,9 @@ def wikipedia_search(reqContext):
 # Searchhook is for searching for Wkipedia information via Google API
 def searchhook(reqContext):
     req = request.get_json(silent=True, force=True)
-    #print("Within Search function......!!")
+    print("Within Search function......!!")
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
-    #print ("resolvedQuery: " + resolvedQuery)
+    print ("resolvedQuery: " + resolvedQuery)
     true_false = True
     baseurl = "https://www.googleapis.com/customsearch/v1?"
 ###########################################################
@@ -495,7 +495,7 @@ def searchhook(reqContext):
     #print ("search_list1" + search_list1)
     cumulative_string = search_list1.strip('[]')
     search_string = cumulative_string.replace(" ", "%20")
-    #print(search_string)
+    print(search_string)
     search_string_ascii = search_string.encode('ascii')
     if search_string_ascii is None:
         return None
@@ -505,11 +505,11 @@ def searchhook(reqContext):
         return {}
     #google_url = baseurl + urllib.parse.urlencode({google_query})
     google_url = baseurl + google_query
-    #print("google_url::::"+google_url)
+    print("google_url::::"+google_url)
     result = urllib.request.urlopen(google_url).read()
     #print (result)
     data = json.loads(result)
-    #print ("data = json.loads(result)")
+    print ("data = json.loads(result)")
 ############################################################
     speech = data['items'][0]['snippet'].encode('utf-8').strip()
     for data_item in data['items']:
@@ -523,25 +523,25 @@ def searchhook(reqContext):
     cse_thumbnail_brace_removed_1 = cse_thumbnail_u_removed.strip('[')
     cse_thumbnail_brace_removed_2 = cse_thumbnail_brace_removed_1.strip(']')
     cse_thumbnail_brace_removed_final =  cse_thumbnail_brace_removed_2.strip("'")
-    #print (cse_thumbnail_brace_removed_final)
+    print (cse_thumbnail_brace_removed_final)
     keys = ('cse_thumbnail', 'metatags', 'cse_image')
     for key in keys:
         # print(key in cse_thumbnail_brace_removed_final)
-        #print ('cse_thumbnail' in cse_thumbnail_brace_removed_final)
+        print ('cse_thumbnail' in cse_thumbnail_brace_removed_final)
         true_false = 'cse_thumbnail' in cse_thumbnail_brace_removed_final
         if true_false == True:
-            #print ('Condition matched -- Within IF block')
+            print ('Condition matched -- Within IF block')
             for key in pagemap:
                 cse_thumbnail = key['cse_thumbnail']
-                #print ('Within the For loop -- cse_thumbnail is been assigned')
+                print ('Within the For loop -- cse_thumbnail is been assigned')
                 for image_data in cse_thumbnail:
                     raw_str = image_data['src']
-                    #print ('raw_str::: ' + raw_str)
-                    #print ('***TRUE***')
+                    print ('raw_str::: ' + raw_str)
+                    print ('***TRUE***')
                     break
         else:
             raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA"
-            #print ('***FALSE***') 
+            print ('***FALSE***') 
     
     
     src_brace_removed_final = raw_str
@@ -553,12 +553,12 @@ def searchhook(reqContext):
     link_final =  link_brace_removed_2.strip("'")
     # Remove junk character from search item
     search_string_final = cumulative_string.strip("'")
-    #print ("Image::::::::")
-    #print (src_brace_removed_final)
-    #print ("link_final....")
-    #print (link_final)
-    #print("Response:")
-    #print(speech)
+    print ("Image::::::::")
+    print (src_brace_removed_final)
+    print ("link_final....")
+    print (link_final)
+    print("Response:")
+    print(speech)
 ############################################################
     res = {
           "speech": speech,
@@ -637,7 +637,7 @@ def searchhook(reqContext):
 def wikipediaInformationSearch(reqContext):
     #req = request.get_json(silent=True, force=True)
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
-    #print ("resolvedQuery: " + resolvedQuery)
+    print ("resolvedQuery: " + resolvedQuery)
     true_false = True
     baseurl = "https://www.googleapis.com/customsearch/v1?"
     resolvedQueryFinal = resolvedQuery.replace(" ", "%20")
@@ -649,7 +649,7 @@ def wikipediaInformationSearch(reqContext):
     if google_query is None:
         return {}
     google_url = baseurl + google_query
-    #print("google_url::::"+google_url)
+    print("google_url::::"+google_url)
     result = urllib.request.urlopen(google_url).read()
     data = json.loads(result)
     #print (data)
@@ -795,7 +795,7 @@ def youtubeTopic(reqContext):
 
 def youtubeVideoSearch(reqContext):
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
-    #print ("resolvedQuery: " + resolvedQuery)
+    print ("resolvedQuery: " + resolvedQuery)
     true_false = True
     baseurl = "https://www.googleapis.com/youtube/v3/search?part=id&q="
     resolvedQueryFinal = resolvedQuery.replace(" ", "%20")
@@ -806,13 +806,13 @@ def youtubeVideoSearch(reqContext):
     if youtube_query is None:
         return {}
     youtube_query = baseurl + search_string_ascii + youtube_query
-    #print("youtube_query::::"+youtube_query)
+    print("youtube_query::::"+youtube_query)
     result = urllib.request.urlopen(youtube_query).read()
     data = json.loads(result)
-    #print (data)
+    print (data)
 
     items = data['items']
-    #print (items)
+    print (items)
     id_list = []
 
     for id_block in items:
@@ -1314,7 +1314,7 @@ def topFourNewsArticle(reqContext):
     result = urllib.request.urlopen(newsAPI).read()
     data = json.loads(result)
     newspaper_url = newsWebsiteIdentification(resolvedQuery)
-    #print ("newspaper_url finally: " + newspaper_url)
+    print ("newspaper_url finally: " + newspaper_url)
     res = {
             "speech": "NewsList",
             "displayText": "NewsList",
@@ -1448,7 +1448,7 @@ def topFourNewsArticle(reqContext):
            };
     #print (res)
     res = json.dumps(res, indent=4)
-    #print (res)
+    print (res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
@@ -1530,7 +1530,7 @@ def newsWebsiteIdentification(resolvedQuery):
     else: 
        print ("Newspaper name did not match the input")
 
-    #print ("Within newsWebsiteIdentification Method, the newspaper_url is: " + newspaper_url)
+    print ("Within newsWebsiteIdentification Method, the newspaper_url is: " + newspaper_url)
     return newspaper_url
 
 #************************************************************************************#
