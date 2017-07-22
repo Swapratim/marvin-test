@@ -1096,17 +1096,11 @@ def news_category_topnews(reqContext):
                   "payload": "espn",
                   "image_url": "https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/052016/untitled-1_242.png?itok=vy3l2HxD"
                   },
-                 {
-                  "content_type": "text",
-                  "title": "NFL",
-                  "payload": "nfl-news",
-                  "image_url": "http://orig09.deviantart.net/4d3f/f/2013/087/7/e/nfl_icon_by_slamiticon-d5zbovo.png"
-                  },
                   {
                   "content_type": "text",
-                  "title": "Four Four Two",
-                  "payload": "four-four-two",
-                  "image_url": "http://www.free-icons-download.net/images/football-icon-53581.png"
+                  "title": "Fox Sports",
+                  "payload": "fox-sports",
+                  "image_url": "http://i48.tinypic.com/rwroy1.gif"
                   },
                   {
                   "content_type": "text",
@@ -1116,9 +1110,15 @@ def news_category_topnews(reqContext):
                   },
                   {
                   "content_type": "text",
-                  "title": "Fox Sports",
-                  "payload": "fox-sports",
-                  "image_url": "http://i48.tinypic.com/rwroy1.gif"
+                  "title": "Four Four Two",
+                  "payload": "four-four-two",
+                  "image_url": "http://www.free-icons-download.net/images/football-icon-53581.png"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "NFL",
+                  "payload": "nfl-news",
+                  "image_url": "http://orig09.deviantart.net/4d3f/f/2013/087/7/e/nfl_icon_by_slamiticon-d5zbovo.png"
                   },
                   {
                   "content_type": "text",
