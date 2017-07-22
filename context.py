@@ -1527,6 +1527,8 @@ def newsWebsiteIdentification(resolvedQuery):
        newspaper_url = "http://www.nationalgeographic.com"
     elif resolvedQuery == "new-scientist":
        newspaper_url = "https://www.newscientist.com"
+    elif resolvedQuery == "nfl-news":
+       newspaper_url = "https://www.nfl.com/"
     else: 
        print ("Newspaper name did not match the input")
 
