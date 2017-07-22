@@ -1096,12 +1096,6 @@ def news_category_topnews(reqContext):
                   "payload": "espn",
                   "image_url": "https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/052016/untitled-1_242.png?itok=vy3l2HxD"
                   },
-                 {
-                  "content_type": "text",
-                  "title": "ESPN Cric Info",
-                  "payload": "espn-cric-info",
-                  "image_url": "http://topnews.ae/images/ESPNcricinfo.jpg"
-                  },
                   {
                   "content_type": "text",
                   "title": "Four Four Two",
