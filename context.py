@@ -9,20 +9,17 @@ import os
 import sys
 import psycopg2
 import urlparse
-import pymongo
 
 from flask import Flask
 from flask import request, render_template
 from flask import make_response
-from pymongo import MongoClient
 
 
 # Flask should start in global layout
 context = Flask(__name__)
-# Facbook Access Token (For Marvin Facebook Page)
-#ACCESS_TOKEN = "EAAXRzkKCxVQBABZCplGeFoMd8uINY0zwqUSKo6y0LMXCpN4dZC8LzaVsrI2BTdhZCYSZBvteNqxx0vUhFY8V22JjNQ6NMUDMS63pYLUo7T5NmqsiZC5UpJclPrMawkdFQfzdxaTiZCaB0DcQ62DzgZBP1cegKbxgK9rdYhaPhwMSQZDZD"
-# Facbook Access Token (For SID Facebook Page)
-ACCESS_TOKEN = "EAADCpnCTbUoBAMlgDxoEVTifvyD80zCxvfakHu6m3VjYVdS5VnbIdDnZCxxonXJTK2LBMFemzYo2a4DGrz0SxNJIFkMAsU8WBfRS7IRrZAaHRrXEMBEL5wmdUvzawASQWtZAMNBr90Gattw3IGzeJ7pZBBUthMewXDvnmBELCgZDZD"
+# Facbook Access Token
+ACCESS_TOKEN = "EAAXRzkKCxVQBAImZBQo8kEpHVn0YDSVxRcadEHiMlZAcqSpu5pV7wAkZBKUs0eIZBcX1RmZCEV6cxJzuZAp5NO5ZCcJgZBJu4OPrFpKiAPJ5Hxlve2vrSthfMSZC3GqLnzwwRENQSzZAMyBXFCi1LtLWm9PhYucY88zPT4KEwcZCmhLYAZDZD"
+#ACCESS_TOKEN = "EAADCpnCTbUoBAMlgDxoEVTifvyD80zCxvfakHu6m3VjYVdS5VnbIdDnZCxxonXJTK2LBMFemzYo2a4DGrz0SxNJIFkMAsU8WBfRS7IRrZAaHRrXEMBEL5wmdUvzawASQWtZAMNBr90Gattw3IGzeJ7pZBBUthMewXDvnmBELCgZDZD"
 # Google Access Token
 Google_Acces_Token = "key=AIzaSyDNYsLn4JGIR4UaZMFTAgDB9gKN3rty2aM&cx=003066316917117435589%3Avcms6hy5lxs&q="
 # NewsAPI Access Token
@@ -35,9 +32,13 @@ weather_update_key = "747d84ccfe063ba9"
 #    All Webhook requests lands within the method --webhook                          #
 #                                                                                    #
 #************************************************************************************#
+# Webhook requests are coming to this method
 @context.route('/webhook', methods=['POST'])
 def webhook():
     reqContext = request.get_json(silent=True, force=True)
+    #print(json.dumps(reqContext, indent=4))
+    #print(reqContext.get("result").get("action"))
+    print ("webhook is been hit ONCE ONLY")
     if reqContext.get("result").get("action") == "input.welcome":
        return welcome()
     elif reqContext.get("result").get("action") == "weather":
@@ -67,6 +68,7 @@ def webhook():
     else:
        print("Good Bye")
 
+ 
 #************************************************************************************#
 #                                                                                    #
 #   This method is to get the Facebook User Deatails via graph.facebook.com/v2.6     #
@@ -88,29 +90,9 @@ def welcome():
     result = urllib.request.urlopen(fb_info).read()
     print (result)
     data = json.loads(result)
-
-    # Insert Data into MongoDB table:
-    USER_DATA = [
-    {
-        'first_name': data.get('first_name'),
-        'last_name': data.get('last_name'),
-        'locale': data.get('locale'),
-        'timezone': data.get('timezone'),
-        'gender': data.get('gender')
-    }]
-    uri = 'mongodb://marvinai:marvinai@ds163232.mlab.com:63232/heroku_stgdzdbp'
-    #client = pymongo.MongoClient(uri)
-    client = client = MongoClient("mongodb://marvinai:marvinai@ds163232.mlab.com:63232/heroku_stgdzdbp")
-    db = client.get_default_database()
-    name_table = db['name_table']
-    name_table.insert_many(USER_DATA)
-
-    #db.name_table.find()
-    ###################################
-    
     first_name = data.get('first_name')
     print (first_name)
-    speech = "Marvin.ai delivers AI driven custom chatbots for business - This demo chatbot can provide you News & Weather foercast along with Wikipedia & YouTube search facilities"
+    speech = "Marvin.ai delivers AI driven custom chatbots for business. \nThis demo chatbot can provide you News & Weather foercast along with Wikipedia & YouTube search facilities."
     res = {
           "speech": speech,
           "displayText": speech,
@@ -187,13 +169,16 @@ def reply(user_id, msg):
     print (data)
     resp = requests.post("https://graph.facebook.com/v2.6/me/messages?access_token=" + ACCESS_TOKEN, json=data)
     print(resp.content)
-    
+
+
+
 #************************************************************************************#
 #                                                                                    #
 #   Below method is to get the Facebook Quick Reply Webhook Handling - Weather       #
 #                                                                                    #
 #************************************************************************************#
 def weather(reqContext):
+    print (reqContext.get("result").get("action"))
     option = reqContext.get("result").get("action")
     res = {
         "speech": "Please provide a city name for weather report:",
@@ -211,19 +196,25 @@ def weather(reqContext):
     r.headers['Content-Type'] = 'application/json'
     return r
 
+
+
 #************************************************************************************#
 #                                                                                    #
 #   Below 3 methods are to get the Yahoo Weather Report for a location via API       #
 #                                                                                    #
 #************************************************************************************#
 def weatherhook(reqContext):
+   #req = request.get_json(silent=True, force=True)
    result = reqContext.get("result")
    parameters = result.get("parameters")
    city = parameters.get("geo-city")
    if not parameters.get("geo-city"):
       city = parameters.get("geo-city-dk")
+      #return 
+
    ###########################################################
    data = yahoo_weatherapi(city)
+   #print (data)
    ############################################################
    query = data.get('query')
    if query is None:
@@ -247,14 +238,34 @@ def weatherhook(reqContext):
    if condition is None:
        return {}
 
+   #description = item.get('description')
+   #if description is None:
+   #    return {}
+    
+   #print ("URL Link and Condition code should be printed afterwards")
    link = item.get('link')
    link_forecast = link.split("*",1)[1]
+   #print (link_forecast)
+   #print ("<<<<<>>>>")
+   #print (condition.get('code')) 
    condition_get_code = condition.get('code')
    condition_code = weather_code(condition_get_code)
    image_url = "http://gdurl.com/" + condition_code
- 
-   speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
+
+   #if condition.get('code') != condition_code:
+   #   image_url = "http://l.yimg.com/a/i/us/we/" + condition.get('code') + "/14.gif"
+   #print (image_url) 
+    
+   speech = "Today in " + location.get('city') + "(" +location.get('country') + ")" + ": " + condition.get('text') + \
             ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
+   print ("City - Country: " +location.get('city') + "-" + location.get('country'))
+   print ("image url: " + image_url)
+   print ("forecast link: " + link_forecast)
+   print("speech: " + speech)
+   ##############################################################
+   #res = {"speech": speech,
+   #       "displayText": speech,
+   #       "source": "apiai-weather-webhook-sample"}
    res = {
          "speech": speech,
          "displayText": speech,
@@ -263,7 +274,7 @@ def weatherhook(reqContext):
                  {
                     "sender_action": "typing_on"
                   },
-                 {
+                  {
                     "sender_action": "typing_on"
                   },
                  {
@@ -327,9 +338,11 @@ def weatherhook(reqContext):
               ]
             } 
         };
+   print (res)
    res = json.dumps(res, indent=4)
    r = make_response(res)
    r.headers['Content-Type'] = 'application/json'
+   print ("City - Country: " +location.get('city') + "-" + location.get('country'))
    return r
 
 def yahoo_weatherapi(city):
@@ -339,6 +352,7 @@ def yahoo_weatherapi(city):
         return {}
     baseurl = "https://query.yahooapis.com/v1/public/yql?"
     yql_url = baseurl + urllib.parse.urlencode({'q': yql_query}) + "&format=json"
+    #print (yql_url)
     result = urllib.request.urlopen(yql_url).read()
     data = json.loads(result)
     return data
@@ -453,6 +467,7 @@ def weather_code(condition_get_code):
 #                                                                                    #
 #************************************************************************************#
 def wikipedia_search(reqContext):
+    print (reqContext.get("result").get("action"))
     option = reqContext.get("result").get("action")
     res = {
         "speech": "Please provide the topic you want to search in Wikipedia",
@@ -478,17 +493,22 @@ def wikipedia_search(reqContext):
 # Searchhook is for searching for Wkipedia information via Google API
 def searchhook(reqContext):
     req = request.get_json(silent=True, force=True)
+    print("Within Search function......!!")
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
+    print ("resolvedQuery: " + resolvedQuery)
     true_false = True
     baseurl = "https://www.googleapis.com/customsearch/v1?"
 ###########################################################
     result = req.get("result")
     parameters = result.get("parameters")
     search_list0 = parameters.get("any")
+    #print ("search_list0" + search_list0)
     search_u_string_removed = [str(i) for i in search_list0]
     search_list1 = str(search_u_string_removed)
+    #print ("search_list1" + search_list1)
     cumulative_string = search_list1.strip('[]')
     search_string = cumulative_string.replace(" ", "%20")
+    print(search_string)
     search_string_ascii = search_string.encode('ascii')
     if search_string_ascii is None:
         return None
@@ -498,8 +518,11 @@ def searchhook(reqContext):
         return {}
     #google_url = baseurl + urllib.parse.urlencode({google_query})
     google_url = baseurl + google_query
+    print("google_url::::"+google_url)
     result = urllib.request.urlopen(google_url).read()
+    #print (result)
     data = json.loads(result)
+    print ("data = json.loads(result)")
 ############################################################
     speech = data['items'][0]['snippet'].encode('utf-8').strip()
     for data_item in data['items']:
@@ -513,18 +536,26 @@ def searchhook(reqContext):
     cse_thumbnail_brace_removed_1 = cse_thumbnail_u_removed.strip('[')
     cse_thumbnail_brace_removed_2 = cse_thumbnail_brace_removed_1.strip(']')
     cse_thumbnail_brace_removed_final =  cse_thumbnail_brace_removed_2.strip("'")
+    print (cse_thumbnail_brace_removed_final)
     keys = ('cse_thumbnail', 'metatags', 'cse_image')
     for key in keys:
+        # print(key in cse_thumbnail_brace_removed_final)
+        print ('cse_thumbnail' in cse_thumbnail_brace_removed_final)
         true_false = 'cse_thumbnail' in cse_thumbnail_brace_removed_final
         if true_false == True:
+            print ('Condition matched -- Within IF block')
             for key in pagemap:
                 cse_thumbnail = key['cse_thumbnail']
+                print ('Within the For loop -- cse_thumbnail is been assigned')
                 for image_data in cse_thumbnail:
                     raw_str = image_data['src']
+                    print ('raw_str::: ' + raw_str)
+                    print ('***TRUE***')
                     break
         else:
             raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA"
-            
+            print ('***FALSE***') 
+    
     
     src_brace_removed_final = raw_str
     # Remove junk charaters from URL
@@ -535,6 +566,12 @@ def searchhook(reqContext):
     link_final =  link_brace_removed_2.strip("'")
     # Remove junk character from search item
     search_string_final = cumulative_string.strip("'")
+    print ("Image::::::::")
+    print (src_brace_removed_final)
+    print ("link_final....")
+    print (link_final)
+    print("Response:")
+    print(speech)
 ############################################################
     res = {
           "speech": speech,
@@ -619,6 +656,7 @@ def searchhook(reqContext):
 def wikipediaInformationSearch(reqContext):
     #req = request.get_json(silent=True, force=True)
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
+    print ("resolvedQuery: " + resolvedQuery)
     true_false = True
     baseurl = "https://www.googleapis.com/customsearch/v1?"
     resolvedQueryFinal = resolvedQuery.replace(" ", "%20")
@@ -630,8 +668,10 @@ def wikipediaInformationSearch(reqContext):
     if google_query is None:
         return {}
     google_url = baseurl + google_query
+    print("google_url::::"+google_url)
     result = urllib.request.urlopen(google_url).read()
     data = json.loads(result)
+    #print (data)
 ############################################################
     speech = data['items'][0]['snippet'].encode('utf-8').strip()
     for data_item in data['items']:
@@ -666,6 +706,12 @@ def wikipediaInformationSearch(reqContext):
     link_final =  link_brace_removed_2.strip("'")
     # Remove junk character from search item
     search_string_final = resolvedQuery.strip("'")
+    #print ("Image::::::::")
+    #print (src_brace_removed_final)
+    #print ("link_final....")
+    #print (link_final)
+    #print("Response:")
+    #print(speech)
 ############################################################
     res = {
           "speech": speech,
@@ -744,11 +790,11 @@ def wikipediaInformationSearch(reqContext):
 
 #************************************************************************************#
 #                                                                                    #
-
 #   Below method is to get the Facebook Quick Reply Webhook Handling - YOUTUBE       #
 #                                                                                    #
 #************************************************************************************#
 def youtubeTopic(reqContext):
+    print (reqContext.get("result").get("action"))
     option = reqContext.get("result").get("action")
     res = {
         "speech": "Please provide a topic to search in YouTube:",
@@ -774,6 +820,7 @@ def youtubeTopic(reqContext):
 
 def youtubeVideoSearch(reqContext):
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
+    print ("resolvedQuery: " + resolvedQuery)
     true_false = True
     baseurl = "https://www.googleapis.com/youtube/v3/search?part=id&q="
     resolvedQueryFinal = resolvedQuery.replace(" ", "%20")
@@ -784,14 +831,18 @@ def youtubeVideoSearch(reqContext):
     if youtube_query is None:
         return {}
     youtube_query = baseurl + search_string_ascii + youtube_query
+    print("youtube_query::::"+youtube_query)
     result = urllib.request.urlopen(youtube_query).read()
     data = json.loads(result)
-    
+    print (data)
+
     items = data['items']
+    print (items)
     id_list = []
 
     for id_block in items:
         id = id_block['id']
+        print (id)
         id_list.append(id)
 
     
@@ -917,6 +968,8 @@ def youtubeVideoSearch(reqContext):
 #                                                                                    #
 #************************************************************************************#
 def newsCategory(reqContext):
+    print (reqContext.get("result").get("action"))
+    #option = reqContext.get("result").get("action")
     res = {
             "speech": "Please select the category",
             "displayText": "Please select the category",
@@ -978,6 +1031,7 @@ def newsCategory(reqContext):
 #************************************************************************************#
 def news_category_topnews(reqContext):
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
+    print ("resolvedQuery: " + resolvedQuery)
     if resolvedQuery == "topnews":
         res = {
             "speech": "Please select your favourite Newspaper:",
@@ -1286,10 +1340,12 @@ newspaper_url = ''
 data = ''
 def topFourNewsArticle(reqContext):
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
+    print ("resolvedQuery: " + resolvedQuery)
     newsAPI = "https://newsapi.org/v1/articles?source=" + resolvedQuery + "&sortBy=top&apiKey=" + newspai_access_token
     result = urllib.request.urlopen(newsAPI).read()
     data = json.loads(result)
     newspaper_url = newsWebsiteIdentification(resolvedQuery)
+    print ("newspaper_url finally: " + newspaper_url)
     res = {
             "speech": "NewsList",
             "displayText": "NewsList",
@@ -1427,7 +1483,9 @@ def topFourNewsArticle(reqContext):
                ]
              } 
            };
+    #print (res)
     res = json.dumps(res, indent=4)
+    print (res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
@@ -1507,14 +1565,11 @@ def newsWebsiteIdentification(resolvedQuery):
     elif resolvedQuery == "new-scientist":
        newspaper_url = "https://www.newscientist.com"
     elif resolvedQuery == "nfl-news":
-       newspaper_url = "https://www.nfl.com"
-    elif resolvedQuery == "recode":
-       newspaper_url = "https://www.recode.net"
-    elif resolvedQuery == "reddit":
-       newspaper_url = "https://www.reddit.com"
+       newspaper_url = "https://www.nfl.com/"
     else: 
        print ("Newspaper name did not match the input")
 
+    print ("Within newsWebsiteIdentification Method, the newspaper_url is: " + newspaper_url)
     return newspaper_url
 
 #************************************************************************************#
@@ -1545,7 +1600,7 @@ def help(resolvedQuery):
 #                                                                                    #
 #************************************************************************************#
 def contact(resolvedQuery):
-    speech = "Our company is now present in Denmark & Australia. Grow your business with AI Chatbot. Request for a free Demo now. "
+    speech = "Our company is now present in Denmark & Australia. \nGrow your business with AI Chatbot. \nRequest for a free Demo now."
     res = {
         "speech": speech,
         "displayText": speech,
