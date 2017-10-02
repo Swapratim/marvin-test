@@ -63,10 +63,11 @@ def webhook():
        return youtubeVideoSearch(reqContext)
     elif reqContext.get("result").get("action") == "Help":
        return help(reqContext)
-    elif reqContext.get("result").get("action") == "input.unknown":
-       return unknownInput(reqContext)
     elif reqContext.get("result").get("action") == "contact.us":
        return contact(reqContext)
+    elif reqContext.get("result").get("action") == "input.unknown":
+       return unknownInput(reqContext)
+    
     else:
        print("Good Bye")
 
@@ -1699,6 +1700,7 @@ def unknownInput(resolvedQuery):
 #                                                                                    #
 #************************************************************************************#
 def contact(resolvedQuery):
+    print ("Within CONTACT US method")
     speech = "Our company is now present in Denmark & Australia. \nGrow your business with AI Chatbot. \nRequest for a free Demo now."
     res = {
         "speech": speech,
