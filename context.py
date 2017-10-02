@@ -148,7 +148,7 @@ def welcome():
                   {
                   "content_type": "text",
                   "title": "Contact Us",
-                  "payload": "contact",
+                  "payload": "Contact Us",
                   "image_url": "https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-128.png"
                   }
                   ]
