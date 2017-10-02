@@ -63,7 +63,7 @@ def webhook():
        return youtubeVideoSearch(reqContext)
     elif reqContext.get("result").get("action") == "Help":
        return help(reqContext)
-    elif reqContext.get("result").get("action") == "contact.us":
+    elif reqContext.get("result").get("action") == "contact":
        return contact(reqContext)
     elif reqContext.get("result").get("action") == "input.unknown":
        return unknownInput(reqContext)
