@@ -1606,7 +1606,10 @@ def contact(resolvedQuery):
         "displayText": speech,
         "data" : {
         "facebook" : [
-               {
+                {
+                 "text": speech
+                },
+                {
                  "attachment" : {
                    "type" : "template",
                      "payload" : {
