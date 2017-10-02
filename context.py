@@ -1751,7 +1751,7 @@ def contact(resolvedQuery):
                    }
                 },
                 {
-                  "text": " ",
+                  "text": "Start over again",
                   "quick_replies": [
                  {
                   "content_type": "text",
