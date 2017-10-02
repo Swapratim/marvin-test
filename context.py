@@ -1722,8 +1722,8 @@ def contact(resolvedQuery):
                                    "subtitle" : "Founder & Owner of Marvin.ai \nAarhus, Denmark \nCall: +45-7182-5584",
                                    "buttons": [{
                                         "type": "web_url",
-                                        "url": "https://marvinai.live",
-                                        "title": "More info"
+                                        "url": "https://marvinai.live/about",
+                                        "title": "View Website"
                                     }]
                                  },
                                  {
@@ -1732,8 +1732,8 @@ def contact(resolvedQuery):
                                    "subtitle" : "CEO of Marvin.ai \nMelbourne, Australia \nCall: +61-469-029-387",
                                    "buttons": [{
                                         "type": "web_url",
-                                        "url": "https://marvinai.live",
-                                        "title": "More info"
+                                        "url": "https://marvinai.live/about",
+                                        "title": "View Website"
                                     }]
                                  } 
                            ]
