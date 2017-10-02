@@ -1722,6 +1722,11 @@ def contact(resolvedQuery):
                                    "subtitle" : "Founder & Owner of Marvin.ai \nAarhus, Denmark \nCall: +45-7182-5584",
                                    "buttons": [{
                                         "type": "web_url",
+                                        "url": "https://www.messenger.com/t/swapratim.roy",
+                                        "title": "Connect on Messenger"
+                                    },
+                                    {
+                                        "type": "web_url",
                                         "url": "https://marvinai.live/about",
                                         "title": "View Website"
                                     }]
@@ -1731,6 +1736,11 @@ def contact(resolvedQuery):
                                    "image_url" : "https://marvinchatbot.files.wordpress.com/2017/06/arnab-dasgupta-ceo-of-marvin-ai.jpg?w=700&h=&crop=1",
                                    "subtitle" : "CEO of Marvin.ai \nMelbourne, Australia \nCall: +61-469-029-387",
                                    "buttons": [{
+                                        "type": "web_url",
+                                        "url": "https://www.messenger.com/t/arnabdasgupta.uk",
+                                        "title": "Connect on Messenger"
+                                    },
+                                    {
                                         "type": "web_url",
                                         "url": "https://marvinai.live/about",
                                         "title": "View Website"
