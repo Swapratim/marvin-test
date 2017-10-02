@@ -63,6 +63,8 @@ def webhook():
        return youtubeVideoSearch(reqContext)
     elif reqContext.get("result").get("action") == "Help":
        return help(reqContext)
+    elif reqContext.get("result").get("action") == "input.unknown":
+       return unknownInput(reqContext)
     elif reqContext.get("result").get("action") == "contact.us":
        return contact(reqContext)
     else:
@@ -92,7 +94,7 @@ def welcome():
     data = json.loads(result)
     first_name = data.get('first_name')
     print (first_name)
-    speech = "Marvin.ai delivers AI driven custom chatbots for business. \nThis demo chatbot can provide you News & Weather foercast along with Wikipedia & YouTube search facilities."
+    speech = "Marvin.ai- a startup that delivers AI driven custom chatbots for business. \nThis demo-bot will assist you to get familiar with chatbot. \nYou can search necessary information here without using apps."
     res = {
           "speech": speech,
           "displayText": speech,
@@ -1565,7 +1567,11 @@ def newsWebsiteIdentification(resolvedQuery):
     elif resolvedQuery == "new-scientist":
        newspaper_url = "https://www.newscientist.com"
     elif resolvedQuery == "nfl-news":
-       newspaper_url = "https://www.nfl.com/"
+       newspaper_url = "https://www.nfl.com"
+    elif resolvedQuery == "recode":
+       newspaper_url = "https://www.recode.net"
+    elif resolvedQuery == "reddit":
+       newspaper_url = "https://www.reddit.com"
     else: 
        print ("Newspaper name did not match the input")
 
@@ -1578,7 +1584,7 @@ def newsWebsiteIdentification(resolvedQuery):
 #                                                                                    #
 #************************************************************************************#
 def help(resolvedQuery):
-    speech = "I'm sorry if I make you confused. Please select Quick Reply or Menu to chat with me. \n\n 1. Click on 'News' to read latest news from 33 globally leading newspapers \n 2. Click on 'Weather' and write a city name to get weather forecast \n 3. Click on 'Wikipedia' and write a topic you want to know about. No need to ask a full question. \n 4. Click on 'YouTube' and search for your favourite videos. \n 5. You can still chat directly with Marvin without the quick replies like before for - Weather, Wikipedia & Small Talk."
+    speech = "I'm sorry if I make you confused. Please select Quick Reply or Menu to chat with me. \n\n 1. Click on 'News' to read latest news from 36 globally leading newspapers \n 2. Click on 'Weather' and write a city name to get weather forecast \n 3. Click on 'Wikipedia' and write a topic you want to know about. No need to ask a full question. \n 4. Click on 'YouTube' and search for your favourite videos. \n 5. You can still chat directly with Marvin without the quick replies like before for - Weather, Wikipedia & Small Talk."
     res = {
         "speech": speech,
         "displayText": speech,
@@ -1586,7 +1592,100 @@ def help(resolvedQuery):
         "facebook" : [
                {
                 "text": speech
-               }
+               },
+               {
+                  "text": "Click on the below options to start over again",
+                  "quick_replies": [
+                 {
+                  "content_type": "text",
+                  "title": "News",
+                  "payload": "News",
+                  "image_url": "http://www.freeiconspng.com/uploads/newspaper-icon-20.jpg"
+                 },
+                 {
+                  "content_type": "text",
+                  "title": "Weather",
+                  "payload": "Weather",
+                  "image_url": "https://www.mikeafford.com/store/store-images/ww01_example_light_rain_showers.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "Wikipedia",
+                  "payload": "Wikipedia",
+                  "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "YouTube",
+                  "payload": "YouTube",
+                  "image_url": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "Contact Us",
+                  "payload": "contact",
+                  "image_url": "https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-128.png"
+                  }
+                  ]
+                 }
+             ]
+           } 
+         };
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
+
+#************************************************************************************#
+#                                                                                    #
+#   Unknown Input Response                                                           #
+#                                                                                    #
+#************************************************************************************#
+def unknownInput(resolvedQuery):
+    speech = "Sorry, I do not understand it. Please select an option to start again. Click on Quick Reply orCustom Menu (3 striped menu icon) to proceed."
+    res = {
+        "speech": speech,
+        "displayText": speech,
+        "data" : {
+        "facebook" : [
+               {
+                "text": speech
+               },
+               {
+                  "text": "Click on the below options to start over again",
+                  "quick_replies": [
+                 {
+                  "content_type": "text",
+                  "title": "News",
+                  "payload": "News",
+                  "image_url": "http://www.freeiconspng.com/uploads/newspaper-icon-20.jpg"
+                 },
+                 {
+                  "content_type": "text",
+                  "title": "Weather",
+                  "payload": "Weather",
+                  "image_url": "https://www.mikeafford.com/store/store-images/ww01_example_light_rain_showers.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "Wikipedia",
+                  "payload": "Wikipedia",
+                  "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "YouTube",
+                  "payload": "YouTube",
+                  "image_url": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png"
+                   },
+                  {
+                  "content_type": "text",
+                  "title": "Contact Us",
+                  "payload": "contact",
+                  "image_url": "https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-128.png"
+                  }
+                  ]
+                 }
              ]
            } 
          };
