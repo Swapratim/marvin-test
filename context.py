@@ -37,8 +37,8 @@ weather_update_key = "747d84ccfe063ba9"
 def webhook():
     reqContext = request.get_json(silent=True, force=True)
     #print(json.dumps(reqContext, indent=4))
-    #print(reqContext.get("result").get("action"))
-    print ("webhook is been hit ONCE ONLY")
+    print(reqContext.get("result").get("action"))
+    #print ("webhook is been hit ONCE ONLY")
     if reqContext.get("result").get("action") == "input.welcome":
        return welcome()
     elif reqContext.get("result").get("action") == "weather":
