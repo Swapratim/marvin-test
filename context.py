@@ -1640,7 +1640,12 @@ def contact(resolvedQuery):
                                    "buttons": [{
                                         "type": "web_url",
                                         "url": "https://www.messenger.com/t/swapratim.roy",
-                                        "title": "More info"
+                                        "title": "Connect on Messenger"
+                                    },
+                                    {
+                                        "type": "web_url",
+                                        "url": "https://marvinai.live/about",
+                                        "title": "View Website"
                                     }]
                                  },
                                  {
@@ -1649,8 +1654,13 @@ def contact(resolvedQuery):
                                    "subtitle" : "CEO of Marvin.ai \nMelbourne, Australia \nCall: +61-469-029-387",
                                    "buttons": [{
                                         "type": "web_url",
-                                        "url": "https://www.messenger.com/t/swapratim.roy",
-                                        "title": "More info"
+                                        "url": "https://www.messenger.com/t/arnabdasgupta.uk",
+                                        "title": "Connect on Messenger"
+                                    },
+                                    {
+                                        "type": "web_url",
+                                        "url": "https://marvinai.live/about",
+                                        "title": "View Website"
                                     }]
                                  } 
                            ]
