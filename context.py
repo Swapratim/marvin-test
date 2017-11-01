@@ -97,8 +97,8 @@ def welcome():
     speech3 = "I provide unique combination to search News (30 Newspapers), Weather, Wikipedia or YouTube within this chat window which is unique is nature. :D"
     speech4 = "Hope you'll enjoy my services. More more details, you can click on 'Contact Us' !!!"
     res = {
-          "speech": speech,
-          "displayText": speech,
+          "speech": speech1,
+          "displayText": speech1,
            "data" : {
               "facebook" : [
                    {
