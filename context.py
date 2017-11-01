@@ -1649,7 +1649,7 @@ def contact(resolvedQuery):
                                    "subtitle" : "CEO of Marvin.ai \nMelbourne, Australia \nCall: +61-469-029-387",
                                    "buttons": [{
                                         "type": "web_url",
-                                        "url": "https://marvinai.live",
+                                        "url": "https://www.messenger.com/t/swapratim.roy",
                                         "title": "More info"
                                     }]
                                  } 
