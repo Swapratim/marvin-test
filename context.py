@@ -1639,15 +1639,9 @@ def contact(resolvedQuery):
                                    "subtitle" : "Founder & Owner of Marvin.ai \nAarhus, Denmark \nCall: +45-7182-5584",
                                    "buttons": [{
                                         "type": "web_url",
-                                        "url": "https://marvinai.live",
-                                        "title": "More info"
-                                    },
-                                    {
-                                        "type": "web_url",
                                         "url": "https://www.messenger.com/t/swapratim.roy",
-                                        "title": "Message Me"
-                                    }
-                                  ]
+                                        "title": "More info"
+                                    }]
                                  },
                                  {
                                    "title" : "Arnab Dasgupta",
