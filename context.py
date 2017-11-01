@@ -1641,7 +1641,13 @@ def contact(resolvedQuery):
                                         "type": "web_url",
                                         "url": "https://marvinai.live",
                                         "title": "More info"
-                                    }]
+                                    },
+                                    {
+                                        "type": "web_url",
+                                        "url": "https://www.messenger.com/t/swapratim.roy",
+                                        "title": "Message Me"
+                                    }
+                                  ]
                                  },
                                  {
                                    "title" : "Arnab Dasgupta",
