@@ -185,6 +185,7 @@ def reply(user_id, msg):
 ###################################THIS IS THE START OF FIRST BLOCK OF CUSTOMER ENGAGEMENT#########################################
 
 def firstIntroductionSureOptionStatement(reqContext):
+    print ("firstIntroductionSureOptionStatement..........YES..........")
     option = reqContext.get("result").get("action")
     res = {
         "speech": "...",
@@ -253,6 +254,7 @@ def firstIntroductionSureOptionStatement(reqContext):
 
 #####################################################################
 def firstIntroductionNoOptionStatement(reqContext):
+    print ("firstIntroductionNoOptionStatement...........NO.........")
     option = reqContext.get("result").get("action")
     res = {
         "speech": "...",
