@@ -9,7 +9,6 @@ import os
 import sys
 import psycopg2
 import urlparse
-import pymongo
 import emoji
 
 from flask import Flask
