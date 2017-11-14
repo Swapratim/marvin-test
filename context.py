@@ -9,6 +9,8 @@ import os
 import sys
 import psycopg2
 import urlparse
+import pymongo
+import emoji
 
 from flask import Flask
 from flask import request, render_template
@@ -41,6 +43,16 @@ def webhook():
     print ("webhook is been hit ONCE ONLY")
     if reqContext.get("result").get("action") == "input.welcome":
        return welcome()
+    elif reqContext.get("result").get("action") == "firstIntroductionSureOptionStatement":
+       return firstIntroductionSureOptionStatement(reqContext)
+    elif reqContext.get("result").get("action") == "firstIntroductionNoOptionStatement":
+       return firstIntroductionNoOptionStatement(reqContext)
+    elif reqContext.get("result").get("action") == "secondExplanationOKStatement":
+       return secondExplanationOKStatement(reqContext)
+    elif reqContext.get("result").get("action") == "thirdExplanationOKStatement":
+       return thirdExplanationOKStatement(reqContext)
+    elif reqContext.get("result").get("action") == "fourthExplanationOKStatement":
+       return fourthExplanationOKStatement(reqContext)
     elif reqContext.get("result").get("action") == "weather":
        return weather(reqContext)
     elif reqContext.get("result").get("action") == "yahooWeatherForecast":
@@ -74,6 +86,7 @@ def webhook():
 #   This method is to get the Facebook User Deatails via graph.facebook.com/v2.6     #
 #                                                                                    #
 #************************************************************************************#
+user_name = ""
 def welcome():
     print ("within welcome method")
     data = request.json
@@ -92,10 +105,8 @@ def welcome():
     data = json.loads(result)
     first_name = data.get('first_name')
     print (first_name)
-    speech1 = "Marvin.ai is a chatbot startup company that delivers Artificial Intelligence driven custom chatbots for customer support."
-    speech2 = "I'm the personal bot designed to assist you to get familiar with chatbot... :) "
-    speech3 = "I provide unique combination to search News (30 Newspapers), Weather, Wikipedia or YouTube within this chat window which is unique is nature. :D"
-    speech4 = "Hope you'll enjoy my services. More more details, you can click on 'Contact Us' !!!"
+    user_name = data.get('first_name')
+    speech1 = "I'm the official chatbot of Marvin.ai but you can call me 'Marvin'"
     res = {
           "speech": speech1,
           "displayText": speech1,
@@ -111,7 +122,7 @@ def welcome():
                       "template_type" : "generic",
                        "elements" : [ 
                                  {
-                                   "title" : "Hi " + first_name + "! I am Marvin",
+                                   "title" : "Welcome " + first_name + "! Thanks for stopping by..." + emoji.emojize(':wave:', use_aliases=True),
                                    "image_url" : "http://gdurl.com/vc1o",
                                  } 
                            ]
@@ -128,25 +139,150 @@ def welcome():
                     "sender_action": "typing_on"
                   },
                  {
-                 "text": speech2
+                 "attachment":{
+                        "type":"image", 
+                        "payload":{
+                        "url":"https://media.giphy.com/media/1qO2XGCGx7Rte/giphy.gif"
+                       }
+                      }
                   },
                  {
+                  "text": "Do you want to know more about Marvin.ai?",
+                  "quick_replies": [
+                 {
+                  "content_type": "text",
+                  "title": "Ummm, yeah sure",
+                  "payload": "Ummm, yeah sure",
+                  "image_url": "http://www.thehindubusinessline.com/multimedia/dynamic/02337/bl12_smiley_jpg_2337780e.jpg"
+                 },
+                 {
+                  "content_type": "text",
+                  "title": "No, thank you",
+                  "payload": "No, thank you",
+                  "image_url": "https://www.colourbox.com/preview/7036940-exited-emoticon.jpg"
+                   }
+                  ]
+                 }
+                ]
+              }
+            };
+    print (res)
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    print (r)
+    return r
+
+def reply(user_id, msg):
+    data = {
+        "recipient": {"id": user_id},
+        "message": {"text": msg}
+    }
+    print ("Data.........")
+    print (data)
+    resp = requests.post("https://graph.facebook.com/v2.6/me/messages?access_token=" + ACCESS_TOKEN, json=data)
+    print(resp.content)
+ 
+###################################THIS IS THE START OF FIRST BLOCK OF CUSTOMER ENGAGEMENT#########################################
+
+def firstIntroductionSureOptionStatement(reqContext):
+    option = reqContext.get("result").get("action")
+    res = {
+        "speech": "...",
+        "displayText": "...",
+        "data" : {
+        "facebook" : [
+                {
                     "sender_action": "typing_on"
-                  },
-                 {
-                 "text": speech3
-                  },
-                 {
+                },
+               {
+                "text": "Marvin.ai is a chatbot development company."
+               },
+               {
                     "sender_action": "typing_on"
-                  },
-                 {
-                 "text": speech4
-                  },
-                 {
+                },
+               {
+                "text": "We build best Customer Support chatbots for any kind of businesses."
+               },
+               {
                     "sender_action": "typing_on"
-                  },
+                },
+               {
+                "text": "For example: Restaurant, Hotel, Retail, Healthcare, Real Estate, Banking, Insurance etc"
+               },
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                 "attachment":{
+                        "type":"image", 
+                        "payload":{
+                        "url":"https://media.giphy.com/media/3ov9kapGIiW3DQHAM8/giphy.gif"
+                     }
+                 }
+               },
+               {
+                  "text": "Do you wanna know some secrets?",
+                  "quick_replies": [
                  {
-                  "text": "Please select your choice:",
+                  "content_type": "text",
+                  "title": "Okkk, Tell Me",
+                  "payload": "Okkk, Tell Me",
+                  "image_url": "http://www.thehindubusinessline.com/multimedia/dynamic/02337/bl12_smiley_jpg_2337780e.jpg"
+                 },
+                 {
+                  "content_type": "text",
+                  "title": "No, thanks",
+                  "payload": "No, thanks",
+                  "image_url": "https://www.colourbox.com/preview/7036940-exited-emoticon.jpg"
+                  },
+                  {
+                  "content_type": "text",
+                  "title": "Contact us",
+                  "payload": "contact",
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
+                   }
+                  ]
+                 }
+             ]
+           } 
+         };
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
+
+#####################################################################
+def firstIntroductionNoOptionStatement(reqContext):
+    option = reqContext.get("result").get("action")
+    res = {
+        "speech": "...",
+        "displayText": "...",
+        "data" : {
+        "facebook" : [
+                {
+                    "sender_action": "typing_on"
+                },
+               {
+                "text": "Don't worry, still you can enjoy tons of features that I offer."
+               },
+               {
+                    "sender_action": "typing_on"
+                },
+               {
+                "text": "I provide special features to search News (30 Newspapers), Weather, Wikipedia or YouTube within this chat window which is unique is nature." + emoji.emojize(':fire:', use_aliases=True),
+               },
+               {
+                    "sender_action": "typing_on"
+                },
+               {
+                "text": "Give it a try and enjoy my personal assistance."
+               },
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                  "text": "Also click on 'Menu' option to explore more!!!",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -180,26 +316,231 @@ def welcome():
                   }
                   ]
                  }
-                ]
-              }
-            };
-    print (res)
+             ]
+           } 
+         };
     res = json.dumps(res, indent=4)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
-    print (r)
     return r
 
-def reply(user_id, msg):
-    data = {
-        "recipient": {"id": user_id},
-        "message": {"text": msg}
-    }
-    print ("Data.........")
-    print (data)
-    resp = requests.post("https://graph.facebook.com/v2.6/me/messages?access_token=" + ACCESS_TOKEN, json=data)
-    print(resp.content)
+################################################THIS IS THE START OF SECOND BLOCK OF CUSTOMER ENGAGEMENT#########################################
 
+def secondExplanationOKStatement(reqContext):
+    option = reqContext.get("result").get("action")
+    res = {
+        "speech": "...",
+        "displayText": "...",
+        "data" : {
+        "facebook" : [
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                "text": "Global trend shows that People prefer messaging" + emoji.emojize(':iphone:', use_aliases=True) + "over calling." + emoji.emojize(':telephone_receiver:', use_aliases=True)
+               },
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                "text": "Customers search in FB pages for your business brand before landing to your website."
+               },
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                 "text": "Instant reply to customer FAQ helps you to grow customer interaction & satisfaction level" + emoji.emojize(':white_check_mark:', use_aliases=True)
+               },
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                 "text": "This helps to grow your business with rapid and steady growth" + emoji.emojize(':moneybag:', use_aliases=True) + emoji.emojize(':moneybag:', use_aliases=True)
+               },
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                 "attachment":{
+                        "type":"image", 
+                        "payload":{
+                        "url":"https://media.giphy.com/media/g4AgRBcatHKve/giphy.gif"
+                     }
+                 }
+               },
+               {
+                  "text": "Want to know how chatbot can help you?",
+                  "quick_replies": [
+                 {
+                  "content_type": "text",
+                  "title": "Tell me right now",
+                  "payload": "Tell me right now",
+                  "image_url": "https://previews.123rf.com/images/krisdog/krisdog1509/krisdog150900014/44577557-A-cartoon-emoji-emoticon-icon-character-looking-very-happy-with-his-thumbs-up-he-likes-it-Stock-Vector.jpg"
+                 },
+                 {
+                  "content_type": "text",
+                  "title": "Maybe later on",
+                  "payload": "Maybe later on",
+                  "image_url": "https://www.colourbox.com/preview/7036940-exited-emoticon.jpg"
+                 },
+                 {
+                  "content_type": "text",
+                  "title": "Contact us",
+                  "payload": "contact",
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
+                   }
+                  ]
+                }
+             ]
+           } 
+         };
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
+
+#####################################################################
+
+def thirdExplanationOKStatement(reqContext):
+    option = reqContext.get("result").get("action")
+    res = {
+        "speech": "...",
+        "displayText": "...",
+        "data" : {
+        "facebook" : [
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                "text": "Ok, Ok, I know you're getting impatient" + emoji.emojize(':sunglasses:', use_aliases=True)
+               },
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                "text": "Chatbots are virtual assistants capable of talking to unlimited number of users simultaneously 24/7/365"
+               },
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                "text": "So people don't have to wait too long to get simple information like: 'When your restaurant will open today?'"
+               },
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                 "attachment":{
+                        "type":"image", 
+                        "payload":{
+                        "url":"https://media.giphy.com/media/11sBLVxNs7v6WA/giphy.gif"
+                     }
+                 }
+               },
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                 "text": "Chatbots also help in Sales promotion and marketing"
+               },
+               {
+                  "text": "Ready to know more about the deal?",
+                  "quick_replies": [
+                 {
+                  "content_type": "text",
+                  "title": "Show it to Me",
+                  "payload": "Show it to Me",
+                  "image_url": "https://previews.123rf.com/images/krisdog/krisdog1509/krisdog150900014/44577557-A-cartoon-emoji-emoticon-icon-character-looking-very-happy-with-his-thumbs-up-he-likes-it-Stock-Vector.jpg"
+                 },
+                 {
+                  "content_type": "text",
+                  "title": "No, Later Sometime",
+                  "payload": "No, Later Sometime",
+                  "image_url": "https://www.colourbox.com/preview/7036940-exited-emoticon.jpg"
+                 },
+                 {
+                  "content_type": "text",
+                  "title": "Contact us",
+                  "payload": "contact",
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
+                   }
+                  ]
+                }
+             ]
+           } 
+         };
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
+##################################################
+
+def fourthExplanationOKStatement(reqContext):
+    option = reqContext.get("result").get("action")
+    res = {
+        "speech": "...",
+        "displayText": "...",
+        "data" : {
+        "facebook" : [
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                "text": "Reaching out to all your customers with effective promotion is difficult" + emoji.emojize(':loudspeaker:', use_aliases=True)
+               },
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                "text": "Traditional marketing channels like ad, promotions, email marketing have very low sales conversion rate."
+               },
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                "text": "Chatbot can promote sales offer to all your digital customers with highest opening rate. This helps in creating personal bonding."
+               },
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                 "attachment":{
+                        "type":"image", 
+                        "payload":{
+                        "url":"https://media.giphy.com/media/p2qX0hzOihmp2/giphy.gif"
+                     }
+                 }
+               },
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                 "text": "Marvin AI has the best market expertise to guide and grow your business."
+               },
+               {
+                  "text": "Do you want a chatbot for your business? Ask for a Limited FREE Trial Offer now",
+                  "quick_replies": [
+                 {
+                  "content_type": "text",
+                  "title": "Contact Us Now",
+                  "payload": "contact",
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
+                 },
+                 {
+                  "content_type": "text",
+                  "title": "No, Later Sometime",
+                  "payload": "No, Later Sometime",
+                  "image_url": "https://www.colourbox.com/preview/7036940-exited-emoticon.jpg"
+                 }
+                  ]
+                }
+             ]
+           } 
+         };
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
 
 
 #************************************************************************************#
@@ -288,10 +629,10 @@ def weatherhook(reqContext):
     
    speech = "Today in " + location.get('city') + "(" +location.get('country') + ")" + ": " + condition.get('text') + \
             ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
-   print ("City - Country: " +location.get('city') + "-" + location.get('country'))
-   print ("image url: " + image_url)
-   print ("forecast link: " + link_forecast)
-   print("speech: " + speech)
+   #print ("City - Country: " +location.get('city') + "-" + location.get('country'))
+   #print ("image url: " + image_url)
+   #print ("forecast link: " + link_forecast)
+   #print("speech: " + speech)
    ##############################################################
    #res = {"speech": speech,
    #       "displayText": speech,
@@ -368,11 +709,11 @@ def weatherhook(reqContext):
               ]
             } 
         };
-   print (res)
+   #print (res)
    res = json.dumps(res, indent=4)
    r = make_response(res)
    r.headers['Content-Type'] = 'application/json'
-   print ("City - Country: " +location.get('city') + "-" + location.get('country'))
+   #print ("City - Country: " +location.get('city') + "-" + location.get('country'))
    return r
 
 def yahoo_weatherapi(city):
@@ -497,7 +838,7 @@ def weather_code(condition_get_code):
 #                                                                                    #
 #************************************************************************************#
 def wikipedia_search(reqContext):
-    print (reqContext.get("result").get("action"))
+    #print (reqContext.get("result").get("action"))
     option = reqContext.get("result").get("action")
     res = {
         "speech": "Please provide the topic you want to search in Wikipedia",
@@ -566,25 +907,24 @@ def searchhook(reqContext):
     cse_thumbnail_brace_removed_1 = cse_thumbnail_u_removed.strip('[')
     cse_thumbnail_brace_removed_2 = cse_thumbnail_brace_removed_1.strip(']')
     cse_thumbnail_brace_removed_final =  cse_thumbnail_brace_removed_2.strip("'")
-    print (cse_thumbnail_brace_removed_final)
+    #print (cse_thumbnail_brace_removed_final)
     keys = ('cse_thumbnail', 'metatags', 'cse_image')
     for key in keys:
         # print(key in cse_thumbnail_brace_removed_final)
-        print ('cse_thumbnail' in cse_thumbnail_brace_removed_final)
+        #print ('cse_thumbnail' in cse_thumbnail_brace_removed_final)
         true_false = 'cse_thumbnail' in cse_thumbnail_brace_removed_final
         if true_false == True:
-            print ('Condition matched -- Within IF block')
+            #print ('Condition matched -- Within IF block')
             for key in pagemap:
                 cse_thumbnail = key['cse_thumbnail']
-                print ('Within the For loop -- cse_thumbnail is been assigned')
+                #print ('Within the For loop -- cse_thumbnail is been assigned')
                 for image_data in cse_thumbnail:
                     raw_str = image_data['src']
-                    print ('raw_str::: ' + raw_str)
-                    print ('***TRUE***')
+                    
                     break
         else:
             raw_str = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdc3ra_4N2X5G06Rr5-L0QY8Gi6SuhUb3DiSN_M-C_nalZnVA"
-            print ('***FALSE***') 
+            #print ('***FALSE***') 
     
     
     src_brace_removed_final = raw_str
@@ -596,12 +936,7 @@ def searchhook(reqContext):
     link_final =  link_brace_removed_2.strip("'")
     # Remove junk character from search item
     search_string_final = cumulative_string.strip("'")
-    print ("Image::::::::")
-    print (src_brace_removed_final)
-    print ("link_final....")
-    print (link_final)
-    print("Response:")
-    print(speech)
+    
 ############################################################
     res = {
           "speech": speech,
@@ -686,7 +1021,7 @@ def searchhook(reqContext):
 def wikipediaInformationSearch(reqContext):
     #req = request.get_json(silent=True, force=True)
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
-    print ("resolvedQuery: " + resolvedQuery)
+    #print ("resolvedQuery: " + resolvedQuery)
     true_false = True
     baseurl = "https://www.googleapis.com/customsearch/v1?"
     resolvedQueryFinal = resolvedQuery.replace(" ", "%20")
@@ -698,7 +1033,7 @@ def wikipediaInformationSearch(reqContext):
     if google_query is None:
         return {}
     google_url = baseurl + google_query
-    print("google_url::::"+google_url)
+    #print("google_url::::"+google_url)
     result = urllib.request.urlopen(google_url).read()
     data = json.loads(result)
     #print (data)
@@ -824,7 +1159,7 @@ def wikipediaInformationSearch(reqContext):
 #                                                                                    #
 #************************************************************************************#
 def youtubeTopic(reqContext):
-    print (reqContext.get("result").get("action"))
+    #print (reqContext.get("result").get("action"))
     option = reqContext.get("result").get("action")
     res = {
         "speech": "Please provide a topic to search in YouTube:",
@@ -850,7 +1185,7 @@ def youtubeTopic(reqContext):
 
 def youtubeVideoSearch(reqContext):
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
-    print ("resolvedQuery: " + resolvedQuery)
+    #print ("resolvedQuery: " + resolvedQuery)
     true_false = True
     baseurl = "https://www.googleapis.com/youtube/v3/search?part=id&q="
     resolvedQueryFinal = resolvedQuery.replace(" ", "%20")
@@ -861,18 +1196,18 @@ def youtubeVideoSearch(reqContext):
     if youtube_query is None:
         return {}
     youtube_query = baseurl + search_string_ascii + youtube_query
-    print("youtube_query::::"+youtube_query)
+    #print("youtube_query::::"+youtube_query)
     result = urllib.request.urlopen(youtube_query).read()
     data = json.loads(result)
-    print (data)
+    #print (data)
 
     items = data['items']
-    print (items)
+    #print (items)
     id_list = []
 
     for id_block in items:
         id = id_block['id']
-        print (id)
+        #print (id)
         id_list.append(id)
 
     
@@ -1358,12 +1693,12 @@ newspaper_url = ''
 data = ''
 def topFourNewsArticle(reqContext):
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
-    print ("resolvedQuery: " + resolvedQuery)
+    #print ("resolvedQuery: " + resolvedQuery)
     newsAPI = "https://newsapi.org/v1/articles?source=" + resolvedQuery + "&sortBy=top&apiKey=" + newspai_access_token
     result = urllib.request.urlopen(newsAPI).read()
     data = json.loads(result)
     newspaper_url = newsWebsiteIdentification(resolvedQuery)
-    print ("newspaper_url finally: " + newspaper_url)
+    #print ("newspaper_url finally: " + newspaper_url)
     res = {
             "speech": "NewsList",
             "displayText": "NewsList",
@@ -1503,7 +1838,6 @@ def topFourNewsArticle(reqContext):
            };
     #print (res)
     res = json.dumps(res, indent=4)
-    print (res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
@@ -1645,7 +1979,7 @@ def contact(resolvedQuery):
                                     },
                                     {
                                         "type": "web_url",
-                                        "url": "https://marvinai.live/about",
+                                        "url": "https://marvinai.live",
                                         "title": "View Website"
                                     }]
                                  },
@@ -1660,7 +1994,7 @@ def contact(resolvedQuery):
                                     },
                                     {
                                         "type": "web_url",
-                                        "url": "https://marvinai.live/about",
+                                        "url": "https://marvinai.live",
                                         "title": "View Website"
                                     }]
                                  } 
