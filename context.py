@@ -523,9 +523,9 @@ def fourthExplanationOKStatement(reqContext):
                   "quick_replies": [
                  {
                   "content_type": "text",
-                  "title": "Contact for DEMO",
+                  "title": "Contact Us",
                   "payload": "contact",
-                  "image_url": "https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-128.png"
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
                  },
                  {
                   "content_type": "text",
