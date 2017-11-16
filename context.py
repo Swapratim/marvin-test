@@ -76,6 +76,8 @@ def webhook():
        return help(reqContext)
     elif reqContext.get("result").get("action") == "contact.us":
        return contact(reqContext)
+    elif reqContext.get("result").get("action") == "request-demo":
+       return requestDemo(reqContext)
     else:
        print("Good Bye")
 
@@ -521,6 +523,12 @@ def fourthExplanationOKStatement(reqContext):
                {
                   "text": "Do you want a chatbot for your business? Ask for a Limited FREE Trial Offer now",
                   "quick_replies": [
+                 {
+                  "content_type": "text",
+                  "title": "Request for a DEMO",
+                  "payload": "request-demo",
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
+                 },
                  {
                   "content_type": "text",
                   "title": "Contact us",
@@ -2048,6 +2056,30 @@ def contact(resolvedQuery):
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
+
+
+def requestDemo(resolvedQuery):
+    print ("Within requestDemo method")
+    speech = "Our company is now present in Denmark & Australia. \nGrow your business with AI Chatbot. \nRequest for a free Demo now."
+    res = {
+        "speech": speech,
+        "displayText": speech,
+        "data" : {
+        "facebook" : [
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                    "text": "Thank you" + user_name + "for requesting a Demo. We'll get back to you shortly. :)"
+               }
+            ]
+           } 
+         };
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
+
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
