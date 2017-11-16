@@ -238,7 +238,7 @@ def firstIntroductionSureOptionStatement(reqContext):
                   },
                   {
                   "content_type": "text",
-                  "title": "Contact us",
+                  "title": "Contact Us",
                   "payload": "contact",
                   "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
                    }
@@ -312,7 +312,7 @@ def firstIntroductionNoOptionStatement(reqContext):
                   {
                   "content_type": "text",
                   "title": "Contact Us",
-                  "payload": "Contact Us",
+                  "payload": "contact",
                   "image_url": "https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-128.png"
                   }
                   ]
@@ -386,7 +386,7 @@ def secondExplanationOKStatement(reqContext):
                  },
                  {
                   "content_type": "text",
-                  "title": "Contact us",
+                  "title": "Contact Us",
                   "payload": "contact",
                   "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
                    }
@@ -461,7 +461,7 @@ def thirdExplanationOKStatement(reqContext):
                  },
                  {
                   "content_type": "text",
-                  "title": "Contact us",
+                  "title": "Contact Us",
                   "payload": "contact",
                   "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
                    }
