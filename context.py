@@ -238,7 +238,7 @@ def firstIntroductionSureOptionStatement(reqContext):
                   },
                   {
                   "content_type": "text",
-                  "title": "Contact Us",
+                  "title": "Contact us",
                   "payload": "contact",
                   "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
                    }
@@ -311,7 +311,7 @@ def firstIntroductionNoOptionStatement(reqContext):
                    },
                   {
                   "content_type": "text",
-                  "title": "Contact Us",
+                  "title": "Contact us",
                   "payload": "contact",
                   "image_url": "https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-128.png"
                   }
@@ -386,7 +386,7 @@ def secondExplanationOKStatement(reqContext):
                  },
                  {
                   "content_type": "text",
-                  "title": "Contact Us",
+                  "title": "Contact us",
                   "payload": "contact",
                   "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
                    }
@@ -461,7 +461,7 @@ def thirdExplanationOKStatement(reqContext):
                  },
                  {
                   "content_type": "text",
-                  "title": "Contact Us",
+                  "title": "Contact us",
                   "payload": "contact",
                   "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
                    }
@@ -523,7 +523,7 @@ def fourthExplanationOKStatement(reqContext):
                   "quick_replies": [
                  {
                   "content_type": "text",
-                  "title": "Contact Us",
+                  "title": "Contact us",
                   "payload": "contact",
                   "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
                  },
@@ -533,7 +533,7 @@ def fourthExplanationOKStatement(reqContext):
                   "payload": "No, Later Sometime",
                   "image_url": "https://www.colourbox.com/preview/7036940-exited-emoticon.jpg"
                  }
-                  ]
+                 ]
                 }
              ]
            } 
@@ -701,7 +701,7 @@ def weatherhook(reqContext):
                    },
                   {
                   "content_type": "text",
-                  "title": "Contact Us",
+                  "title": "Contact us",
                   "payload": "contact",
                   "image_url": "https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-128.png"
                   }
@@ -999,7 +999,7 @@ def searchhook(reqContext):
                    },
                   {
                   "content_type": "text",
-                  "title": "Contact Us",
+                  "title": "Contact us",
                   "payload": "contact",
                   "image_url": "https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-128.png"
                   }
@@ -1139,7 +1139,7 @@ def wikipediaInformationSearch(reqContext):
                    },
                   {
                   "content_type": "text",
-                  "title": "Contact Us",
+                  "title": "Contact us",
                   "payload": "contact",
                   "image_url": "https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-128.png"
                   }
@@ -1314,7 +1314,7 @@ def youtubeVideoSearch(reqContext):
                    },
                   {
                   "content_type": "text",
-                  "title": "Contact Us",
+                  "title": "Contact us",
                   "payload": "contact",
                   "image_url": "https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-128.png"
                   }
@@ -1828,7 +1828,7 @@ def topFourNewsArticle(reqContext):
                    },
                   {
                   "content_type": "text",
-                  "title": "Contact Us",
+                  "title": "Contact us",
                   "payload": "contact",
                   "image_url": "https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-128.png"
                   }
@@ -1953,7 +1953,7 @@ def help(resolvedQuery):
 #                                                                                    #
 #************************************************************************************#
 def contact(resolvedQuery):
-    print ("Within CONTACT US method")
+    print ("Within Contact us method")
     speech = "Our company is now present in Denmark & Australia. \nGrow your business with AI Chatbot. \nRequest for a free Demo now."
     res = {
         "speech": speech,
@@ -2035,7 +2035,7 @@ def contact(resolvedQuery):
                    },
                   {
                   "content_type": "text",
-                  "title": "Contact Us",
+                  "title": "Contact us",
                   "payload": "contact",
                   "image_url": "https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-128.png"
                   }
