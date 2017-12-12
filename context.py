@@ -527,7 +527,7 @@ def fourthExplanationOKStatement(reqContext):
                  {
                   "content_type": "text",
                   "title": "Request for a DEMO",
-                  "payload": "request-demo",
+                  "payload": "requestdemo",
                   "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
                  },
                  {
