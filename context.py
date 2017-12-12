@@ -2071,7 +2071,7 @@ def requestDemo(resolvedQuery):
                     "sender_action": "typing_on"
                },
                {
-                    "text": "Thank you" + user_name + "for requesting a Demo. We'll get back to you shortly. :)"
+                    "text": "Thank you for requesting a Demo. We'll get back to you shortly. :)"
                }
             ]
            } 
