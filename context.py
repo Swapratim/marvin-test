@@ -76,7 +76,7 @@ def webhook():
        return help(reqContext)
     elif reqContext.get("result").get("action") == "contact.us":
        return contact(reqContext)
-    elif reqContext.get("result").get("action") == "request-demo":
+    elif reqContext.get("result").get("action") == "requestdemo":
        return requestDemo(reqContext)
     else:
        print("Good Bye")
