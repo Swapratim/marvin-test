@@ -87,8 +87,9 @@ def webhook():
 #   This method is to get the Facebook User Deatails via graph.facebook.com/v2.6     #
 #                                                                                    #
 #************************************************************************************#
-
+user_name = None
 def welcome():
+    global user_name
     print ("within welcome method")
     data = request.json
     print (data)
@@ -106,7 +107,7 @@ def welcome():
     data = json.loads(result)
     first_name = data.get('first_name')
     print (first_name)
-    global user_name = data.get('first_name')
+    user_name = data.get('first_name')
     speech1 = "I'm the official chatbot of Marvin.ai but you can call me 'Marvin'"
     res = {
           "speech": speech1,
