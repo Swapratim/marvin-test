@@ -1963,7 +1963,7 @@ def help(resolvedQuery):
 #************************************************************************************#
 def contact(resolvedQuery):
     print ("Within Contact Me method")
-    speech = "Marvin.ai is now present in Denmark. \nSell more products & services with cutting edge marketing strategies. \nRequest for a free Demo now."
+    speech = "Marvin.ai is now present from Denmark to help businesses all over the world. \nRequest for a free Demo now."
     res = {
         "speech": speech,
         "displayText": speech,
@@ -2046,7 +2046,7 @@ def contact(resolvedQuery):
 
 def requestDemo(resolvedQuery):
     print ("Within requestDemo method")
-    speech = "Our company is now present in Denmark & Australia. \nGrow your business with AI Chatbot. \nRequest for a free Demo now."
+    speech = "Marvin.ai is now present from Denmark to help businesses all over the world. \nRequest for a free Demo now."
     res = {
         "speech": speech,
         "displayText": speech,
@@ -2056,8 +2056,33 @@ def requestDemo(resolvedQuery):
                     "sender_action": "typing_on"
                },
                {
-                    "text": "Thank you " + user_name + " for requesting a Demo. We'll get back to you shortly. :)"
-               }
+                    "text": "Thank you " + user_name + " for requesting a Demo. Please say Hi to Swapratim on Messenger to get him notified. :-)"
+               },
+                {
+                 "attachment" : {
+                   "type" : "template",
+                     "payload" : {
+                      "template_type" : "generic",
+                       "elements" : [ 
+                                 {
+                                   "title" : "Swapratim Roy",
+                                   "image_url" : "https://marvinchatbot.files.wordpress.com/2017/06/swapratim-roy-founder-owner-of-marvin-ai.jpg?w=700&h=&crop=1",
+                                   "subtitle" : "An innovative entrepreneur, founder at Marvin.ai \nAarhus, Denmark \nCall: +45-7182-5584",
+                                   "buttons": [{
+                                        "type": "web_url",
+                                        "url": "https://www.messenger.com/t/swapratim.roy",
+                                        "title": "Connect on Messenger"
+                                    },
+                                    {
+                                        "type": "web_url",
+                                        "url": "https://marvinai.live",
+                                        "title": "View Website"
+                                    }]
+                                 }
+                           ]
+                       } 
+                   }
+                }
             ]
            } 
          };
