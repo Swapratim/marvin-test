@@ -1963,7 +1963,7 @@ def help(resolvedQuery):
 #************************************************************************************#
 def contact(resolvedQuery):
     print ("Within Contact us method")
-    speech = "Our company is now present in Denmark & Australia. \nGrow your business with AI Chatbot. \nRequest for a free Demo now."
+    speech = "Marvin.ai is now present in Denmark. \nSell more products/services with cutting edge marketing strategies. \nRequest for a free Demo now."
     res = {
         "speech": speech,
         "displayText": speech,
@@ -1981,7 +1981,7 @@ def contact(resolvedQuery):
                                  {
                                    "title" : "Swapratim Roy",
                                    "image_url" : "https://marvinchatbot.files.wordpress.com/2017/06/swapratim-roy-founder-owner-of-marvin-ai.jpg?w=700&h=&crop=1",
-                                   "subtitle" : "Founder & Owner of Marvin.ai \nAarhus, Denmark \nCall: +45-7182-5584",
+                                   "subtitle" : "An innovative entrepreneur, founder at Marvin.ai \nAarhus, Denmark \nCall: +45-7182-5584",
                                    "buttons": [{
                                         "type": "web_url",
                                         "url": "https://www.messenger.com/t/swapratim.roy",
@@ -1992,22 +1992,7 @@ def contact(resolvedQuery):
                                         "url": "https://marvinai.live",
                                         "title": "View Website"
                                     }]
-                                 },
-                                 {
-                                   "title" : "Arnab Dasgupta",
-                                   "image_url" : "https://marvinchatbot.files.wordpress.com/2017/06/arnab-dasgupta-ceo-of-marvin-ai.jpg?w=700&h=&crop=1",
-                                   "subtitle" : "CEO of Marvin.ai \nMelbourne, Australia \nCall: +61-469-029-387",
-                                   "buttons": [{
-                                        "type": "web_url",
-                                        "url": "https://www.messenger.com/t/arnabdasgupta.uk",
-                                        "title": "Connect on Messenger"
-                                    },
-                                    {
-                                        "type": "web_url",
-                                        "url": "https://marvinai.live",
-                                        "title": "View Website"
-                                    }]
-                                 } 
+                                 }
                            ]
                        } 
                    }
