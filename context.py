@@ -108,7 +108,7 @@ def welcome():
     first_name = data.get('first_name')
     print (first_name)
     user_name = data.get('first_name')
-    speech1 = "I'm the official chatbot of Marvin.ai but you can call me 'Marvin'"
+    speech1 = "I am 'Marvin' - your personal assistant"
     res = {
           "speech": speech1,
           "displayText": speech1,
@@ -149,17 +149,17 @@ def welcome():
                       }
                   },
                  {
-                  "text": "Do you want to know more about Marvin.ai?",
+                  "text": "Do you want to know more about me?",
                   "quick_replies": [
                  {
                   "content_type": "text",
-                  "title": "Ummm, yeah sure",
+                  "title": "Yeah Sure",
                   "payload": "Ummm, yeah sure",
                   "image_url": "http://www.thehindubusinessline.com/multimedia/dynamic/02337/bl12_smiley_jpg_2337780e.jpg"
                  },
                  {
                   "content_type": "text",
-                  "title": "No, thank you",
+                  "title": "No Thanks",
                   "payload": "No, thank you",
                   "image_url": "https://www.colourbox.com/preview/7036940-exited-emoticon.jpg"
                    }
@@ -199,19 +199,25 @@ def firstIntroductionSureOptionStatement(reqContext):
                     "sender_action": "typing_on"
                 },
                {
-                "text": "Marvin.ai is a chatbot development company."
+                "text": "I can provide weather report with 7 day weather forecast of any city across the world"
                },
                {
                     "sender_action": "typing_on"
                 },
                {
-                "text": "We build best Customer Support chatbots for any kind of businesses."
+                "text": "Ask me any topic, I can bring info from Wikipedia"
                },
                {
                     "sender_action": "typing_on"
                 },
                {
-                "text": "For example: Restaurant, Hotel, Retail, Healthcare, Real Estate, Banking, Insurance etc"
+                "text": "Read out live newsfeed from 33 Nespapers - choose your favorite category"
+               },
+               {
+                    "sender_action": "typing_on"
+               },
+               {
+                "text": "Looking for something special? Search and watch YouTube videos here :)"
                },
                {
                     "sender_action": "typing_on"
@@ -225,7 +231,7 @@ def firstIntroductionSureOptionStatement(reqContext):
                  }
                },
                {
-                  "text": "Do you wanna know some secrets?",
+                  "text": "Do you wanna know more some amazing bot-news?",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -268,25 +274,13 @@ def firstIntroductionNoOptionStatement(reqContext):
                     "sender_action": "typing_on"
                 },
                {
-                "text": "Don't worry, still you can enjoy tons of features that I offer."
+                "text": "Now it's time for you to enjoy tons of features that I offer."
                },
                {
                     "sender_action": "typing_on"
                 },
                {
-                "text": "I provide special features to search News (30 Newspapers), Weather, Wikipedia or YouTube within this chat window which is unique is nature." + emoji.emojize(':fire:', use_aliases=True),
-               },
-               {
-                    "sender_action": "typing_on"
-                },
-               {
-                "text": "Give it a try and enjoy my personal assistance."
-               },
-               {
-                    "sender_action": "typing_on"
-               },
-               {
-                  "text": "Also click on 'Menu' option to explore more!!!",
+                  "text": "Click on 'Menu' option to explore more!!!",
                   "quick_replies": [
                  {
                   "content_type": "text",
@@ -341,25 +335,7 @@ def secondExplanationOKStatement(reqContext):
                     "sender_action": "typing_on"
                },
                {
-                "text": "Global trend shows that People prefer messaging" + emoji.emojize(':iphone:', use_aliases=True) + "over calling." + emoji.emojize(':telephone_receiver:', use_aliases=True)
-               },
-               {
-                    "sender_action": "typing_on"
-               },
-               {
-                "text": "Customers search in FB pages for your business brand before landing to your website."
-               },
-               {
-                    "sender_action": "typing_on"
-               },
-               {
-                 "text": "Instant reply to customer FAQ helps you to grow customer interaction & satisfaction level" + emoji.emojize(':white_check_mark:', use_aliases=True)
-               },
-               {
-                    "sender_action": "typing_on"
-               },
-               {
-                 "text": "This helps to grow your business with rapid and steady growth" + emoji.emojize(':moneybag:', use_aliases=True) + emoji.emojize(':moneybag:', use_aliases=True)
+                "text": "I can introduce to some other chatbots worth to give a try" + emoji.emojize(':iphone:', use_aliases=True)
                },
                {
                     "sender_action": "typing_on"
@@ -373,11 +349,11 @@ def secondExplanationOKStatement(reqContext):
                  }
                },
                {
-                  "text": "Want to know how chatbot can help you?",
+                  "text": "Want you like to see the chatbots?",
                   "quick_replies": [
                  {
                   "content_type": "text",
-                  "title": "Tell me right now",
+                  "title": "Show More Bots",
                   "payload": "Tell me right now",
                   "image_url": "https://previews.123rf.com/images/krisdog/krisdog1509/krisdog150900014/44577557-A-cartoon-emoji-emoticon-icon-character-looking-very-happy-with-his-thumbs-up-he-likes-it-Stock-Vector.jpg"
                  },
@@ -422,39 +398,63 @@ def thirdExplanationOKStatement(reqContext):
                     "sender_action": "typing_on"
                },
                {
-                "text": "Chatbots are virtual assistants capable of talking to unlimited number of users simultaneously 24/7/365"
-               },
-               {
-                    "sender_action": "typing_on"
-               },
-               {
-                "text": "So people don't have to wait too long to get simple information like: 'When your restaurant will open today?'"
-               },
-               {
-                    "sender_action": "typing_on"
-               },
-               {
-                 "attachment":{
-                        "type":"image", 
-                        "payload":{
-                        "url":"https://media.giphy.com/media/11sBLVxNs7v6WA/giphy.gif"
-                     }
-                 }
-               },
-               {
-                    "sender_action": "typing_on"
-               },
-               {
-                 "text": "Chatbots also help in Sales promotion and marketing"
-               },
+                 "attachment" : {
+                   "type" : "template",
+                     "payload" : {
+                      "template_type" : "generic",
+                       "elements" : [ 
+                                 {
+                                   "title" : "Gym & Fitness Bot",
+                                   "image_url" : "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-1/p200x200/26195385_569070333435665_9188504885334618347_n.png?oh=19fc1eb02a02f7d3fdf806b8085cda05&oe=5B0A00C3",
+                                   "subtitle" : "Perfect assistant for Workoutaholics and Gym Owners",
+                                   "buttons": [{
+                                        "type": "web_url",
+                                        "url": "https://m.me/566837733658925",
+                                        "title": "Chat on Messenger"
+                                    }]
+                                 },
+                                 {
+                                   "title" : "Travel Agency Bot",
+                                   "image_url" : "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-1/p200x200/26166318_926208967546025_4430339635846451822_n.png?oh=ce94c397dec959b2ffc169ab5490c9c4&oe=5B0DE5AC",
+                                   "subtitle" : "A must have bot for Travel agencies",
+                                   "buttons": [{
+                                        "type": "web_url",
+                                        "url": "https://m.me/926146750885580",
+                                        "title": "Chat on Messenger"
+                                    }]
+                                 }, 
+                                 {
+                                   "title" : "Real Estate Bot",
+                                   "image_url" : "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-1/p200x200/26168932_398499143936085_8598978959270948418_n.png?oh=89724083b9818ed8c5a4149c5d38db65&oe=5B1906C1",
+                                   "subtitle" : "Searching for property deals would never be easier",
+                                   "buttons": [{
+                                        "type": "web_url",
+                                        "url": "https://m.me/realestatebotai",
+                                        "title": "Chat on Messenger"
+                                    }]
+                                 },
+                                 {
+                                   "title" : "Food Bot",
+                                   "image_url" : "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-1/p200x200/22045693_736432773208910_6374064816237587571_n.png?oh=a232a944b6b0c4601b01a8bf6c73af90&oe=5B0F0300",
+                                   "subtitle" : "Your virtual assistant in any restaurant",
+                                   "buttons": [{
+                                        "type": "web_url",
+                                        "url": "https://m.me/730273667158154",
+                                        "title": "Chat on Messenger"
+                                    }]
+                                 }
+                           ]
+                       } 
+                   }
+                },
                {
                   "text": "Ready to know more about the deal?",
                   "quick_replies": [
                  {
                   "content_type": "text",
-                  "title": "Show it to Me",
-                  "payload": "Show it to Me",
-                  "image_url": "https://previews.123rf.com/images/krisdog/krisdog1509/krisdog150900014/44577557-A-cartoon-emoji-emoticon-icon-character-looking-very-happy-with-his-thumbs-up-he-likes-it-Stock-Vector.jpg"
+                  "title": "Request for a DEMO",
+                  "payload": "requestdemo",
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
                  },
                  {
                   "content_type": "text",
