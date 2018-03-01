@@ -459,7 +459,7 @@ def thirdExplanationOKStatement(reqContext):
                  {
                   "content_type": "text",
                   "title": "No, Later Sometime",
-                  "payload": "No, Later Sometime",
+                  "payload": "No, thanks",
                   "image_url": "https://www.colourbox.com/preview/7036940-exited-emoticon.jpg"
                  },
                  {
