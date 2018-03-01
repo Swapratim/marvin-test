@@ -235,9 +235,9 @@ def firstIntroductionSureOptionStatement(reqContext):
                   "quick_replies": [
                  {
                   "content_type": "text",
-                  "title": "Okkk, Tell Me",
-                  "payload": "Okkk, Tell Me",
-                  "image_url": "http://www.thehindubusinessline.com/multimedia/dynamic/02337/bl12_smiley_jpg_2337780e.jpg"
+                  "title": "Show More Bots",
+                  "payload": "Tell me right now",
+                  "image_url": "https://previews.123rf.com/images/krisdog/krisdog1509/krisdog150900014/44577557-A-cartoon-emoji-emoticon-icon-character-looking-very-happy-with-his-thumbs-up-he-likes-it-Stock-Vector.jpg"
                  },
                  {
                   "content_type": "text",
