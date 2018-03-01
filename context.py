@@ -226,7 +226,7 @@ def firstIntroductionSureOptionStatement(reqContext):
                  "attachment":{
                         "type":"image", 
                         "payload":{
-                        "url":"https://media.giphy.com/media/3ov9kapGIiW3DQHAM8/giphy.gif"
+                        "url":"https://media.giphy.com/media/c6DcchsqBlGCY/giphy.gif"
                      }
                  }
                },
