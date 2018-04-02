@@ -78,6 +78,8 @@ def webhook():
        return contact(reqContext)
     elif reqContext.get("result").get("action") == "requestdemo":
        return requestDemo(reqContext)
+    elif reqContext.get("result").get("action") == "forsalebottemplate":
+       return forsale(reqContext)
     else:
        print("Good Bye")
 
@@ -162,7 +164,13 @@ def welcome():
                   "title": "No Thanks",
                   "payload": "No, thank you",
                   "image_url": "https://www.colourbox.com/preview/7036940-exited-emoticon.jpg"
-                   }
+                   },
+                 {
+                  "content_type": "text",
+                  "title": "For Sale",
+                  "payload": "For Sale",
+                  "image_url": "http://p.lnwfile.com/_/p/_raw/pg/vn/cm.png"
+                  },
                   ]
                  }
                 ]
@@ -247,6 +255,12 @@ def firstIntroductionSureOptionStatement(reqContext):
                   },
                   {
                   "content_type": "text",
+                  "title": "For Sale",
+                  "payload": "For Sale",
+                  "image_url": "http://p.lnwfile.com/_/p/_raw/pg/vn/cm.png"
+                  },
+                  {
+                  "content_type": "text",
                   "title": "Contact Me",
                   "payload": "contact",
                   "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
@@ -308,6 +322,12 @@ def firstIntroductionNoOptionStatement(reqContext):
                    },
                   {
                   "content_type": "text",
+                  "title": "For Sale",
+                  "payload": "For Sale",
+                  "image_url": "http://p.lnwfile.com/_/p/_raw/pg/vn/cm.png"
+                  },
+                  {
+                  "content_type": "text",
                   "title": "Contact Me",
                   "payload": "contact",
                   "image_url": "https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-128.png"
@@ -363,6 +383,12 @@ def secondExplanationOKStatement(reqContext):
                   "payload": "Maybe later on",
                   "image_url": "https://www.colourbox.com/preview/7036940-exited-emoticon.jpg"
                  },
+                 {
+                  "content_type": "text",
+                  "title": "For Sale",
+                  "payload": "For Sale",
+                  "image_url": "http://p.lnwfile.com/_/p/_raw/pg/vn/cm.png"
+                  },
                  {
                   "content_type": "text",
                   "title": "Contact Me",
@@ -464,6 +490,12 @@ def thirdExplanationOKStatement(reqContext):
                  },
                  {
                   "content_type": "text",
+                  "title": "For Sale",
+                  "payload": "For Sale",
+                  "image_url": "http://p.lnwfile.com/_/p/_raw/pg/vn/cm.png"
+                  },
+                 {
+                  "content_type": "text",
                   "title": "Contact Me",
                   "payload": "contact",
                   "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
@@ -541,7 +573,13 @@ def fourthExplanationOKStatement(reqContext):
                   "title": "No, Later Sometime",
                   "payload": "No, Later Sometime",
                   "image_url": "https://www.colourbox.com/preview/7036940-exited-emoticon.jpg"
-                 }
+                 },
+                 {
+                  "content_type": "text",
+                  "title": "For Sale",
+                  "payload": "For Sale",
+                  "image_url": "http://p.lnwfile.com/_/p/_raw/pg/vn/cm.png"
+                  }
                  ]
                 }
              ]
@@ -708,6 +746,12 @@ def weatherhook(reqContext):
                   "payload": "youtube",
                   "image_url": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png"
                    },
+                  {
+                  "content_type": "text",
+                  "title": "For Sale",
+                  "payload": "For Sale",
+                  "image_url": "http://p.lnwfile.com/_/p/_raw/pg/vn/cm.png"
+                  },
                   {
                   "content_type": "text",
                   "title": "Contact Me",
@@ -1008,6 +1052,12 @@ def searchhook(reqContext):
                    },
                   {
                   "content_type": "text",
+                  "title": "For Sale",
+                  "payload": "For Sale",
+                  "image_url": "http://p.lnwfile.com/_/p/_raw/pg/vn/cm.png"
+                  },
+                  {
+                  "content_type": "text",
                   "title": "Contact Me",
                   "payload": "contact",
                   "image_url": "https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-128.png"
@@ -1081,12 +1131,7 @@ def wikipediaInformationSearch(reqContext):
     link_final =  link_brace_removed_2.strip("'")
     # Remove junk character from search item
     search_string_final = resolvedQuery.strip("'")
-    #print ("Image::::::::")
-    #print (src_brace_removed_final)
-    #print ("link_final....")
-    #print (link_final)
-    #print("Response:")
-    #print(speech)
+    
 ############################################################
     res = {
           "speech": speech,
@@ -1146,6 +1191,12 @@ def wikipediaInformationSearch(reqContext):
                   "payload": "YouTube",
                   "image_url": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png"
                    },
+                  {
+                  "content_type": "text",
+                  "title": "For Sale",
+                  "payload": "For Sale",
+                  "image_url": "http://p.lnwfile.com/_/p/_raw/pg/vn/cm.png"
+                  },
                   {
                   "content_type": "text",
                   "title": "Contact Me",
@@ -1321,6 +1372,12 @@ def youtubeVideoSearch(reqContext):
                   "payload": "YouTube",
                   "image_url": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png"
                    },
+                  {
+                  "content_type": "text",
+                  "title": "For Sale",
+                  "payload": "For Sale",
+                  "image_url": "http://p.lnwfile.com/_/p/_raw/pg/vn/cm.png"
+                  },
                   {
                   "content_type": "text",
                   "title": "Contact Me",
@@ -1837,6 +1894,12 @@ def topFourNewsArticle(reqContext):
                    },
                   {
                   "content_type": "text",
+                  "title": "For Sale",
+                  "payload": "For Sale",
+                  "image_url": "http://p.lnwfile.com/_/p/_raw/pg/vn/cm.png"
+                  },
+                  {
+                  "content_type": "text",
                   "title": "Contact Me",
                   "payload": "contact",
                   "image_url": "https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-128.png"
@@ -2029,6 +2092,12 @@ def contact(resolvedQuery):
                    },
                   {
                   "content_type": "text",
+                  "title": "For Sale",
+                  "payload": "For Sale",
+                  "image_url": "http://p.lnwfile.com/_/p/_raw/pg/vn/cm.png"
+                  },
+                  {
+                  "content_type": "text",
                   "title": "Contact Me",
                   "payload": "contact",
                   "image_url": "https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-128.png"
@@ -2086,6 +2155,144 @@ def requestDemo(resolvedQuery):
             ]
            } 
          };
+    res = json.dumps(res, indent=4)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
+
+
+#************************************************************************************#
+#                                                                                    #
+#   Displaying ALL CHATBOTS - For Sale                                               #
+#                                                                                    #
+#************************************************************************************#
+def forsale(resolvedQuery):
+    print ("Within forsale method")
+    speech = "This bot is been created by marvin.ai. \nDo you like it?"
+    res = {
+        "speech": speech,
+        "displayText": speech,
+        "data" : {
+        "facebook" : [
+               {
+                    "sender_action": "typing_on"
+               },
+                {
+                 "attachment" : {
+                   "type" : "template",
+                     "payload" : {
+                      "template_type" : "generic",
+                       "elements" : [ 
+                                 {
+                                   "title" : "You like Personal Assistant Bot Template?",
+                                   "image_url" : "https://media.sproutsocial.com/uploads/2017/09/Real-Estate-Marketing-Ideas-1.png",
+                                   "subtitle" : "Get customized virtual assistant for your Restaurant today",
+                                   "buttons": [{
+                                        "type": "web_url",
+                                        "url": "https://marvinai.live",
+                                        "title": "Buy Template"
+                                    },
+                                    {
+                                        "type": "web_url",
+                                        "url": "https://www.facebook.com/marvinai.live",
+                                        "title": "Facebook Page"
+                                    },
+                                    {
+                                        "type": "element_share"
+                                   }]
+                                 },
+                                 {
+                                   "title" : "Travel Agency Bot Template",
+                                   "image_url" : "http://www.sunsail.eu/files/Destinations/Mediteranean/Greece/Athens/thira.jpg",
+                                   "subtitle" : "Get customized virtual assistant for your Restaurant today",
+                                   "buttons": [{
+                                        "type": "web_url",
+                                        "url": "https://marvinai.live",
+                                        "title": "Buy Template"
+                                    },
+                                    {
+                                        "type": "web_url",
+                                        "url": "https://m.me/926146750885580",
+                                        "title": "Chat"
+                                    },
+                                    {
+                                        "type": "element_share"
+                                   }]
+                                 },
+                                 {
+                                   "title" : "Real Estate Bot Template",
+                                   "image_url" : "https://husvild-static.s3.eu-central-1.amazonaws.com/images/files/000/280/915/large/3674bd34e6c1bc42b690adeacfe9c778507f261a?1516032863",
+                                   "subtitle" : "Get qualified buyer and seller leads automatically delivered to your inbox!",
+                                   "buttons": [{
+                                        "type": "web_url",
+                                        "url": "https://marvinai.live",
+                                        "title": "Buy Template"
+                                    },
+                                    {
+                                        "type": "web_url",
+                                        "url": "https://m.me/realestatebotai",
+                                        "title": "Chat"
+                                    },
+                                    {
+                                        "type": "element_share"
+                                   }]
+                                 },
+                                 {
+                                   "title" : "Restaurant Bot Template",
+                                   "image_url" : "https://www.outlookhindi.com/public/uploads/article/gallery/6eb226c14abd79a801172ab8d473e6d2_342_660.jpg",
+                                   "subtitle" : "Perfectly crafted bot from assisting online customers to handle orders",
+                                   "buttons": [{
+                                        "type": "web_url",
+                                        "url": "https://marvinai.live",
+                                        "title": "Buy Template"
+                                    },
+                                    {
+                                        "type": "web_url",
+                                        "url": "https://m.me/730273667158154",
+                                        "title": "Chat"
+                                    },
+                                    {
+                                        "type": "element_share"
+                                   }]
+                                 },
+                                 {
+                                   "title" : "Coffee Shop Bot Template",
+                                   "image_url" : "https://images-na.ssl-images-amazon.com/images/I/71Crz9MYPPL._SY355_.jpg",
+                                   "subtitle" : "Your bot can deal with online customers, take orders and many more ",
+                                   "buttons": [{
+                                        "type": "web_url",
+                                        "url": "https://marvinai.live",
+                                        "title": "Buy Template"
+                                    },
+                                    {
+                                        "type": "web_url",
+                                        "url": "https://m.me/200138490717876",
+                                        "title": "Chat"
+                                    },
+                                    {
+                                        "type": "element_share"
+                                   }]
+                                 },
+                                 {
+                                   "title" : "VISA Check Bot",
+                                   "image_url" : "http://famousdestinations.in/wp-content/uploads/2016/03/howtogetthere.png",
+                                   "subtitle" : "One stop solution for all your VISA requirements...Coming Soon!",
+                                   "buttons": [{
+                                        "type": "web_url",
+                                        "url": "https://marvinai.live",
+                                        "title": "Visit Website"
+                                    },
+                                    {
+                                        "type": "element_share"
+                                   }]
+                                 }
+                           ]
+                       } 
+                   }
+                }
+           ]
+    } 
+   };
     res = json.dumps(res, indent=4)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
