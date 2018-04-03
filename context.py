@@ -430,44 +430,107 @@ def thirdExplanationOKStatement(reqContext):
                       "template_type" : "generic",
                        "elements" : [ 
                                  {
-                                   "title" : "Gym & Fitness Bot",
-                                   "image_url" : "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-1/p200x200/26195385_569070333435665_9188504885334618347_n.png?oh=19fc1eb02a02f7d3fdf806b8085cda05&oe=5B0A00C3",
-                                   "subtitle" : "Perfect assistant for Workoutaholics and Gym Owners",
+                                   "title" : "You like Personal Assistant Bot Template?",
+                                   "image_url" : "https://media.sproutsocial.com/uploads/2017/09/Real-Estate-Marketing-Ideas-1.png",
+                                   "subtitle" : "Get customized virtual assistant for your Restaurant today",
                                    "buttons": [{
                                         "type": "web_url",
-                                        "url": "https://m.me/566837733658925",
-                                        "title": "Chat on Messenger"
-                                    }]
+                                        "url": "https://marvinai.live",
+                                        "title": "Buy Template"
+                                    },
+                                    {
+                                        "type": "web_url",
+                                        "url": "https://www.facebook.com/marvinai.live",
+                                        "title": "Facebook Page"
+                                    },
+                                    {
+                                        "type": "element_share"
+                                   }]
                                  },
                                  {
-                                   "title" : "Travel Agency Bot",
-                                   "image_url" : "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-1/p200x200/26166318_926208967546025_4430339635846451822_n.png?oh=ce94c397dec959b2ffc169ab5490c9c4&oe=5B0DE5AC",
-                                   "subtitle" : "A must have bot for Travel agencies",
+                                   "title" : "Travel Agency Bot Template",
+                                   "image_url" : "http://www.sunsail.eu/files/Destinations/Mediteranean/Greece/Athens/thira.jpg",
+                                   "subtitle" : "Get customized virtual assistant for your Restaurant today",
                                    "buttons": [{
+                                        "type": "web_url",
+                                        "url": "https://marvinai.live",
+                                        "title": "Buy Template"
+                                    },
+                                    {
                                         "type": "web_url",
                                         "url": "https://m.me/926146750885580",
-                                        "title": "Chat on Messenger"
-                                    }]
-                                 }, 
-                                 {
-                                   "title" : "Real Estate Bot",
-                                   "image_url" : "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-1/p200x200/26168932_398499143936085_8598978959270948418_n.png?oh=89724083b9818ed8c5a4149c5d38db65&oe=5B1906C1",
-                                   "subtitle" : "Searching for property deals would never be easier",
-                                   "buttons": [{
-                                        "type": "web_url",
-                                        "url": "https://m.me/realestatebotai",
-                                        "title": "Chat on Messenger"
-                                    }]
+                                        "title": "Chat"
+                                    },
+                                    {
+                                        "type": "element_share"
+                                   }]
                                  },
                                  {
-                                   "title" : "Food Bot",
-                                   "image_url" : "https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-1/p200x200/22045693_736432773208910_6374064816237587571_n.png?oh=a232a944b6b0c4601b01a8bf6c73af90&oe=5B0F0300",
-                                   "subtitle" : "Your virtual assistant in any restaurant",
+                                   "title" : "Real Estate Bot Template",
+                                   "image_url" : "https://husvild-static.s3.eu-central-1.amazonaws.com/images/files/000/280/915/large/3674bd34e6c1bc42b690adeacfe9c778507f261a?1516032863",
+                                   "subtitle" : "Get qualified buyer and seller leads automatically delivered to your inbox!",
                                    "buttons": [{
                                         "type": "web_url",
+                                        "url": "https://marvinai.live",
+                                        "title": "Buy Template"
+                                    },
+                                    {
+                                        "type": "web_url",
+                                        "url": "https://m.me/realestatebotai",
+                                        "title": "Chat"
+                                    },
+                                    {
+                                        "type": "element_share"
+                                   }]
+                                 },
+                                 {
+                                   "title" : "Restaurant Bot Template",
+                                   "image_url" : "https://www.outlookhindi.com/public/uploads/article/gallery/6eb226c14abd79a801172ab8d473e6d2_342_660.jpg",
+                                   "subtitle" : "Perfectly crafted bot from assisting online customers to handle orders",
+                                   "buttons": [{
+                                        "type": "web_url",
+                                        "url": "https://marvinai.live",
+                                        "title": "Buy Template"
+                                    },
+                                    {
+                                        "type": "web_url",
                                         "url": "https://m.me/730273667158154",
-                                        "title": "Chat on Messenger"
-                                    }]
+                                        "title": "Chat"
+                                    },
+                                    {
+                                        "type": "element_share"
+                                   }]
+                                 },
+                                 {
+                                   "title" : "Coffee Shop Bot Template",
+                                   "image_url" : "https://images-na.ssl-images-amazon.com/images/I/71Crz9MYPPL._SY355_.jpg",
+                                   "subtitle" : "Your bot can deal with online customers, take orders and many more ",
+                                   "buttons": [{
+                                        "type": "web_url",
+                                        "url": "https://marvinai.live",
+                                        "title": "Buy Template"
+                                    },
+                                    {
+                                        "type": "web_url",
+                                        "url": "https://m.me/200138490717876",
+                                        "title": "Chat"
+                                    },
+                                    {
+                                        "type": "element_share"
+                                   }]
+                                 },
+                                 {
+                                   "title" : "VISA Check Bot",
+                                   "image_url" : "http://famousdestinations.in/wp-content/uploads/2016/03/howtogetthere.png",
+                                   "subtitle" : "One stop solution for all your VISA requirements...Coming Soon!",
+                                   "buttons": [{
+                                        "type": "web_url",
+                                        "url": "https://marvinai.live",
+                                        "title": "Visit Website"
+                                    },
+                                    {
+                                        "type": "element_share"
+                                   }]
                                  }
                            ]
                        } 
@@ -478,25 +541,13 @@ def thirdExplanationOKStatement(reqContext):
                   "quick_replies": [
                  {
                   "content_type": "text",
-                  "title": "Request for a DEMO",
-                  "payload": "requestdemo",
-                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
-                 },
-                 {
-                  "content_type": "text",
-                  "title": "No, Later Sometime",
-                  "payload": "No, thanks",
-                  "image_url": "https://www.colourbox.com/preview/7036940-exited-emoticon.jpg"
-                 },
-                 {
-                  "content_type": "text",
                   "title": "For Sale",
                   "payload": "For Sale",
                   "image_url": "http://p.lnwfile.com/_/p/_raw/pg/vn/cm.png"
                   },
                  {
                   "content_type": "text",
-                  "title": "Contact Me",
+                  "title": "Contact",
                   "payload": "contact",
                   "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
                    }
@@ -558,21 +609,9 @@ def fourthExplanationOKStatement(reqContext):
                   "quick_replies": [
                  {
                   "content_type": "text",
-                  "title": "Request for a DEMO",
-                  "payload": "requestdemo",
-                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
-                 },
-                 {
-                  "content_type": "text",
                   "title": "Contact Me",
                   "payload": "contact",
                   "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82m3I34RXj5OqXvJUqczmgCWoqS9U2EZmdJKXMjZx24Jpp-Z6lQ"
-                 },
-                 {
-                  "content_type": "text",
-                  "title": "No, Later Sometime",
-                  "payload": "No, Later Sometime",
-                  "image_url": "https://www.colourbox.com/preview/7036940-exited-emoticon.jpg"
                  },
                  {
                   "content_type": "text",
