@@ -126,7 +126,7 @@ def welcome():
                       "template_type" : "generic",
                        "elements" : [ 
                                  {
-                                   "title" : "Welcome " + first_name + "! Thanks for stopping by..." + emoji.emojize(':wave:', use_aliases=True),
+                                   "title" : "Hey " + first_name + "! Thanks for stopping by...",
                                    "image_url" : "http://gdurl.com/vc1o",
                                  } 
                            ]
@@ -429,24 +429,6 @@ def thirdExplanationOKStatement(reqContext):
                      "payload" : {
                       "template_type" : "generic",
                        "elements" : [ 
-                                 {
-                                   "title" : "You like Personal Assistant Bot Template?",
-                                   "image_url" : "https://media.sproutsocial.com/uploads/2017/09/Real-Estate-Marketing-Ideas-1.png",
-                                   "subtitle" : "Get customized virtual assistant for your Restaurant today",
-                                   "buttons": [{
-                                        "type": "web_url",
-                                        "url": "https://marvinai.live",
-                                        "title": "Buy Template"
-                                    },
-                                    {
-                                        "type": "web_url",
-                                        "url": "https://www.facebook.com/marvinai.live",
-                                        "title": "Facebook Page"
-                                    },
-                                    {
-                                        "type": "element_share"
-                                   }]
-                                 },
                                  {
                                    "title" : "Travel Agency Bot Template",
                                    "image_url" : "http://www.sunsail.eu/files/Destinations/Mediteranean/Greece/Athens/thira.jpg",
@@ -825,99 +807,99 @@ def weather_code(condition_get_code):
 # Below block of code is to check for weather condition code and map corresponding http://gdurl.com/#### permalink context
 
     if condition_get_code == "0":
-       condition_code = "EmPG"
+       condition_code = "dCAC"
     elif condition_get_code == "1":
-       condition_code = "mh7N"
+       condition_code = "SREL"
     elif condition_get_code == "2":
-       condition_code = "jENO"
+       condition_code = "IarO"
     elif condition_get_code == "3":
-       condition_code = "BTT7"
+       condition_code = "7uxP"
     elif condition_get_code == "4":
-       condition_code = "kTWn"
+       condition_code = "bwNv"
     elif condition_get_code == "5":
-       condition_code = "vBIX"
+       condition_code = "KAeR"
     elif condition_get_code == "6":
-       condition_code = "zuxw"
+       condition_code = "G2vM"
     elif condition_get_code == "7":
-       condition_code = "Vy9A"
+       condition_code = "I5yA"
     elif condition_get_code == "8":
-       condition_code = "cT-0"
+       condition_code = "ZOqK"
     elif condition_get_code == "9":
-       condition_code = "M4nr"
+       condition_code = "1zb0"
     elif condition_get_code == "10":
-       condition_code = "8-OZ"
+       condition_code = "jqoP"
     elif condition_get_code == "11":
-       condition_code = "4sN0"
+       condition_code = "NN8n"
     elif condition_get_code == "12":
        condition_code = "SrHt"
     elif condition_get_code == "13":
-       condition_code = "i925"
+       condition_code = "k-Kn"
     elif condition_get_code == "14":
-       condition_code = "9WKu"
+       condition_code = "GQbF"
     elif condition_get_code == "15":
-       condition_code = "YjI9B"
+       condition_code = "Vz-n"
     elif condition_get_code == "16":
        condition_code = "Lqmw"
     elif condition_get_code == "17":
-       condition_code = "8wXj"
+       condition_code = "21ph"
     elif condition_get_code == "18":
-       condition_code = "AHL1"
+       condition_code = "caw1"
     elif condition_get_code == "19":
-       condition_code = "pSfX"
+       condition_code = "UHxC"
     elif condition_get_code == "20":
-       condition_code = "ugKj"
+       condition_code = "doYD"
     elif condition_get_code == "21":
-       condition_code = "eFL0"
+       condition_code = "bs6H"
     elif condition_get_code == "22":
-       condition_code = "Co_g" 
+       condition_code = "lhGL" 
     elif condition_get_code == "23":
-       condition_code = "h8uM"
+       condition_code = "G4CG"
     elif condition_get_code == "24":
-       condition_code = "HBlw"
+       condition_code = "5ixA"
     elif condition_get_code == "25":
-       condition_code = "QHzi"
+       condition_code = "IuNo"
     elif condition_get_code == "26":
-       condition_code = "3IaA"
+       condition_code = "mjvk"
     elif condition_get_code == "27":
-       condition_code = "i-dK"
+       condition_code = "HvT7"
     elif condition_get_code == "28":
-       condition_code = "aIAw"
+       condition_code = "IRxA"
     elif condition_get_code == "29":
-       condition_code = "6z8CS"
+       condition_code = "XjVZ"
     elif condition_get_code == "30":
-       condition_code = "xt2C"
+       condition_code = "F1PG"
     elif condition_get_code == "31":
-       condition_code = "3Utr"
+       condition_code = "GEwD"
     elif condition_get_code == "32":
-       condition_code = "YHpS"
+       condition_code = "KIJr"
     elif condition_get_code == "33":
-       condition_code = "Hr4W"
+       condition_code = "jlUw"
     elif condition_get_code == "34":
-       condition_code = "84WQ"
+       condition_code = "NfxW"
     elif condition_get_code == "35":
-       condition_code = "3BH6"
+       condition_code = "5sRT"
     elif condition_get_code == "36":
-       condition_code = "vjLN"
+       condition_code = "RGml"
     elif condition_get_code == "37":
-       condition_code = "41rl"
+       condition_code = "fMls"
     elif condition_get_code == "38":
-       condition_code = "8Ibx" 
+       condition_code = "SCk3" 
     elif condition_get_code == "39":
-       condition_code = "lIee"
+       condition_code = "0PsU"
     elif condition_get_code == "40":
-       condition_code = "9GNz"
+       condition_code = "zoPn"
     elif condition_get_code == "41":
-       condition_code = "uy77"
+       condition_code = "6mNT"
     elif condition_get_code == "42":
-       condition_code = "15Ou"
+       condition_code = "frKG"
     elif condition_get_code == "43":
-       condition_code = "P_Jg"
+       condition_code = "QE-9"
     elif condition_get_code == "45":
-       condition_code = "wF0D"
+       condition_code = "TANY"
     elif condition_get_code == "46":
-       condition_code = "1huQ"
+       condition_code = "86Sz"
     elif condition_get_code == "47":
-       condition_code = "MlO5"
+       condition_code = "uQ5r"
     elif condition_get_code == "3200":
        condition_code = "mgzs"
     else: 
@@ -1023,10 +1005,10 @@ def searchhook(reqContext):
     src_brace_removed_final = raw_str
     # Remove junk charaters from URL
     link_u_removal =  [str(i) for i in link]
-    link_u_removed = str(link_u_removal)
-    link_brace_removed_1 = link_u_removed.strip('[')
-    link_brace_removed_2 = link_brace_removed_1.strip(']')
-    link_final =  link_brace_removed_2.strip("'")
+    #link_u_removed = str(link_u_removal)
+    #link_brace_removed_1 = link_u_removed.strip('[')
+    #link_brace_removed_2 = link_brace_removed_1.strip(']')
+    link_final =  str(link_u_removal).strip('[').strip(']').strip("'")
     # Remove junk character from search item
     search_string_final = cumulative_string.strip("'")
     
