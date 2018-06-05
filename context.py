@@ -1106,16 +1106,19 @@ def wikipediaInformationSearch(reqContext):
     print ("resolvedQuery: " + resolvedQuery)
     true_false = True
     baseurl = "https://www.googleapis.com/customsearch/v1?"
-    resolvedQueryFinal = resolvedQuery.replace(" ", "%20")
-    search_string_ascii = resolvedQueryFinal.encode('ascii')
+    print ("1111111111111111111111111111111")
+    #resolvedQueryFinal = resolvedQuery.replace(" ", "%20")
+    search_string_ascii = resolvedQuery.replace(" ", "%20").encode('ascii')
+    print ("22222222222222222222222222222222" + search_string_ascii)
     if search_string_ascii is None:
         return None
     google_query = "key=AIzaSyDNYsLn4JGIR4UaZMFTAgDB9gKN3rty2aM&cx=003066316917117435589%3Avcms6hy5lxs&q=" + search_string_ascii + "&num=1"
+    print ("33333333333333333333333333333333" + google_query)
 ###########################################################
     if google_query is None:
         return {}
     google_url = baseurl + google_query
-    #print("google_url::::"+google_url)
+    print("google_url::::"+google_url)
     result = urllib.request.urlopen(google_url).read()
     data = json.loads(result)
     #print (data)
