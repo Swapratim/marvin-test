@@ -1101,9 +1101,9 @@ def searchhook(reqContext):
 #************************************************************************************#
 # Searchhook is for searching for Wkipedia information via Google API
 def wikipediaInformationSearch(reqContext):
-    #req = request.get_json(silent=True, force=True)
+    req = request.get_json(silent=True, force=True)
     resolvedQuery = reqContext.get("result").get("resolvedQuery")
-    #print ("resolvedQuery: " + resolvedQuery)
+    print ("resolvedQuery: " + resolvedQuery)
     true_false = True
     baseurl = "https://www.googleapis.com/customsearch/v1?"
     resolvedQueryFinal = resolvedQuery.replace(" ", "%20")
