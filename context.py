@@ -1274,7 +1274,7 @@ def youtubeVideoSearch(reqContext):
     search_string_ascii = resolvedQueryFinal.encode('ascii')
     if search_string_ascii is None:
         return None
-    youtube_query = "&type=video&fields=items%2Fid&key=AIzaSyDNYsLn4JGIR4UaZMFTAgDB9gKN3rty2aM&cx=003066316917117435589%3Avcms6hy5lxs&num=5"
+    youtube_query = "&type=video&fields=items%2Fid&key=AIzaSyCndOHGungnxfGosCn_dhkuSHA82FBbkQY&cx=003066316917117435589%3Avcms6hy5lxs&num=5"
     if youtube_query is None:
         return {}
     youtube_query = baseurl + search_string_ascii + youtube_query
