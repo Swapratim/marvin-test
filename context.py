@@ -1112,8 +1112,8 @@ def wikipediaInformationSearch(reqContext):
     print ("22222222222222222222222222222222" + search_string_ascii)
     if search_string_ascii is None:
         return None
-    google_query1 = "key=AIzaSyDNYsLn4JGIR4UaZMFTAgDB9gKN3rty2aM&cx=003066316917117435589:vcms6hy5lxs&q=" + search_string_ascii + "&num=1"
-    print ("33333333333333333333333333333333" + google_query1)
+    google_query = "key=AIzaSyDNYsLn4JGIR4UaZMFTAgDB9gKN3rty2aM&cx=003066316917117435589:vcms6hy5lxs&q=" + search_string_ascii + "&num=1"
+    print ("33333333333333333333333333333333" + google_query)
 ###########################################################
     if google_query is None:
         return {}
