@@ -1119,7 +1119,7 @@ def wikipediaInformationSearch(reqContext):
         return {}
     #google_url = baseurl + google_query
     #print("google_url::::"+google_url)
-    result = urllib.request.urlopen(google_url).read()
+    result = urllib.request.urlopen(google_query).read()
     data = json.loads(result)
     #print (data)
 ############################################################
