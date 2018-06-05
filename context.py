@@ -958,6 +958,7 @@ def searchhook(reqContext):
     search_string_ascii = search_string.encode('ascii')
     if search_string_ascii is None:
         return None
+    print ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
     google_query = "key=AIzaSyDucQkfSMQSkcz8LTcfHhenq2aQ-QTOhGE&cx=003066316917117435589:vcms6hy5lxs&q=" + search_string_ascii + "&num=1"
 ###########################################################
     if google_query is None:
